@@ -1,6 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 
   <meta charset="utf-8">
@@ -9,7 +10,7 @@
   <meta name="author" content="TemplateMo">
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-  <title>King Tomato</title>
+  <title>KingTomato</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +18,7 @@
 
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="assets/css/fontawesome.css">
-  <link rel="stylesheet" href="assets/css/templatemo-edu-meeting.css">
+  <link rel="stylesheet" href="${path}/resources/css/templatemo-edu-meeting.css">
   <link rel="stylesheet" href="assets/css/owl.css">
   <link rel="stylesheet" href="assets/css/lightbox.css">
   <!--
@@ -38,16 +39,16 @@ https://templatemo.com/tm-569-edu-meeting
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="index.html" class="logo">
-              ÌîºÌÜ§ÏπòÎìú
+              ««≈Êƒ°µÂ
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-              <li><a href="meetings.html">Î≥ëÏ∂©Ìï¥ ÏßÑÎã®</a></li>
-              <li class="scroll-to-section"><a href="#apply">ÏïåÎ¶º</a></li>
-              <li class="scroll-to-section"><a href="#apply">Î∞©Ïó≠/Î∞©Ï†ú</a></li>
-              <li class="scroll-to-section"><a href="#courses">Í≤ÄÏÉâ</a></li>
+              <li><a href="meetings.html">∫¥√Ê«ÿ ¡¯¥‹</a></li>
+              <li class="scroll-to-section"><a href="#apply">æÀ∏≤</a></li>
+              <li class="scroll-to-section"><a href="#apply">πÊø™/πÊ¡¶</a></li>
+              <li class="scroll-to-section"><a href="#courses">∞Àªˆ</a></li>
             </ul>
             <a class='menu-trigger'>
               <span>Menu</span>
@@ -60,63 +61,89 @@ https://templatemo.com/tm-569-edu-meeting
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <!-- ***** Main Banner Area Start ***** -->
-  <section class="section main-banner" id="top" data-section="section1">
-    <section class="upcoming-meetings" id="meetings">
-      <div class="album py-5 bg-light"></div>
-      <div class="container">
-        <div class="col-lg-6">
-          <div class="meeting-item">
-            <div class="thumb">
-              <a href="meeting-details.html"><img src="assets/images/tomatoes.jpg" alt="New Lecturer Meeting"></a>
+  <!-- ***** Main Area Start ***** -->
+  <main>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Album example</h1>
+        <p class="lead text-muted">Something short and leading about the collection belowits contents, the creator, etc. Make it short and sweet, but not too short so folks don°Øt simply skip over it entirely.</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">Main call to action</a>
+          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+        </p>
+      </div>
+    </div>
+  </section>
+      <div class="album py-5 bg-light">
+        <div class="container">
+    
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+    
+                <div class="card-body">
+                  <h4 class="card-text">∫¥√Ê«ÿ ¡¯¥‹</h4>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="down-content">
-              <a href="meeting-details.html">
-                <h4>Î≥ëÏ∂©Ìï¥ ÏßÑÎã®</h4>
-              </a>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+    
+                <div class="card-body">
+                  <h4 class="card-text">¥ﬁ∑¬</h4>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="meeting-item">
-            <div class="thumb">
-              <a href="meeting-details.html"><img src="assets/images/calendar.png" alt="Online Teaching"></a>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+    
+                <div class="card-body">
+                  <h4 class="card-text">µÂ∑– πÊø™/πÊ¡¶</h4>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="down-content">
-              <a href="meeting-details.html">
-                <h4>Îã¨Î†•</h4>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="meeting-item">
-            <div class="thumb">
-              <a href="meeting-details.html"><img src="assets/images/drone.jpg" alt="Higher Education"></a>
-            </div>
-            <div class="down-content">
-              <a href="meeting-details.html">
-                <h4>ÎìúÎ°† Î∞©Ï†ú/Î∞©Ïó≠</h4>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="meeting-item">
-            <div class="thumb">
-              <a href="meeting-details.html"><img src="assets/images/ladybug.jpg" alt="Student Training"></a>
-            </div>
-            <div class="down-content">
-              <a href="meeting-details.html">
-                <h4>ÎÜçÏóÖÏ†ïÏ±Ö</h4>
-              </a>
+    
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+    
+                <div class="card-body">
+                  <h4 class="card-text">≥Ûæ˜¡§√•</h4>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      </div>
-    </section>
-    <!-- ***** Main Banner Area End ***** -->
+    <!-- ***** Main Area End ***** -->
 
     <section class="contact-us" id="contact">
       <div class="container">
@@ -185,8 +212,9 @@ https://templatemo.com/tm-569-edu-meeting
           </div>
         </div>
       </div>
+    </main>
       <div class="footer">
-        <p>Copyright ¬© 2022 Edu Meeting Co., Ltd. All Rights Reserved.
+        <p>Copyright 2022 Edu Meeting Co., Ltd. All Rights Reserved.
           <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
         </p>
       </div>
@@ -251,8 +279,6 @@ https://templatemo.com/tm-569-edu-meeting
         checkSection();
       });
     </script>
-</body>
-
 </body>
 
 </html>

@@ -8,6 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	
 	<!-- Connection POOL 설정(HikariCP) -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName"
@@ -27,8 +28,8 @@
 		<property name="dataSource" ref="hikariDataSource" />
 	</bean>
 
-	<!-- SqlSessionFactoryBean와 BoardMapper class를 연결하기위한 작업 -->
+	<!-- SqlSessionFactoryBean와 PestMapper class를 연결하기위한 작업 -->
 
-	<mybatis-spring:scan base-package="com.mycompany.myapp" />
+	<mybatis-spring:scan base-package="com.mycompany.mapper" />
 
 </beans>
