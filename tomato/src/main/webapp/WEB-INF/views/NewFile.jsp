@@ -8,7 +8,12 @@
 </head>
 <body>
 adslkjfleijvlkjsdf
+<<<<<<< HEAD
 ï¿½ï¿½ï¿½Ø¿ï¿½ï¿½ï¿½
 ï¿½ï¿½ï¿½â¼­ï¿½ï¿½
+=======
+¿µÁØ¿µÁØ
+¼­±â¼­±â
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
 </body>
 </html>
