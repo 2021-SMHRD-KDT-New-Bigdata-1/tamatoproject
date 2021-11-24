@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,14 +14,14 @@
   <title>KingTomato</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
   <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="assets/css/fontawesome.css">
-  <link rel="stylesheet" href="${path}/resources/css/templatemo-edu-meeting.css">
-  <link rel="stylesheet" href="assets/css/owl.css">
-  <link rel="stylesheet" href="assets/css/lightbox.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/lightbox.css">
   <!--
 
 TemplateMo 569 Edu Meeting
@@ -222,16 +223,16 @@ https://templatemo.com/tm-569-edu-meeting
 
     <!-- Scripts -->
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <script src="assets/js/isotope.min.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/lightbox.js"></script>
-    <script src="assets/js/tabs.js"></script>
-    <script src="assets/js/video.js"></script>
-    <script src="assets/js/slick-slider.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/isotope.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/owl-carousel.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/lightbox.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/tabs.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/video.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/slick-slider.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/custom.js"></script>
     <script>
       //according to loftblog tut
       $('.nav li:first').addClass('active');
