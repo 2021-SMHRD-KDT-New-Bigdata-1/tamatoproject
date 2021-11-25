@@ -2,7 +2,7 @@
 <%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +22,6 @@
 <link
 	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
-
 
 <!-- Additional CSS Files -->
 <link rel="stylesheet"
@@ -50,7 +49,7 @@ https://templatemo.com/tm-569-edu-meeting
 				<div class="col-12">
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
-						<a href="index.html" class="logo"> 피톤치드 </a>
+						<a href="index.do" class="logo"> 피톤치드 </a>
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
@@ -60,8 +59,7 @@ https://templatemo.com/tm-569-edu-meeting
 							<li><a href="#apply">드론 방역/방제</a></li>
 							<li><a href="news.do">농업 정책</a></li>
 						</ul>
-						<a class='menu-trigger'>
-							<span>Menu</span>
+						<a class='menu-trigger'> <span>Menu</span>
 						</a>
 						<!-- ***** Menu End ***** -->
 					</nav>
@@ -81,8 +79,10 @@ https://templatemo.com/tm-569-edu-meeting
 						the collection belowits contents, the creator, etc. Make it short
 						and sweet, but not too short so folks don’t simply skip over it
 						entirely.</p>
-					<p><a href="#" class="btn btn-primary my-2">Main call to action</a> 
-					<a href="#" class="btn btn-secondary my-2">Secondary action</a></p>
+					<p>
+						<a href="#" class="btn btn-primary my-2">Main call to action</a> <a
+							href="#" class="btn btn-secondary my-2">Secondary action</a>
+					</p>
 				</div>
 			</div>
 		</section>
@@ -98,7 +98,8 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                   <title>Placeholder</title>
                   <rect width="100%" height="100%" fill="#55595c" />
-                           <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                           <text x="50%" y="50%" fill="#eceeef"
+										dy=".3em">Thumbnail</text></svg>
 								<div class="card-body">
 									<h4 class="card-text">병충해 진단</h4>
 									<div class="d-flex justify-content-between align-items-center">
@@ -122,7 +123,8 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
                 <rect width="100%" height="100%" fill="#55595c" />
-                           <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                           <text x="50%" y="50%" fill="#eceeef"
+										dy=".3em">Thumbnail</text></svg>
 								<div class="card-body">
 									<h4 class="card-text">할 일</h4>
 									<div class="d-flex justify-content-between align-items-center">
@@ -146,7 +148,8 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
                 <rect width="100%" height="100%" fill="#55595c" />
-                           <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                           <text x="50%" y="50%" fill="#eceeef"
+										dy=".3em">Thumbnail</text></svg>
 
 								<div class="card-body">
 									<h4 class="card-text">드론 방역/방제</h4>
@@ -172,7 +175,8 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
                 <rect width="100%" height="100%" fill="#55595c" />
-                           <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                           <text x="50%" y="50%" fill="#eceeef"
+										dy=".3em">Thumbnail</text></svg>
 								<div class="card-body">
 									<h4 class="card-text">농업 정책</h4>
 									<div class="d-flex justify-content-between align-items-center">
@@ -191,7 +195,6 @@ https://templatemo.com/tm-569-edu-meeting
 			</div>
 		</div>
 		<!-- ***** Main Area End ***** -->
-		=
 	</main>
 	<div class="footer">
 		<p>
@@ -200,33 +203,31 @@ https://templatemo.com/tm-569-edu-meeting
 				title="free css templates">TemplateMo</a>
 		</p>
 	</div>
-	
-	<!-- Bootstrap 사용을 위한 CDN -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-	
 
 	<!-- Scripts -->
+	<!-- CDN for Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+		crossorigin="anonymous"></script>
+
 	<!-- Bootstrap core JavaScript -->
-	<script
-		src="resources/vendor/jquery/jquery.min.js"></script>
-	<script
-		src="resources/js/bootstrap/bootstrap.bundle.min.js"></script>
-	<script
-		src="resources/js/isotope.min.js"></script>
-	<script
-		src="resources/js/owl-carousel.js"></script>
-	<script
-		src="resources/js/lightbox.js"></script>
-	<script
-		src="resources/js/tabs.js"></script>
-	<script
-		src="resources/js/video.js"></script>
-	<script
-		src="resources/js/slick-slider.js"></script>
-	<script
-		src="resources/js/custom.js"></script>
+	<script src="resources/vendor/jquery/jquery.min.js"></script>
+	<script src="resources/js/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="resources/js/isotope.min.js"></script>
+	<script src="resources/js/owl-carousel.js"></script>
+	<script src="resources/js/lightbox.js"></script>
+	<script src="resources/js/tabs.js"></script>
+	<script src="resources/js/video.js"></script>
+	<script src="resources/js/slick-slider.js"></script>
+	<script src="resources/js/custom.js"></script>
 	<script>
       //according to loftblog tut
       $('.nav li:first').addClass('active');
