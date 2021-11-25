@@ -36,6 +36,8 @@
 	href="${pageContext.request.contextPath}/resources/css/owl.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/lightbox.css">
+
+<!-- 카메라를 호출하는 api 연동 기능 by 이길환  -->
 <script src="resources/vendor/jquery/jquery.min.js"></script>
 <script> $(document).ready(function () { if (!('url' in window) && ('webkitURL' in window)) { window.URL = window.webkitURL; } $('#camera').change(function (e) { $('#pic').attr('src', URL.createObjectURL(e.target.files[0])); }); });</script>
 </head>
@@ -73,7 +75,8 @@
 			<!-- Heading Row-->
 			<div class="row gx-4 gx-lg-5 align-items-center my-5">
 				<div class="col-lg-12">
-
+					
+					<!-- 호출된 카메라로 찍은 사진을 가져오는 input값 by 이길환  -->
 					<input type="file" id="camera" name="camera" capture="camera"
 						accept="image/*" /> <br /> <img id="pic" style="width: 100%;" />
 				</div>
