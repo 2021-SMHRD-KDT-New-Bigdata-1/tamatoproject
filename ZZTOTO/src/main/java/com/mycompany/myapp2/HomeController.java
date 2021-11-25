@@ -11,15 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class HomeController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	
 	
 	@RequestMapping("/index.do")
 	public String index() {
@@ -29,6 +22,16 @@ public class HomeController {
 	@RequestMapping("/deep.do")
 	public String deep() {
 		return "deep";
+	}
+	
+	@RequestMapping("/notification.do")
+	public String notification() {
+		return "notification";
+	}
+	
+	@RequestMapping("/news.do")
+	public String news() {
+		return "news";
 	}
 	
 	
