@@ -200,27 +200,33 @@ https://templatemo.com/tm-569-edu-meeting
 				title="free css templates">TemplateMo</a>
 		</p>
 	</div>
+	
+	<!-- Bootstrap 사용을 위한 CDN -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	
 
 	<!-- Scripts -->
 	<!-- Bootstrap core JavaScript -->
 	<script
 		src="resources/vendor/jquery/jquery.min.js"></script>
 	<script
-		src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		src="resources/js/bootstrap/bootstrap.bundle.min.js"></script>
 	<script
-		src="resources/vendor/bootstrap/js/isotope.min.js"></script>
+		src="resources/js/isotope.min.js"></script>
 	<script
-		src="resources/vendor/bootstrap/js/owl-carousel.js"></script>
+		src="resources/js/owl-carousel.js"></script>
 	<script
-		src="resources/vendor/bootstrap/js/lightbox.js"></script>
+		src="resources/js/lightbox.js"></script>
 	<script
-		src="resources/vendor/bootstrap/js/tabs.js"></script>
+		src="resources/js/tabs.js"></script>
 	<script
-		src="resources/vendor/bootstrap/js/video.js"></script>
+		src="resources/js/video.js"></script>
 	<script
-		src="resources/vendor/bootstrap/js/slick-slider.js"></script>
+		src="resources/js/slick-slider.js"></script>
 	<script
-		src="resources/vendor/bootstrap/js/custom.js"></script>
+		src="resources/js/custom.js"></script>
 	<script>
       //according to loftblog tut
       $('.nav li:first').addClass('active');
@@ -268,9 +274,6 @@ https://templatemo.com/tm-569-edu-meeting
         checkSection();
       });
     </script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 </body>
 
 </html>
