@@ -2,6 +2,7 @@
 <%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,13 +54,14 @@ https://templatemo.com/tm-569-edu-meeting
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
-							<li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-							<li class="scroll-to-section"><a href="deep.do">병충해 진단</a></li>
-							<li class="scroll-to-section"><a href="notification.do">알림</a></li>
-							<li class="scroll-to-section"><a href="#apply">방역/방제</a></li>
-							<li class="scroll-to-section"><a href="#courses">검색</a></li>
+							<li><a href="#top" class="active">Home</a></li>
+							<li><a href="deep.do">병충해 진단</a></li>
+							<li><a href="notification.do">할 일</a></li>
+							<li><a href="#apply">드론 방역/방제</a></li>
+							<li><a href="news.do">농업 정책</a></li>
 						</ul>
-						<a class='menu-trigger'> <span>Menu</span>
+						<a class='menu-trigger'>
+							<span>Menu</span>
 						</a>
 						<!-- ***** Menu End ***** -->
 					</nav>
@@ -86,7 +88,7 @@ https://templatemo.com/tm-569-edu-meeting
 		</section>
 		<div class="album py-5 bg-light">
 			<div class="container">
-				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-sm-2 g-3">
 					<div class="col">
 						<a href="deep.do">
 							<div class="card shadow-sm">
@@ -122,7 +124,7 @@ https://templatemo.com/tm-569-edu-meeting
                 <rect width="100%" height="100%" fill="#55595c" />
                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 								<div class="card-body">
-									<h4 class="card-text">달력</h4>
+									<h4 class="card-text">할 일</h4>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
 											<button type="button"
@@ -172,7 +174,7 @@ https://templatemo.com/tm-569-edu-meeting
                 <rect width="100%" height="100%" fill="#55595c" />
                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 								<div class="card-body">
-									<h4 class="card-text">농업정책</h4>
+									<h4 class="card-text">농업 정책</h4>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
 											<button type="button"
@@ -202,24 +204,23 @@ https://templatemo.com/tm-569-edu-meeting
 	<!-- Scripts -->
 	<!-- Bootstrap core JavaScript -->
 	<script
-		src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>
+		src="resources/vendor/jquery/jquery.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+		src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/isotope.min.js"></script>
+		src="resources/vendor/bootstrap/js/isotope.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/owl-carousel.js"></script>
+		src="resources/vendor/bootstrap/js/owl-carousel.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/lightbox.js"></script>
+		src="resources/vendor/bootstrap/js/lightbox.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/tabs.js"></script>
+		src="resources/vendor/bootstrap/js/tabs.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/video.js"></script>
+		src="resources/vendor/bootstrap/js/video.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/slick-slider.js"></script>
+		src="resources/vendor/bootstrap/js/slick-slider.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/custom.js"></script>
+		src="resources/vendor/bootstrap/js/custom.js"></script>
 	<script>
       //according to loftblog tut
       $('.nav li:first').addClass('active');
@@ -267,6 +268,9 @@ https://templatemo.com/tm-569-edu-meeting
         checkSection();
       });
     </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 </body>
 
 </html>

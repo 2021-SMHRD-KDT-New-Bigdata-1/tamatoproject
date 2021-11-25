@@ -91,11 +91,11 @@ html, body {
 
 a {
   text-decoration: none !important;
-  color: #3CF;
+  color: black;
 }
 
 a:hover {
-	color: #FC3;
+	color: black;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -160,7 +160,7 @@ main {
 
 .main-button-red a {
   font-size: 13px;
-  color: #fff;
+  color: black;
   background-color: #a12c2f;
   padding: 12px 30px;
   display: inline-block;
@@ -176,7 +176,7 @@ main {
 
 .main-button-yellow a {
   font-size: 13px;
-  color: #fff;
+  color: black;
   background-color: #f5a425;
   padding: 12px 30px;
   display: inline-block;
@@ -232,7 +232,7 @@ header
 }
 
 .sub-header .right-icons ul li a {
-  color: #fff;
+  color: black;
   font-size: 14px;
   transition: all .3s;
 }
@@ -276,6 +276,9 @@ header
 .header-area {
   background-color: rgba(250,250,250,0.15);
   position: absolute;
+  border-bottom: 2px;
+  border-style: solid;
+  border-color: lightgreen;
   top: 0px;
   left: 0;
   right: 0;
@@ -293,7 +296,7 @@ header
 
 .header-area .main-nav .logo {
   line-height: 100px;
-  color: #fff;
+  color: black;
   font-size: 28px;
   font-weight: 700;
   text-transform: uppercase;
@@ -340,7 +343,7 @@ header
   font-weight: 500;
   font-size: 14px;
   text-transform: uppercase;
-  color: #fff;
+  color: black;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -371,7 +374,7 @@ header
   font-family: FontAwesome;
   content: "\f107";
   font-size: 12px;
-  color: #fff;
+  color: black;
   position: absolute;
   right: 5px;
   top: 12px;
@@ -552,7 +555,7 @@ header
 }
 
 .header-area.header-sticky {
-  min-height: 75px;
+  min-height: 80px;
 }
 
 .header-area .nav {
@@ -683,116 +686,9 @@ header
 
 /* 
 ---------------------------------------------
-contact us
+footer
 --------------------------------------------- 
 */
-
-section.contact-us {
-  background-color: #CEF279;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 140px 0px 0px 0px;
-}
-
-section.contact-us #contact {
-  background-color: #fff;
-  border-radius: 20px;
-  padding: 40px;
-}
-
-section.contact-us #contact h2 {
-  text-transform: uppercase;
-  color: #1f272b;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 40px;
-  padding-bottom: 20px;
-  font-size: 22px;
-  font-weight: 700;
-}
-
-section.contact-us #contact input {
-  width: 100%;
-  height: 40px;
-  border-radius: 20px;
-  background-color: #f7f7f7;
-  outline: none;
-  border: none;
-  box-shadow: none;
-  font-size: 13px;
-  font-weight: 500;
-  color: #7a7a7a;
-  padding: 0px 15px;
-  margin-bottom: 30px;
-}
-
-section.contact-us #contact textarea {
-  width: 100%;
-  min-height: 140px;
-  max-height: 180px;
-  border-radius: 20px;
-  background-color: #f7f7f7;
-  outline: none;
-  border: none;
-  box-shadow: none;
-  font-size: 13px;
-  font-weight: 500;
-  color: #7a7a7a;
-  padding: 15px;
-  margin-bottom: 30px;
-}
-
-section.contact-us #contact button {
-  font-size: 13px;
-  color: #fff;
-  background-color: #a12c2f;
-  padding: 12px 30px;
-  display: inline-block;
-  border-radius: 22px;
-  font-weight: 500;
-  text-transform: uppercase;
-  transition: all .3s;
-  border: none;
-  outline: none;
-}
-
-section.contact-us #contact button:hover {
-  opacity: 0.9;
-}
-
-section.contact-us .right-info {
-  background-color: #a12c2f;
-  border-radius: 20px;
-  padding: 40px;
-}
-
-section.contact-us .right-info ul li {
-  display: inline-block;
-  border-bottom: 1px solid rgba(250,250,250,0.15);
-  margin-bottom: 30px;
-  padding-bottom: 30px;
-}
-
-section.contact-us .right-info ul li:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-section.contact-us .right-info ul li h6 {
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-section.contact-us .right-info ul li span {
-  display: block;
-  font-size: 18px;
-  color: #fff;
-  font-weight: 700;
-}
 
 .footer {
   text-align: center;
@@ -844,202 +740,6 @@ section.heading-page h2 {
   font-weight: 800;
   color: #fff;
   letter-spacing: 1px;
-}
-
-
-/*
----------------------------------------------
-upcoming meetings page
----------------------------------------------
-*/
-
-section.meetings-page {
-  background-image: url(../images/meetings-page-bg.jpg);
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 140px;
-  padding-bottom: 0px;
-}
-
-section.meetings-page .filters {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-section.meetings-page .filters li {
-  font-size: 13px;
-  color: #a12c2f;
-  background-color: #fff;
-  padding: 11px 30px;
-  display: inline-block;
-  border-radius: 22px;
-  font-weight: 600;
-  text-transform: uppercase;
-  transition: all .3s;
-  cursor: pointer;
-  margin: 0px 3px;
-}
-
-section.meetings-page .filters ul li.active,
-section.meetings-page .filters ul li:hover {
-  background-color: #a12c2f;
-  color: #fff;
-}
-
-section.meetings-page .pagination {
-  text-align: center;
-  width: 100%;
-  margin-top: 30px;
-  display: inline-block;
-}
-
-section.meetings-page .pagination ul li {
-  display: inline-block;
-}
-
-section.meetings-page .pagination ul li a {
-  width: 40px;
-  height: 40px;
-  background-color: #fff;
-  border-radius: 10px;
-  color: #1f272b;
-  display: inline-block;
-  text-align: center;
-  line-height: 40px;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all .3s;
-}
-
-section.meetings-page .main-button-red {
-  text-align: center;
-}
-
-section.meetings-page .main-button-red a {
-  padding: 12px 60px;
-  text-align: center;
-  margin-top: 30px;
-}
-
-section.meetings-page .pagination ul li.active a,
-section.meetings-page .pagination ul li a:hover {
-  background-color: #a12c2f;
-  color: #fff;
-}
-
-.meeting-single-item .thumb {
-  position: relative;
-}
-
-.meeting-single-item .thumb img {
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-}
-
-.meeting-single-item .thumb .price {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-}
-
-.meeting-single-item .thumb .price span {
-  font-size: 16px;
-  color: #1f272b;
-  font-weight: 600;
-  background-color: rgba(250,250,250,0.9);
-  padding: 7px 12px;
-  border-radius: 10px;
-}
-
-.meeting-single-item .down-content {
-  background-color: #fff;
-  padding: 40px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-
-.meeting-single-item .thumb .date {
-  position: absolute;
-  background-color: rgba(250,250,250,0.9);
-  width: 80px;
-  height: 80px;
-  text-align: center;
-  padding: 15px 0px;
-  border-radius: 10px;
-  right: 20px;
-  top: 20px;
-}
-
-.meeting-single-item .thumb .date h6 {
-  font-size: 13px;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #a12c2f;
-}
-
-.meeting-single-item .thumb .date span {
-  display: block;
-  color: #1f272b;
-  font-size: 22px;
-  margin-top: 7px;
-}
-
-.meeting-single-item .down-content h4 {
-  font-size: 22px;
-  color: #1f272b;
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 15px;
-}
-
-.meeting-single-item .down-content h5 {
-  font-size: 18px;
-  color: #1f272b;
-  font-weight: 700;
-  display: inline-block;
-  margin-bottom: 15px;
-}
-
-.meeting-single-item .down-content p {
-  color: #1f272b;
-  font-size: 14px;
-}
-
-.meeting-single-item .down-content p.description {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid #eee;
-  margin-bottom: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #eee;
-}
-
-.meeting-single-item .down-content .share {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid #eee;
-}
-
-.meeting-single-item .down-content .share h5 {
-  float: left;
-  margin-right: 10px;
-  margin-bottom: 0px;
-}
-
-.meeting-single-item .down-content .share ul li {
-  display: inline;
-}
-
-.meeting-single-item .down-content .share ul li a {
-  font-size: 14px;
-  color: #1f272b;
-  transition: all .3s;
-}
-
-.meeting-single-item .down-content .share ul li a:hover {
-  color: #f5a425;
 }
 
 /* Meeting item column */
