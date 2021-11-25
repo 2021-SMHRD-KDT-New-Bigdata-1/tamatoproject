@@ -13,6 +13,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="TemplateMo">
+<meta name="viewport" content="width=320; user-scalable=no" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
 	rel="stylesheet">
@@ -34,6 +36,8 @@
 	href="${pageContext.request.contextPath}/resources/css/owl.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/lightbox.css">
+<script src="resources/vendor/jquery/jquery.min.js"></script>
+<script> $(document).ready(function () { if (!('url' in window) && ('webkitURL' in window)) { window.URL = window.webkitURL; } $('#camera').change(function (e) { $('#pic').attr('src', URL.createObjectURL(e.target.files[0])); }); });</script>
 </head>
 
 <body>
@@ -69,8 +73,9 @@
 			<!-- Heading Row-->
 			<div class="row gx-4 gx-lg-5 align-items-center my-5">
 				<div class="col-lg-12">
-					<img class="img-fluid rounded mb-4 mb-lg-0"
-						src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." />
+
+					<input type="file" id="camera" name="camera" capture="camera"
+						accept="image/*" /> <br /> <img id="pic" style="width: 100%;" />
 				</div>
 			</div>
 			<!-- Content Row-->
