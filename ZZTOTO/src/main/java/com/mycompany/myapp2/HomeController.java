@@ -1,18 +1,16 @@
 package com.mycompany.myapp2;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.mycompany.mapper.PestMapper;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private PestMapper mapper;
 	
 	@RequestMapping("/index.do")
 	public String index() {
@@ -34,5 +32,30 @@ public class HomeController {
 		return "news";
 	}
 	
+	/**
+	 * 파일태그를 위한 폼태그
+	 * @return
+	 */
+	@RequestMapping(value="/formFile")
+	public String formFile() {
+		return "formFile";
+	}
+
+	/**
+	 * 파일처리 컨트롤러
+	 * @param vo
+	 * @return
+	 */
+	@RequestMapping(value="/saveImage")
+	public String saveImage(Vo vo) {
+		try {
+			Map<String, Object> hmap = new HashMap<String, Object>();
+			hmap.put("img", vo.getImgFile().getBytes());
+			mapper.saveImage(hmap);	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:/formFile";
+	}
 	
 }

@@ -196,6 +196,7 @@ https://templatemo.com/tm-569-edu-meeting
 		</div>
 		<!-- ***** Main Area End ***** -->
 	</main>
+	<!-- Footer start -->
 	<div class="footer">
 		<p>
 			Copyright 2022 Edu Meeting Co., Ltd. All Rights Reserved. <br>Design:
@@ -203,7 +204,8 @@ https://templatemo.com/tm-569-edu-meeting
 				title="free css templates">TemplateMo</a>
 		</p>
 	</div>
-
+	<!-- Footer End -->
+	
 	<!-- Scripts -->
 	<!-- CDN for Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
