@@ -56,7 +56,7 @@ https://templatemo.com/tm-569-edu-meeting
 							<li><a href="#top" class="active">Home</a></li>
 							<li><a href="deep.do">병충해 진단</a></li>
 							<li><a href="notification.do">할 일</a></li>
-							<li><a href="#apply">드론 방역/방제</a></li>
+							<li><a href="drone.do">드론 방역/방제</a></li>
 							<li><a href="news.do">농업 정책</a></li>
 						</ul>
 						<a class='menu-trigger'> <span>Menu</span>
@@ -140,7 +140,7 @@ https://templatemo.com/tm-569-edu-meeting
 						</a>
 					</div>
 					<div class="col">
-						<a href="news.do">
+						<a href="drone.do">
 							<div class="card shadow-sm">
 								<svg class="bd-placeholder-img card-img-top" width="100%"
 									height="225" xmlns="http://www.w3.org/2000/svg" role="img"

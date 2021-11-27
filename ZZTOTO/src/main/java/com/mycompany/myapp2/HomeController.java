@@ -27,6 +27,11 @@ public class HomeController {
 		return "notification";
 	}
 	
+	@RequestMapping("/drone.do")
+	public String drone() {
+		return "drone";
+	}
+	
 	@RequestMapping("/news.do")
 	public String news() {
 		return "news";
@@ -46,16 +51,16 @@ public class HomeController {
 	 * @param vo
 	 * @return
 	 */
-	@RequestMapping(value="/saveImage")
-	public String saveImage(Vo vo) {
-		try {
-			Map<String, Object> hmap = new HashMap<String, Object>();
-			hmap.put("img", vo.getImgFile().getBytes());
-			mapper.saveImage(hmap);	
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "redirect:/formFile";
-	}
+//	@RequestMapping(value="/saveImage")
+//	public String saveImage(Vo vo) {
+//		try {
+//			Map<String, Object> hmap = new HashMap<String, Object>();
+//			hmap.put("img", vo.getImgFile().getBytes());
+//			mapper.saveImage(hmap);	
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return "redirect:/formFile";
+//	}
 	
 }
