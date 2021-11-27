@@ -27,6 +27,11 @@ public class HomeController {
 		return "notification";
 	}
 	
+	@RequestMapping("/drone.do")
+	public String drone() {
+		return "drone";
+	}
+	
 	@RequestMapping("/news.do")
 	public String news() {
 		return "news";
