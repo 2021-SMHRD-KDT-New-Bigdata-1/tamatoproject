@@ -32,30 +32,4 @@ public class HomeController {
 		return "news";
 	}
 	
-	/**
-	 * 파일태그를 위한 폼태그
-	 * @return
-	 */
-	@RequestMapping(value="/formFile")
-	public String formFile() {
-		return "formFile";
-	}
-
-	/**
-	 * 파일처리 컨트롤러
-	 * @param vo
-	 * @return
-	 */
-	@RequestMapping(value="/saveImage")
-	public String saveImage(Vo vo) {
-		try {
-			Map<String, Object> hmap = new HashMap<String, Object>();
-			hmap.put("img", vo.getImgFile().getBytes());
-			mapper.saveImage(hmap);	
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "redirect:/formFile";
-	}
-	
 }
