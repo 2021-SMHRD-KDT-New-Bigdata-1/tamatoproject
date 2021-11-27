@@ -39,7 +39,16 @@
 
 <!-- 카메라를 호출하는 api 연동 기능 by 이길환  -->
 <script src="resources/vendor/jquery/jquery.min.js"></script>
-<script> $(document).ready(function () { if (!('url' in window) && ('webkitURL' in window)) { window.URL = window.webkitURL; } $('#camera').change(function (e) { $('#pic').attr('src', URL.createObjectURL(e.target.files[0])); }); });</script>
+<script>
+	$(document).ready(function() {
+		if (!('url' in window) && ('webkitURL' in window)) {
+			window.URL = window.webkitURL;
+		}
+		$('#camera').change(function(e) {
+			$('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
+		});
+	});
+</script>
 </head>
 
 <body>
@@ -72,13 +81,14 @@
 	<!-- Page Content-->
 	<main>
 		<div class="container px-4 px-lg-5">
-			<!-- Heading Row-->
 			<div class="row gx-4 gx-lg-5 align-items-center my-5">
 				<div class="col-lg-12">
-					
-					<!-- 호출된 카메라로 찍은 사진을 가져오는 input값 by 이길환  -->
-					<input type="file" id="camera" name="camera" capture="camera"
-						accept="image/*" /> <br /> <img id="pic" style="width: 100%;" />
+					<form action="/saveImage" enctype="multipart/form-data"
+						method="post">
+						<!-- 호출된 카메라로 찍은 사진을 가져오는 input값 by 이길환  -->
+						<input type="file" id="camera" name="camera" capture="camera"
+							accept="image/*" /> <br /> <img id="pic" style="width: 50%;" />
+					</form>
 				</div>
 			</div>
 			<!-- Content Row-->
@@ -125,6 +135,42 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
+	<script>
+		/* Image Upload */
+		$("input[type='file']").on("change", function(e) {
+			let formData = new FormData();
+			let fileInput = $('input[name="camera"]');
+			let fileList = fileInput[0].files;
+			let fileObj = fileList[0];
+
+			if(!fileCheck(fileObj.name)){
+				return false;
+			}
+			
+			formData.append("uploadFile", fileObj);
+
+			$.ajax({
+				url: 'uploadAjaxAction.do',		// 서버로 요청을 보낼 url
+		    	processData : false,				// 서버로 전송할 데이터를 queryString 형태로 변환할지 여부
+		    	contentType : false,				// 서버로 전성되는 데이터의 content-type
+		    	data : formData,					// 서버로 전송할 데이터
+		    	type : 'POST',						// 서버 요청 타입(GET, POST)
+		    	dataType : 'json'					// 서버로부터 반환받을 데이터 타입
+			});	
+		});
+
+		/* var, method related with attachFile */
+		let regex = new RegExp("(.*?)\.(jpg|png)$");
+
+		function fileCheck(fileName) {
+			if (!regex.test(fileName)) {
+				alert("해당 종류의 파일은 업로드할 수 없습니다.");
+				return false;
+			}
+			return true;
+		}
+	</script>
+
 </body>
 
 </html>
