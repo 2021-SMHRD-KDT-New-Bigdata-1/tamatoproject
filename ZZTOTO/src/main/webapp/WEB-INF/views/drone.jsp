@@ -10,11 +10,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/drone.css">
-<style>
-body, td {
-	font-size: 12px
-}
-</style>
 <SCRIPT LANGUAGE="JavaScript">
         Now = new Date();
         NowDay = Now.getDate();
