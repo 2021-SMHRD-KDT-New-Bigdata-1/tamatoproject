@@ -92,8 +92,8 @@ https://templatemo.com/tm-569-edu-meeting
 		<!-- Main Grid -->
 		<div class="album py-5 bg-light">
 			<div class="container">
-				<div class="row row-cols-1 row-cols-xs-2 row-cols-sm-4 g-3">
-					<div class="col">
+				<div class="row row-cols-1 row-cols-sm-4 g-3">
+					<div class="col col-6">
 						<a href="deep.do">
 							<div class="card shadow-sm">
 								<svg class="bd-placeholder-img card-img-top" width="100%"
@@ -118,7 +118,7 @@ https://templatemo.com/tm-569-edu-meeting
 							</div>
 						</a>
 					</div>
-					<div class="col">
+					<div class="col col-6">
 						<a href="notification.do">
 							<div class="card shadow-sm">
 								<svg class="bd-placeholder-img card-img-top" width="100%"
@@ -143,7 +143,7 @@ https://templatemo.com/tm-569-edu-meeting
 							</div>
 						</a>
 					</div>
-					<div class="col">
+					<div class="col col-6">
 						<a href="drone.do">
 							<div class="card shadow-sm">
 								<svg class="bd-placeholder-img card-img-top" width="100%"
@@ -170,7 +170,7 @@ https://templatemo.com/tm-569-edu-meeting
 						</a>
 					</div>
 
-					<div class="col">
+					<div class="col col-6">
 						<a href="news.do">
 							<div class="card shadow-sm">
 								<svg class="bd-placeholder-img card-img-top" width="100%"
