@@ -39,6 +39,11 @@ TemplateMo 569 Edu Meeting
 https://templatemo.com/tm-569-edu-meeting
 
 -->
+<style>
+	.col{
+		max-width: 50%;
+	}
+</style>
 </head>
 
 <body>
