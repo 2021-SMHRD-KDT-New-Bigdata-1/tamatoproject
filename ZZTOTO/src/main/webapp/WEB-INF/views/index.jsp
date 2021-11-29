@@ -58,8 +58,7 @@ https://templatemo.com/tm-569-edu-meeting
 							<li><a href="notification.do">할 일</a></li>
 							<li><a href="drone.do">드론 방역/방제</a></li>
 							<li><a href="news.do">농업 정책</a></li>
-							<li><a href="javascript:kakaoLogin();"><img
-									src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"></a></li>
+							<li><a href="javascript:kakaoLogin();"><img src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png" style="width:50%; margin-bottom: 5px;"></a></li>
 						</ul>
 						<a class='menu-trigger'> <span>Menu</span>
 						</a>
@@ -88,7 +87,7 @@ https://templatemo.com/tm-569-edu-meeting
 				</div>
 			</div>
 		</section>
-		
+
 		<!-- Main Grid -->
 		<div class="album py-5 bg-light">
 			<div class="container">
@@ -102,18 +101,10 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                  
                   <title>Placeholder</title>
-                 	<img src = "${pageContext.request.contextPath}/resources/images/camera2.png">
+                 	<img src="${pageContext.request.contextPath}/resources/images/camera2.png">
                  </svg>
 								<div class="card-body">
 									<h4 class="card-text">병충해 진단</h4>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="btn-group">
-											<button type="button"
-												class="btn btn-sm btn-outline-secondary">View</button>
-											<button type="button"
-												class="btn btn-sm btn-outline-secondary">Edit</button>
-										</div>
-									</div>
 								</div>
 							</div>
 						</a>
@@ -131,14 +122,6 @@ https://templatemo.com/tm-569-edu-meeting
 										dy=".3em">Thumbnail</text></svg>
 								<div class="card-body">
 									<h4 class="card-text">할 일</h4>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="btn-group">
-											<button type="button"
-												class="btn btn-sm btn-outline-secondary">View</button>
-											<button type="button"
-												class="btn btn-sm btn-outline-secondary">Edit</button>
-										</div>
-									</div>
 								</div>
 							</div>
 						</a>
@@ -157,14 +140,6 @@ https://templatemo.com/tm-569-edu-meeting
 
 								<div class="card-body">
 									<h4 class="card-text">드론 방역/방제</h4>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="btn-group">
-											<button type="button"
-												class="btn btn-sm btn-outline-secondary">View</button>
-											<button type="button"
-												class="btn btn-sm btn-outline-secondary">Edit</button>
-										</div>
-									</div>
 								</div>
 							</div>
 						</a>
@@ -183,14 +158,6 @@ https://templatemo.com/tm-569-edu-meeting
 										dy=".3em">Thumbnail</text></svg>
 								<div class="card-body">
 									<h4 class="card-text">농업 정책</h4>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="btn-group">
-											<button type="button"
-												class="btn btn-sm btn-outline-secondary">View</button>
-											<button type="button"
-												class="btn btn-sm btn-outline-secondary">Edit</button>
-										</div>
-									</div>
 								</div>
 							</div>
 						</a>
@@ -203,9 +170,7 @@ https://templatemo.com/tm-569-edu-meeting
 	<!-- Footer start -->
 	<div class="footer">
 		<p>
-			Copyright 2022 Edu Meeting Co., Ltd. All Rights Reserved. <br>Design:
-			<a href="https://templatemo.com" target="_parent"
-				title="free css templates">TemplateMo</a>
+			Copyright 2022 Edu Meeting Co., Ltd. All Rights Reserved.
 		</p>
 	</div>
 	<!-- Footer End -->
@@ -272,7 +237,7 @@ https://templatemo.com/tm-569-edu-meeting
         });
       };
 
-      $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+      $('.main-menu, .responsive-menu').on('click', 'a', function (e) {
         e.preventDefault();
         showSection($(this).attr('href'), true);
       });
