@@ -97,13 +97,13 @@ https://templatemo.com/tm-569-edu-meeting
 						<a href="deep.do">
 							<div class="card shadow-sm">
 								<svg class="bd-placeholder-img card-img-top" width="100%"
-									height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+									height="0" xmlns="http://www.w3.org/2000/svg" role="img"
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
+                 
                   <title>Placeholder</title>
-                  <rect width="100%" height="100%" fill="#55595c" />
-                           <text x="50%" y="50%" fill="#eceeef"
-										dy=".3em">Thumbnail</text></svg>
+                 	<img src = "${pageContext.request.contextPath}/resources/images/camera2.png">
+                 </svg>
 								<div class="card-body">
 									<h4 class="card-text">병충해 진단</h4>
 									<div class="d-flex justify-content-between align-items-center">
