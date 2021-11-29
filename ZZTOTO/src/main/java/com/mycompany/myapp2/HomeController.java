@@ -2,14 +2,21 @@ package com.mycompany.myapp2;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.mycompany.domain.Pest_files;
 import com.mycompany.mapper.PestMapper;
 
 @Controller
@@ -43,9 +50,9 @@ public class HomeController {
 		return "news";
 	}
 
-	// Ajax활용 파일 업로드 기능
-	@RequestMapping("/uploadAjaxAction")
-	public void uploadAjaxAction(MultipartFile[] uploadFile) {
+	// Ajax활용 파일 업로드 기능 :
+	@PostMapping(value="/uploadAjaxAction", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<List<Pest_files>> uploadAjaxAction(MultipartFile[] uploadFile) {
 
 		// 날짜별 폴더 생성
 		String uploadFolder = "C:\\upload";
@@ -65,14 +72,23 @@ public class HomeController {
 			uploadPath.mkdirs();
 		}
 		
+		/* 이미지 정보 담는 객체 */
+		List<Pest_files> list = new ArrayList();
+		
 		/* 파일 생성 */
 		for (MultipartFile multipartFile : uploadFile) {
 			
+			/* 이미지 정보 객체 */
+			Pest_files pf = new Pest_files();
+			
 			/* 파일 이름 */
 			String uploadFileName = multipartFile.getOriginalFilename();
-
+			pf.setFileName(uploadFileName);
+			pf.setUploadPath(datePath);
+			
 			/* uuid 적용 파일 이름 : 파일이름이 겹치면 덮어씌워지는 현상 막기 위해 식별자 추가 */
 			String uuid = UUID.randomUUID().toString();
+			pf.setUuid(uuid);
 			
 			uploadFileName = uuid + "_" + uploadFileName;
 			
@@ -85,6 +101,10 @@ public class HomeController {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+			list.add(pf);
+		} // for
+		
+		ResponseEntity<List<Pest_files>> result = new ResponseEntity<List<Pest_files>>(list, HttpStatus.OK); 
+		return result;
 	}
 }
