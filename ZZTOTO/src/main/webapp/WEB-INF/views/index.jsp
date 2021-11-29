@@ -58,9 +58,9 @@ https://templatemo.com/tm-569-edu-meeting
 							<li><a href="notification.do">할 일</a></li>
 							<li><a href="drone.do">드론 방역/방제</a></li>
 							<li><a href="news.do">농업 정책</a></li>
-							<li><a href="javascript:kakaoLogin();"><img
+							<li><a href="javascript:kakaoLogin();"><img 
 									src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
-									style="height: 55%; margin-bottom: 4px"></a></li>
+									style="height: 30px; width:80px;"></a></li>
 						</ul>
 						<a class='menu-trigger'> <span>Menu</span>
 						</a>
@@ -100,7 +100,7 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                  
                   <title>Placeholder</title>
-                 	<img
+                 	<img id="icon"
 										src="${pageContext.request.contextPath}/resources/images/camera2.png">
                  </svg>
 								<div class="card-body">
@@ -117,7 +117,7 @@ https://templatemo.com/tm-569-edu-meeting
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <img
+                <img id="icon"
 										src="${pageContext.request.contextPath}/resources/images/farming.png">
                 </svg>
 								<div class="card-body">
@@ -134,7 +134,7 @@ https://templatemo.com/tm-569-edu-meeting
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <img
+                <img id="icon"
 										src="${pageContext.request.contextPath}/resources/images/drone3.png">
                 </svg>
 
@@ -153,7 +153,7 @@ https://templatemo.com/tm-569-edu-meeting
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <img
+                <img id="icon"
 										src="${pageContext.request.contextPath}/resources/images/newspaper.png">
                 </svg>
 								<div class="card-body">
