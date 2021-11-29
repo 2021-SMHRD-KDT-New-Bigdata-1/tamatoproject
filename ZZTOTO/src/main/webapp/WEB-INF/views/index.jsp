@@ -58,7 +58,9 @@ https://templatemo.com/tm-569-edu-meeting
 							<li><a href="notification.do">할 일</a></li>
 							<li><a href="drone.do">드론 방역/방제</a></li>
 							<li><a href="news.do">농업 정책</a></li>
-							<li><a href="javascript:kakaoLogin();"><img src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png" style="width:50%; margin-bottom: 5px;"></a></li>
+							<li><a href="javascript:kakaoLogin();"><img
+									src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
+									style="height: 55%; margin-bottom: 4px"></a></li>
 						</ul>
 						<a class='menu-trigger'> <span>Menu</span>
 						</a>
@@ -76,10 +78,7 @@ https://templatemo.com/tm-569-edu-meeting
 			<div class="row py-lg-5">
 				<div class="col-lg-6 col-md-8 mx-auto">
 					<h1 class="fw-light">Album example</h1>
-					<p class="lead text-muted">Something short and leading about
-						the collection belowits contents, the creator, etc. Make it short
-						and sweet, but not too short so folks don’t simply skip over it
-						entirely.</p>
+
 					<p>
 						<a href="#" class="btn btn-primary my-2">Main call to action</a> <a
 							href="#" class="btn btn-secondary my-2">Secondary action</a>
@@ -101,7 +100,8 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                  
                   <title>Placeholder</title>
-                 	<img src="${pageContext.request.contextPath}/resources/images/camera2.png">
+                 	<img
+										src="${pageContext.request.contextPath}/resources/images/camera2.png">
                  </svg>
 								<div class="card-body">
 									<h4 class="card-text">병충해 진단</h4>
@@ -113,13 +113,13 @@ https://templatemo.com/tm-569-edu-meeting
 						<a href="notification.do">
 							<div class="card shadow-sm">
 								<svg class="bd-placeholder-img card-img-top" width="100%"
-									height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+									height="0" xmlns="http://www.w3.org/2000/svg" role="img"
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" />
-                           <text x="50%" y="50%" fill="#eceeef"
-										dy=".3em">Thumbnail</text></svg>
+                <img
+										src="${pageContext.request.contextPath}/resources/images/farming.png">
+                </svg>
 								<div class="card-body">
 									<h4 class="card-text">할 일</h4>
 								</div>
@@ -130,13 +130,13 @@ https://templatemo.com/tm-569-edu-meeting
 						<a href="drone.do">
 							<div class="card shadow-sm">
 								<svg class="bd-placeholder-img card-img-top" width="100%"
-									height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+									height="0" xmlns="http://www.w3.org/2000/svg" role="img"
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" />
-                           <text x="50%" y="50%" fill="#eceeef"
-										dy=".3em">Thumbnail</text></svg>
+                <img
+										src="${pageContext.request.contextPath}/resources/images/drone3.png">
+                </svg>
 
 								<div class="card-body">
 									<h4 class="card-text">드론 방역/방제</h4>
@@ -149,13 +149,13 @@ https://templatemo.com/tm-569-edu-meeting
 						<a href="news.do">
 							<div class="card shadow-sm">
 								<svg class="bd-placeholder-img card-img-top" width="100%"
-									height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+									height="0" xmlns="http://www.w3.org/2000/svg" role="img"
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" />
-                           <text x="50%" y="50%" fill="#eceeef"
-										dy=".3em">Thumbnail</text></svg>
+                <img
+										src="${pageContext.request.contextPath}/resources/images/newspaper.png">
+                </svg>
 								<div class="card-body">
 									<h4 class="card-text">농업 정책</h4>
 								</div>
@@ -169,9 +169,7 @@ https://templatemo.com/tm-569-edu-meeting
 	</main>
 	<!-- Footer start -->
 	<div class="footer">
-		<p>
-			Copyright 2022 Edu Meeting Co., Ltd. All Rights Reserved.
-		</p>
+		<p>Copyright 2022 Edu Meeting Co., Ltd. All Rights Reserved.</p>
 	</div>
 	<!-- Footer End -->
 

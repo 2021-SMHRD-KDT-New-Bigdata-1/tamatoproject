@@ -114,6 +114,8 @@ p {
 }
 
 img {
+
+  margin-top:15px;
   width: 40%;
   overflow: hidden;
   align-self : center;
@@ -203,6 +205,9 @@ main {
   color: #fff;
 }
 
+.card{
+		text-align:center;
+	}
 
 /* 
 ---------------------------------------------
