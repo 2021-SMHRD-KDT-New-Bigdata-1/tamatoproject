@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,7 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.mycompany.domain.Pest_files;
+import com.mycompany.domain.Member;
+import com.mycompany.domain.Pest_file;
 import com.mycompany.mapper.PestMapper;
 
 @Controller
@@ -49,10 +52,21 @@ public class HomeController {
 	public String news() {
 		return "news";
 	}
-
+	
+	// 로그인처리
+	/*
+	 * @RequestMapping("/login.do") public String login(Member vo, HttpSession
+	 * session) {
+	 * 
+	 * Member vo = mapper.login();
+	 * 
+	 * if(vo != null) { // 로그인 성공 session.setAttribute("vo", vo); }
+	 * 
+	 * return "redirect:/main.do"; }
+	 */
 	// Ajax활용 파일 업로드 기능 :
 	@PostMapping(value="/uploadAjaxAction", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<List<Pest_files>> uploadAjaxAction(MultipartFile[] uploadFile) {
+	public ResponseEntity<List<Pest_file>> uploadAjaxAction(MultipartFile[] uploadFile) {
 
 		// 날짜별 폴더 생성
 		String uploadFolder = "C:\\upload";
@@ -73,13 +87,13 @@ public class HomeController {
 		}
 		
 		/* 이미지 정보 담는 객체 */
-		List<Pest_files> list = new ArrayList();
+		List<Pest_file> list = new ArrayList();
 		
 		/* 파일 생성 */
 		for (MultipartFile multipartFile : uploadFile) {
 			
 			/* 이미지 정보 객체 */
-			Pest_files pf = new Pest_files();
+			Pest_file pf = new Pest_file();
 			
 			/* 파일 이름 */
 			String uploadFileName = multipartFile.getOriginalFilename();
@@ -104,7 +118,7 @@ public class HomeController {
 			list.add(pf);
 		} // for
 		
-		ResponseEntity<List<Pest_files>> result = new ResponseEntity<List<Pest_files>>(list, HttpStatus.OK); 
+		ResponseEntity<List<Pest_file>> result = new ResponseEntity<List<Pest_file>>(list, HttpStatus.OK); 
 		return result;
 	}
 }

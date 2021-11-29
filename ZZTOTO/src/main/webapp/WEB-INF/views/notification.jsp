@@ -23,6 +23,8 @@
 
 <!-- Additional CSS Files -->
 <link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/calendar.css">
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
@@ -67,9 +69,9 @@
 			<div class="row gx-4 gx-lg-5">
 				<div class="col-md-6 mb-5">
 					<div class="card h-100">
-						<div class="card-body">
-							<p class="card-text">달력 넣는 곳(클릭하면 Ajax사용해서 오늘 할일 보이게 하기)</p>
-						</div>
+						<div id="calendar"></div>
+						<script
+							src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
 					</div>
 				</div>
 				<div class="col-md-6 mb-5">
@@ -98,13 +100,13 @@
 		</div>
 	</footer>
 	<!-- Footer End -->
-	
+
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
-		<!-- Scripts -->
+	<!-- Scripts -->
 	<!-- CDN for Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -128,6 +130,7 @@
 	<script src="resources/js/video.js"></script>
 	<script src="resources/js/slick-slider.js"></script>
 	<script src="resources/js/custom.js"></script>
+	<script src="resources/js/calendar.js"></script>
 	<script>
       //according to loftblog tut
       $('.nav li:first').addClass('active');

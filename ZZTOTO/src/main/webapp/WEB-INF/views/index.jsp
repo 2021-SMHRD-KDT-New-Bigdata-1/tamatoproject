@@ -58,10 +58,22 @@ https://templatemo.com/tm-569-edu-meeting
 							<li><a href="notification.do">할 일</a></li>
 							<li><a href="drone.do">드론 방역/방제</a></li>
 							<li><a href="news.do">농업 정책</a></li>
-							<li><a href="javascript:kakaoLogin();"><img 
-									src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
-									style="height: 30px; width:80px;"></a></li>
+							<c:if test="${vo==null}">
+								<li><div class="kakaobtn" id="kakaologin">
+										<input type="hidden" name="kakoemail" id="kakaoemail">
+										<input type="hidden" name="kakoname" id="kakaoname">
+									</div> <a href="javascript:kakaoLogin();"><img
+										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
+										style="height: 30px; width: 80px;"></a></li>
+							</c:if>
+							<!-- kakao정보를 넘기기위해 만든 form(숨김) -->
+							<form action="/login.do" method="post" name="lfrm" hidden="">
+								<input type="text" name="kakaoemail" id="kakaoemail" value="" />
+							</form>
+							<c:if test="${vo==null}">
+							</c:if>
 						</ul>
+
 						<a class='menu-trigger'> <span>Menu</span>
 						</a>
 						<!-- ***** Menu End ***** -->
@@ -244,22 +256,32 @@ https://templatemo.com/tm-569-edu-meeting
         checkSection();
       });
     </script>
+
+	<!-- 카카오톡 로그인 기능 -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script>
         window.Kakao.init("e9d0bcae2dc6950a5ef78930a776afb9");
 
         function kakaoLogin() {
             window.Kakao.Auth.login({
-                scope: 'profile_nickname,account_email', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
-                success: function(response) {
-                    console.log(response) // 로그인 성공하면 받아오는 데이터
-                    window.Kakao.API.request({ // 사용자 정보 가져오기 
+                scope: 'profile_nickname,account_email',
+                success: function(authObj) {
+                    window.Kakao.API.request({ 
                         url: '/v2/user/me',
-                        success: (res) => {
-                            const kakao_account = res.kakao_account;
-                            console.log(kakao_account)
-                   var user_email =res.kakao_account.email;
-                    window.location.href='http://localhost:8085/myapp2/index.do'
+                        success: res => {
+                            const email = res.kakao_account;
+                            const name = res.properties.nickname;
+                            
+                            $('#kakaoemail').val(email);
+                            $('#kakaoname').val(name);
+                            
+                            $.ajax({
+                    			url : "login.do",
+                    			type : "post",
+                    			data : {"member_id":email, "member_name":name},
+                    			success : window.location.href="http://localhost:8085/myapp2/index.do",
+                    			error : function(){ alert("error"); }
+                    		});
                         }
                     });
                 },
@@ -268,6 +290,8 @@ https://templatemo.com/tm-569-edu-meeting
                 }
             });
         }
+        
+       
 </script>
 
 

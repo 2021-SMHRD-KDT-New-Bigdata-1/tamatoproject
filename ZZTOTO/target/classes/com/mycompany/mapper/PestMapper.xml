@@ -6,4 +6,10 @@
 	<insert id="saveImage" parameterType="java.util.Map">
 		INSERT INTO img_table VALUES(#{img})
 	</insert>
-</mapper> 
+	<select id="login" parameterType="com.mycompany.domain.Member">
+		SELECT * FROM members WHERE member_id=#{member_id} and member_pwd=#{member_pwd}
+	</select>
+	<insert id="join" parameterType="com.mycompany.domain.Member">
+		INSERT INTO members(member_id, member_name, member_joindate, admin_yn) values ()
+	</insert>
+</mapper>
