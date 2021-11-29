@@ -58,6 +58,8 @@ https://templatemo.com/tm-569-edu-meeting
 							<li><a href="notification.do">할 일</a></li>
 							<li><a href="drone.do">드론 방역/방제</a></li>
 							<li><a href="news.do">농업 정책</a></li>
+							<li><a href="javascript:kakaoLogin();"><img
+									src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"></a></li>
 						</ul>
 						<a class='menu-trigger'> <span>Menu</span>
 						</a>
@@ -86,9 +88,11 @@ https://templatemo.com/tm-569-edu-meeting
 				</div>
 			</div>
 		</section>
+		
+		<!-- Main Grid -->
 		<div class="album py-5 bg-light">
 			<div class="container">
-				<div class="row row-cols-1 row-cols-sm-2 row-cols-sm-2 g-3">
+				<div class="row row-cols-1 row-cols-xs-2 row-cols-sm-4 g-3">
 					<div class="col">
 						<a href="deep.do">
 							<div class="card shadow-sm">
@@ -205,7 +209,7 @@ https://templatemo.com/tm-569-edu-meeting
 		</p>
 	</div>
 	<!-- Footer End -->
-	
+
 	<!-- Scripts -->
 	<!-- CDN for Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -277,6 +281,33 @@ https://templatemo.com/tm-569-edu-meeting
         checkSection();
       });
     </script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script>
+        window.Kakao.init("e9d0bcae2dc6950a5ef78930a776afb9");
+
+        function kakaoLogin() {
+            window.Kakao.Auth.login({
+                scope: 'profile_nickname,account_email', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+                success: function(response) {
+                    console.log(response) // 로그인 성공하면 받아오는 데이터
+                    window.Kakao.API.request({ // 사용자 정보 가져오기 
+                        url: '/v2/user/me',
+                        success: (res) => {
+                            const kakao_account = res.kakao_account;
+                            console.log(kakao_account)
+                   var user_email =res.kakao_account.email;
+                    window.location.href='http://localhost:8085/myapp2/index.do'
+                        }
+                    });
+                },
+                fail: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+</script>
+
+
 </body>
 
 </html>
