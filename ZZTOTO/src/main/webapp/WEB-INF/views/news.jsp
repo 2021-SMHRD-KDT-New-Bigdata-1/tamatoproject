@@ -65,7 +65,7 @@
   							<div class="bg-light border"><p class="card-text"><a href="https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1328&ccfNo=3&cciNo=2&cnpClsNo=1&search_put=">농업창업자금 지원</a></p></div>
   							<div class="bg-light border"><p class="card-text"><a href="https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1328&ccfNo=3&cciNo=2&cnpClsNo=2&search_put=">농업기계 자금지원</a></p></div>
 							<div class="bg-light border"><p class="card-text"><a href="https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1328&ccfNo=3&cciNo=3&cnpClsNo=1&search_put=">주택구입 지원 및 임대</a></p></div>
-							<div class="bg-light border"><p class="card-text"><a href="https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1328&ccfNo=3&cciNo=3&cnpClsNo=2&search_put=">택신축 지원</a></p></div>
+							<div class="bg-light border"><p class="card-text"><a href="https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1328&ccfNo=3&cciNo=3&cnpClsNo=2&search_put=">주택신축 지원</a></p></div>
 						</div>
                     </div>
                 </div>
