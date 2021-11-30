@@ -84,8 +84,16 @@
 					<form action="/saveImage" enctype="multipart/form-data"
 						method="post">
 						<!-- 호출된 카메라로 찍은 사진을 가져오는 input값 by 이길환  -->
-						<input type="file" id="camera" name="camera" capture="camera"
-							accept="image/*" /> <br /> <img id="pic" style="width: 50%;" />
+					<!-- <input type="file" id="camera" name="camera" capture="camera" 
+							accept="image/*" />  -->
+							
+							  <label class="btn btn-primary btn-file">
+						      	사진추가 <input type="file" style="display: none;" id="camera" name="camera" capture="camera" accept="image/*" />
+						      </label>
+						<br /> <img id="pic" style="width: 256px; height:256px" />
+
+							
+							
 					</form>
 				</div>
 			</div>
