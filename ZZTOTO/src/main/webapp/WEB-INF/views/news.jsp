@@ -63,6 +63,7 @@
 	</header>
 	<!-- ***** Header Area End ***** -->
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	<!-- Page Content-->
 	<div class="container px-4 px-lg-5">
@@ -258,6 +259,8 @@
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
 =======
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
     <!-- Page Content-->
     <div class="container px-4 px-lg-5">
         <!-- Content Row-->
