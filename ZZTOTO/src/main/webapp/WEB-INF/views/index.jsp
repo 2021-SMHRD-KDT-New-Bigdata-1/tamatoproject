@@ -59,10 +59,16 @@ https://templatemo.com/tm-569-edu-meeting
 							<li><a href="notification.do">할 일</a></li>
 							<li><a href="drone.do">드론 방역/방제</a></li>
 							<li><a href="news.do">농업 정책</a></li>
+							<!-- 로그인이 안되어있을때 -->
 							<c:if test="${vo==null}">
 								<li><a href="javascript:kakaoLogin();"><img
 										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
 										style="height: 30px; width: 80px;"></a></li>
+							</c:if>
+							<!-- 로그인이 되어있을때 -->
+							<c:if test="${vo!=null}">
+								<li><button type="button" class="btn btn-info btn-sm"
+										onclick="logout()">로그아웃</button></li>
 							</c:if>
 						</ul>
 						<a class='menu-trigger'> <span>Menu</span>
@@ -103,7 +109,8 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                  
                   <title>Placeholder</title>
-                 	<img id="icon" src="${pageContext.request.contextPath}/resources/images/camera2.png">
+                 	<img id="icon"
+										src="${pageContext.request.contextPath}/resources/images/camera2.png">
                  </svg>
 								<div class="card-body">
 									<h4 class="card-text">병충해 진단</h4>
@@ -245,7 +252,11 @@ https://templatemo.com/tm-569-edu-meeting
         checkSection();
       });
     </script>
-
+	<script>
+	function logout() {
+		location.href="logout.do";
+	}
+	</script>
 	<!-- 카카오톡 로그인 기능 -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script>
@@ -260,8 +271,8 @@ https://templatemo.com/tm-569-edu-meeting
                         url: '/v2/user/me',
                         success: res => {
                             const kakao_account = res.kakao_account;
-                            console.log(kakao_account);
-                            console.log(kakao_account.email)
+                            /* console.log(kakao_account);
+                            console.log(kakao_account.email) */
                             $.ajax({
                     			url : "login.do",
                     			type : "post",
