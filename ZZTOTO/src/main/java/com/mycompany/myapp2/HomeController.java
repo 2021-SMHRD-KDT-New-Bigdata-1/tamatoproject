@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.mycompany.domain.Drone_prevention;
 import com.mycompany.domain.Pest_files;
 import com.mycompany.mapper.PestMapper;
 
@@ -49,6 +50,16 @@ public class HomeController {
 	public String news() {
 		return "news";
 	}
+	
+	@RequestMapping("/droneInsert.do")
+   public String droneInsert(Drone_prevention vo) {
+	   System.out.println("test");
+	   System.out.println(vo.getProposer_Email());
+		mapper.droneInsert(vo);
+	   
+	   return "redirect:/drone.do"; // redirect: ViewResolver 가 동작하지 않는다
+	  
+   }
 
 	// Ajax활용 파일 업로드 기능 :
 	@PostMapping(value="/uploadAjaxAction", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
