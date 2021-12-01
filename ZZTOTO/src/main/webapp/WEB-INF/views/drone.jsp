@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<meta name="viewport"  initial-scale=0, user-scalable=no" >
+<meta name="viewport  initial-scale=0, user-scalable=no" >
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/drone.css">

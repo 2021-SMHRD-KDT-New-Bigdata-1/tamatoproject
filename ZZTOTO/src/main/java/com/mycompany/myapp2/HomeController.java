@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mycompany.domain.Drone_prevention;
-import com.mycompany.domain.Pest_files;
+
 import com.mycompany.domain.Member;
 import com.mycompany.domain.Pest_file;
 import com.mycompany.mapper.PestMapper;
