@@ -59,21 +59,11 @@ https://templatemo.com/tm-569-edu-meeting
 							<li><a href="drone.do">드론 방역/방제</a></li>
 							<li><a href="news.do">농업 정책</a></li>
 							<c:if test="${vo==null}">
-								<li><div class="kakaobtn" id="kakaologin">
-										<input type="hidden" name="kakoemail" id="kakaoemail">
-										<input type="hidden" name="kakoname" id="kakaoname">
-									</div> <a href="javascript:kakaoLogin();"><img
+								<li><a href="javascript:kakaoLogin();"><img
 										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
 										style="height: 30px; width: 80px;"></a></li>
 							</c:if>
-							<!-- kakao정보를 넘기기위해 만든 form(숨김) -->
-							<form action="/login.do" method="post" name="lfrm" hidden="">
-								<input type="text" name="kakaoemail" id="kakaoemail" value="" />
-							</form>
-							<c:if test="${vo==null}">
-							</c:if>
 						</ul>
-
 						<a class='menu-trigger'> <span>Menu</span>
 						</a>
 						<!-- ***** Menu End ***** -->
@@ -112,8 +102,7 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                  
                   <title>Placeholder</title>
-                 	<img id="icon"
-										src="${pageContext.request.contextPath}/resources/images/camera2.png">
+                 	<img id="icon" src="${pageContext.request.contextPath}/resources/images/camera2.png">
                  </svg>
 								<div class="card-body">
 									<h4 class="card-text">병충해 진단</h4>
@@ -227,7 +216,6 @@ https://templatemo.com/tm-569-edu-meeting
         } else {
           $('body, html').scrollTop(reqSectionPos);
         }
-
       };
 
       var checkSection = function checkSection() {
@@ -264,23 +252,21 @@ https://templatemo.com/tm-569-edu-meeting
 
         function kakaoLogin() {
             window.Kakao.Auth.login({
-                scope: 'profile_nickname,account_email',
+                scope: 'profile_nickname, account_email',
                 success: function(authObj) {
+                	console.log(authObj)	// 로그인 성공시 받아오는 데이터
                     window.Kakao.API.request({ 
                         url: '/v2/user/me',
                         success: res => {
-                            const email = res.kakao_account;
-                            const name = res.properties.nickname;
-                            
-                            $('#kakaoemail').val(email);
-                            $('#kakaoname').val(name);
-                            
+                            const kakao_account = res.kakao_account;
+                            console.log(kakao_account);
+                            console.log(kakao_account.email)
                             $.ajax({
                     			url : "login.do",
                     			type : "post",
-                    			data : {"member_id":email, "member_name":name},
-                    			success : window.location.href="http://localhost:8085/myapp2/index.do",
-                    			error : function(){ alert("error"); }
+                    			data : {"member_id":kakao_account.email, "member_name":kakao_account.profile.nickname},
+                    			success : console.log("success!"),
+                    			error : function(){ console.log("error") }
                     		});
                         }
                     });
@@ -290,11 +276,7 @@ https://templatemo.com/tm-569-edu-meeting
                 }
             });
         }
-        
-       
 </script>
-
-
 </body>
 
 </html>
