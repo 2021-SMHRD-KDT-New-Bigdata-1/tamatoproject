@@ -23,6 +23,8 @@ public class Pest_file {
 	
 	/* 파일 이름 */
 	private String fileName;
+
+
 	
 	
 	

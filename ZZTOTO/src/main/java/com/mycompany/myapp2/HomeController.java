@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.mycompany.domain.Drone_prevention;
+
 import com.mycompany.domain.Member;
 import com.mycompany.domain.Pest_file;
 import com.mycompany.mapper.PestMapper;
@@ -48,6 +50,16 @@ public class HomeController {
 		return "news";
 	}
 	
+
+	@RequestMapping("/droneInsert.do")
+   public String droneInsert(Drone_prevention vo) {
+	   System.out.println("test");
+		mapper.droneInsert(vo);
+	   
+	   return "redirect:/drone.do"; // redirect: ViewResolver 가 동작하지 않는다
+	  
+   }
+
 	// 로그인처리
 	@RequestMapping("/login.do")
 	public String login(Member member, HttpSession session) {
