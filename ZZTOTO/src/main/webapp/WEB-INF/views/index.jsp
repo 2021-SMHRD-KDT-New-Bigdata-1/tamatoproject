@@ -4,6 +4,7 @@
 	pageEncoding="EUC-KR"%>
 
 <!DOCTYPE html>
+
 <html>
 <head>
 
@@ -58,9 +59,11 @@ https://templatemo.com/tm-569-edu-meeting
 							<li><a href="notification.do">할 일</a></li>
 							<li><a href="drone.do">드론 방역/방제</a></li>
 							<li><a href="news.do">농업 정책</a></li>
-							<li><a href="javascript:kakaoLogin();"><img 
-									src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
-									style="height: 30px; width:80px;"></a></li>
+							<c:if test="${vo==null}">
+								<li><a href="javascript:kakaoLogin();"><img
+										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
+										style="height: 30px; width: 80px;"></a></li>
+							</c:if>
 						</ul>
 						<a class='menu-trigger'> <span>Menu</span>
 						</a>
@@ -100,8 +103,7 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                  
                   <title>Placeholder</title>
-                 	<img id="icon"
-										src="${pageContext.request.contextPath}/resources/images/camera2.png">
+                 	<img id="icon" src="${pageContext.request.contextPath}/resources/images/camera2.png">
                  </svg>
 								<div class="card-body">
 									<h4 class="card-text">병충해 진단</h4>
@@ -215,7 +217,6 @@ https://templatemo.com/tm-569-edu-meeting
         } else {
           $('body, html').scrollTop(reqSectionPos);
         }
-
       };
 
       var checkSection = function checkSection() {
@@ -244,22 +245,30 @@ https://templatemo.com/tm-569-edu-meeting
         checkSection();
       });
     </script>
+
+	<!-- 카카오톡 로그인 기능 -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script>
         window.Kakao.init("e9d0bcae2dc6950a5ef78930a776afb9");
 
         function kakaoLogin() {
             window.Kakao.Auth.login({
-                scope: 'profile_nickname,account_email', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
-                success: function(response) {
-                    console.log(response) // 로그인 성공하면 받아오는 데이터
-                    window.Kakao.API.request({ // 사용자 정보 가져오기 
+                scope: 'profile_nickname, account_email',
+                success: function(authObj) {
+                	console.log(authObj)	// 로그인 성공시 받아오는 데이터
+                    window.Kakao.API.request({ 
                         url: '/v2/user/me',
-                        success: (res) => {
+                        success: res => {
                             const kakao_account = res.kakao_account;
-                            console.log(kakao_account)
-                   var user_email =res.kakao_account.email;
-                    window.location.href='http://localhost:8085/myapp2/index.do'
+                            console.log(kakao_account);
+                            console.log(kakao_account.email)
+                            $.ajax({
+                    			url : "login.do",
+                    			type : "post",
+                    			data : {"member_id":kakao_account.email, "member_name":kakao_account.profile.nickname},
+                    			success : console.log("success!"),
+                    			error : function(){ console.log("error") }
+                    		});
                         }
                     });
                 },
@@ -269,8 +278,6 @@ https://templatemo.com/tm-569-edu-meeting
             });
         }
 </script>
-
-
 </body>
 
 </html>

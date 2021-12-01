@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Pest_files {
+public class Pest_file {
 	
 	/* 파일 번호 */
 	private int file_num;
