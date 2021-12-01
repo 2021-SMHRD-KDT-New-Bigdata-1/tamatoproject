@@ -22,5 +22,5 @@ public interface PestMapper {
 	public int schedule_add(Schedule schedule);
 	public int before_schedule_add_search(Schedule schedule);
 	//public ArrayList<Schedule> schedule_list(DateData dateData);
-	
+
 }
