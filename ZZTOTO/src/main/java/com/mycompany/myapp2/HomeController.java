@@ -54,7 +54,6 @@ public class HomeController {
 	@RequestMapping("/droneInsert.do")
    public String droneInsert(Drone_prevention vo) {
 	   System.out.println("test");
-	   System.out.println(vo.getProposer_Email());
 		mapper.droneInsert(vo);
 	   
 	   return "redirect:/drone.do"; // redirect: ViewResolver 가 동작하지 않는다
