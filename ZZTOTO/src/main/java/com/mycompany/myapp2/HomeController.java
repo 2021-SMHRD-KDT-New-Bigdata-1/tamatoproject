@@ -21,7 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.mycompany.domain.Drone_prevention;
 
 import com.mycompany.domain.Member;
-import com.mycompany.domain.Pest_file;
+import com.mycompany.domain.User_pestfile;
 import com.mycompany.mapper.PestMapper;
 
 @Controller
@@ -61,7 +61,7 @@ public class HomeController {
 	  
    }
 
-	// 로그인처리
+	// 로그인 처리
 	@RequestMapping("/login.do")
 	public String login(Member member, HttpSession session) {
 		Member vo = mapper.login(member);
@@ -77,9 +77,16 @@ public class HomeController {
 		return "redirect:/index.do";
 	}
 
+	// 로그아웃 처리
+	@RequestMapping("logout.do")
+	public String boardLogout(HttpSession session) {
+		session.invalidate();	// 세션무효화
+		return "redirect:/main.do";
+	}
+	
 	// Ajax활용 파일 업로드 기능 :
 	@PostMapping(value = "/uploadAjaxAction", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<List<Pest_file>> uploadAjaxAction(MultipartFile[] uploadFile) {
+	public ResponseEntity<List<User_pestfile>> uploadAjaxAction(MultipartFile[] uploadFile) {
 
 		// 날짜별 폴더 생성
 		String uploadFolder = "C:\\upload";
@@ -100,13 +107,13 @@ public class HomeController {
 		}
 
 		/* 이미지 정보 담는 객체 */
-		List<Pest_file> list = new ArrayList();
+		List<User_pestfile> list = new ArrayList();
 
 		/* 파일 생성 */
 		for (MultipartFile multipartFile : uploadFile) {
 
 			/* 이미지 정보 객체 */
-			Pest_file pf = new Pest_file();
+			User_pestfile pf = new User_pestfile();
 
 			/* 파일 이름 */
 			String uploadFileName = multipartFile.getOriginalFilename();
@@ -131,7 +138,7 @@ public class HomeController {
 			list.add(pf);
 		} // for
 
-		ResponseEntity<List<Pest_file>> result = new ResponseEntity<List<Pest_file>>(list, HttpStatus.OK);
+		ResponseEntity<List<User_pestfile>> result = new ResponseEntity<List<User_pestfile>>(list, HttpStatus.OK);
 		return result;
 	}
 }

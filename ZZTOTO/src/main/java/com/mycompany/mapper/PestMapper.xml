@@ -2,23 +2,36 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="com.mycompany.mapper.PestMapper">
-	<!-- <insert id="saveImage" parameterType="java.util.Map">
-		INSERT INTO img_table VALUES(#{img})
-	</insert> -->
-	<select id="login" parameterType="com.mycompany.domain.Member" resultType="com.mycompany.domain.Member">
+	<!-- <insert id="saveImage" parameterType="java.util.Map"> INSERT INTO img_table 
+		VALUES(#{img}) </insert> -->
+	<select id="login" parameterType="com.mycompany.domain.Member"
+		resultType="com.mycompany.domain.Member">
 		SELECT * FROM members WHERE member_id=#{member_id}
 	</select>
 	<insert id="join" parameterType="com.mycompany.domain.Member">
-		INSERT INTO members(member_id, member_name) 
+		INSERT INTO members(member_id,
+		member_name)
 		values (#{member_id}, #{member_name})
 	</insert>
-	
-	  <insert id="droneInsert" parameterType="com.mycompany.domain.Drone_prevention">
-      INSERT INTO drone_preventions (reservation_date, member_id, proposer_name, proposer_email, proposer_number, proposer_address, land_type, area, pesticide, pest_name, crop_name) 
-      VALUES (#{reservation_Date}, 'jyd37855@gmail.com', #{proposer_Name}, #{proposer_Email}, #{proposer_Number}, #{proposer_Address}, #{land_Type}, #{area}, #{pesticide}, #{pest_Name}, #{crop_Name});
-  </insert>
+	<insert id="droneInsert"
+		parameterType="com.mycompany.domain.Drone_prevention">
+		INSERT INTO drone_preventions (reservation_date,
+		member_id, proposer_name,
+		proposer_email, proposer_number,
+		proposer_address, land_type, area,
+		pesticide, pest_name, crop_name)
+		VALUES (#{reservation_Date}, 'jyd37855@gmail.com', #{proposer_Name},
+		#{proposer_Email}, #{proposer_Number}, #{proposer_Address},
+		#{land_Type}, #{area}, #{pesticide}, #{pest_Name}, #{crop_Name});
+	</insert>
+	<insert id="schedule"
+		parameterType="com.mycompany.domain.Schedule">
+		INSERT INTO schedules (schedule_idx, schedule_num,
+		schedule_title, schedule_content, schedule_regdate)
+		VALUES (#{schedule_idx}, #{schedule_num}, #{schedule_title}, #{schedule_content})
+	</insert>
 </mapper> 
 
 
