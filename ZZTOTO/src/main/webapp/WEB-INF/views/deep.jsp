@@ -57,9 +57,38 @@
             // 여기안에 병충해 설명과 병충해 해결방안<div>~</div>을 넣어야 하나..
             $('div.row.gx-4.gx-lg-5:not(.my-5)')[0].style.display='flex'
           
+            
+            
          }
 
 	}
+	
+	$(function () {
+
+        $('#anal_btn').on('click', function () {
+
+            $.ajax({
+                url: 'http://127.0.0.1:8000/api/pest_analysis',
+                type: 'get',
+                datatype: 'jason',
+                success: function (data) {
+                    //alert("성공!")
+                    //alert(data)
+                    console.log(data.text)
+                    $.each(data, function (index, item) { // 데이터 =item
+                       // index가 끝날때까지 
+                        $("#symtoms").html(item.pest_symptom + "<br>");
+                        $("#solution").html(item.pest_solution + "<br>");
+                      
+                    });
+                },
+                error: function (err) {
+
+                }
+            })
+        })
+    })
+	
 
 
 </script>
@@ -115,7 +144,7 @@
 							
 							
 					</form>
-						<br /> <button type="submit" class="btn btn-info btn-sm"
+						<br /> <button id="anal_btn" type="submit" class="btn btn-info btn-sm"
 							onclick="ImgCheck()">분석하기</button>
 				</div>
 			</div>
@@ -125,7 +154,7 @@
 					<h2 class="card-title">병충해 설명</h2>
 					<div class="card h-100">
 						<div class="card-body">
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+							<p id="symtoms" class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Rem magni quas ex numquam, maxime minus quam
 								molestias corporis quod, ea minima accusamus.</p>
 						</div>
@@ -138,7 +167,7 @@
 					<h2 class="card-title">병충해 해결방안</h2>
 					<div class="card h-100">
 						<div class="card-body">
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+							<p id="solution" class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Quod tenetur ex natus at dolorem enim!
 								Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id
 								dolore voluptates quos eligendi labore.</p>
