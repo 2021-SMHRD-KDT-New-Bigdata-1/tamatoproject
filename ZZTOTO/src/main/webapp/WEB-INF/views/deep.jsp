@@ -176,12 +176,15 @@
 		</div>
 	</main>
 	<!-- Footer-->
-	<footer class="py-5 bg-dark">
-		<div class="container px-4 px-lg-5">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2021</p>
-		</div>
-	</footer>
+	<!-- 왜 있는지 모를 클래스 푸터 -->
+	<!-- <footer class="py-5 bg-dark">
+		<div class="container px-4 px-lg-5"> -->
+			<div class="footer">
+				<p class="m-0 text-center text-white">Copyright &copy; Your
+					Website 2021</p>
+			</div>		
+		<!-- </div>
+	</footer> -->
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -132,6 +132,10 @@ img {
 	align-self: center;
 }
 
+.card-text {
+	font-size : 25px;
+}
+
 /* 
 ---------------------------------------------
 global styles
