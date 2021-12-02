@@ -271,12 +271,14 @@
 		</div>
 	</main>
 	<!-- Footer Start -->
-	<footer class="py-5 bg-dark">
-		<div class="container px-4 px-lg-5">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2021</p>
-		</div>
-	</footer>
+	<div class="footer">
+		<!-- <footer class="py-5 bg-dark"> <!--왜 있는지 모를 class  -->
+			<!-- <div class="container px-4 px-lg-5"> -->
+				<p class="m-0 text-center text-white">Copyright &copy; Your
+					Website 2021</p>
+			<!-- </div> -->
+		<!-- </footer> -->
+	</div>
 	<!-- Footer End -->
 
 	<!-- Bootstrap core JS-->

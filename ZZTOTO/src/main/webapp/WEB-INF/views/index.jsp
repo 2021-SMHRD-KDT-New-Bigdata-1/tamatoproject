@@ -83,7 +83,7 @@ https://templatemo.com/tm-569-edu-meeting
 
 	<!-- ***** Main Area Start ***** -->
 	<main>
-		<section class="py-5 text-center container">
+		<section class="py-5 text-center container" id="toto">
 			<div class="row py-lg-5">
 				<div class="col-lg-6 col-md-8 mx-auto">
 					<h1 class="fw-light">Album example</h1>
@@ -130,7 +130,7 @@ https://templatemo.com/tm-569-edu-meeting
 										src="${pageContext.request.contextPath}/resources/images/farming.png">
                 </svg>
 								<div class="card-body">
-									<h4 class="card-text">할 일</h4>
+									<h4 class="card-text">일정관리</h4>
 								</div>
 							</div>
 						</a>
@@ -163,10 +163,10 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
                 <img id="icon"
-										src="${pageContext.request.contextPath}/resources/images/newspaper.png">
+										src="${pageContext.request.contextPath}/resources/images/diary.png">
                 </svg>
 								<div class="card-body">
-									<h4 class="card-text">농업 정책</h4>
+									<h4 class="card-text">영농일지</h4>
 								</div>
 							</div>
 						</a>

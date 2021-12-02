@@ -13,7 +13,7 @@ public class Farm_diary {
 	private int diary_num;
 	private String diary_subject;
 	private String diary_content;
-	private String land_type;
-	private Date reg_date;
+	private String issue;
+	private String reg_date;
 	private String member_id;
 }

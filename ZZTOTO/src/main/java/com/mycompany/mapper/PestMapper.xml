@@ -37,6 +37,12 @@
 	<select id="schedule_list" resultType="com.mycompany.domain.Schedule">
 		select * from schedules order by schedule_date, schedule_idx, schedule_idx
 	</select>
+ 
+
+  <select id="Farm_diaryList" parameterType="com.mycompany.domain.Farm_diary" resultType="com.mycompany.domain.Farm_diary">
+    select * from farm_diaries
+  </select>
+  
 </mapper> 
 
 
