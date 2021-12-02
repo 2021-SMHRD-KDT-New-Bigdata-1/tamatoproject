@@ -102,26 +102,26 @@
 				if(message!=""){
 					alert(message);
 					}
-		</script>
+			</script>
 			<div class="calendar">
 				<!--날짜 네비게이션  -->
 				<div class="navigation">
 					<a class="before_after_year"
-						href="./calendar.do?year=${today_info.search_year-1}&month=${today_info.search_month-1}">
+						href="./notification.do?year=${today_info.search_year-1}&month=${today_info.search_month-1}">
 						&lt;&lt; <!-- 이전해 -->
 					</a> <a class="before_after_month"
-						href="./calendar.do?year=${today_info.before_year}&month=${today_info.before_month}">
+						href="./notification.do?year=${today_info.before_year}&month=${today_info.before_month}">
 						&lt; <!-- 이전달 -->
 					</a> <span class="this_month"> &nbsp;${today_info.search_year}.
 						<c:if test="${today_info.search_month<10}">0</c:if>${today_info.search_month}
 					</span> <a class="before_after_month"
-						href="/calendar.do?year=${today_info.after_year}&month=${today_info.after_month}">
+						href="./notification.do?year=${today_info.after_year}&month=${today_info.after_month}">
 						<!-- 다음달 --> &gt;
 					</a> <a class="before_after_year"
-						href="/calendar.do?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
+						href="./notification.do?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
 						<!-- 다음해 --> &gt;&gt;
 					</a>
-					<button type="button" class="btn btn-primary pull-right"
+					<button type="button" class="btn btn-primary pull-right board_move openMask_board_move pointer"
 						data-bs-toggle="modal" data-bs-target="#addSchedule">일정
 						추가</button>
 				</div>
@@ -198,9 +198,8 @@
 					<!-- Modal body -->
 					<div class="modal-body">
 						<form name="schedule_add" action="schedule_add.do">
-							<input type="hidden" name="year"
-								value="${today_info.search_year}" /> <input type="hidden"
-								name="month" value="${today_info.search_month-1}" />
+							<input type="hidden" name="year" value="${today_info.search_year}" /> 
+							<input type="hidden" name="month" value="${today_info.search_month-1}" />
 							<div class="contents">
 								<ul>
 									<li>
@@ -224,20 +223,19 @@
 										</div>
 									</li>
 								</ul>
-
 							</div>
-						</form>
+						</div>
+	
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<button type="button"
+								class="btn btn-primary board_move_go pointer"
+								data-bs-dismiss="modal" onclick="scheduleAdd();">일정 등록</button>
+							<button type="button" class="btn btn-danger"
+								data-bs-dismiss="modal">Close</button>
+						</div>
 					</div>
-
-					<!-- Modal footer -->
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary"
-							data-bs-dismiss="modal" onclick="scheduleAdd();">일정 등록</button>
-						<button type="button" class="btn btn-danger"
-							data-bs-dismiss="modal">Close</button>
-					</div>
-
-				</div>
+				</form>
 			</div>
 		</div>
 		<div id="mask_board_move"></div>
@@ -262,7 +260,7 @@
 					return false;
 				}else if(schedule_add_form.schedule_title.value==""||schedule_add_form.schedule_title.value==null){
 					alert("제목을 입력해주세요.");
-					schedule_add_form.schedule_date.focus();
+					schedule_add_form.schedule_title.focus();
 					return false;
 				}
 				schedule_add_form.submit();
@@ -273,10 +271,10 @@
 	<!-- Footer Start -->
 	<div class="footer">
 		<!-- <footer class="py-5 bg-dark"> <!--왜 있는지 모를 class  -->
-			<!-- <div class="container px-4 px-lg-5"> -->
-				<p class="m-0 text-center text-white">Copyright &copy; Your
-					Website 2021</p>
-			<!-- </div> -->
+		<!-- <div class="container px-4 px-lg-5"> -->
+		<p class="m-0 text-center text-white">Copyright &copy; Your
+			Website 2021</p>
+		<!-- </div> -->
 		<!-- </footer> -->
 	</div>
 	<!-- Footer End -->

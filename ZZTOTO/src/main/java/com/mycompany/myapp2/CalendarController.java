@@ -81,12 +81,14 @@ public class CalendarController {
 
 		// 날짜 삽입
 		for (int i = today_info.get("startDay"); i <= today_info.get("endDay"); i++) {
+			Schedule[] schedule_data_arr3 = new Schedule[4];
+			schedule_data_arr3 = schedule_data_arr[i];
 			if (i == today_info.get("today")) {
 				calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),
-						String.valueOf(i), "today", schedule_data_arr[3]);
+						String.valueOf(i), "today", schedule_data_arr3);
 			} else {
 				calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),
-						String.valueOf(i), "normal_date", schedule_data_arr[3]);
+						String.valueOf(i), "normal_date", schedule_data_arr3);
 			}
 			dateList.add(calendarData);
 		}
@@ -101,10 +103,9 @@ public class CalendarController {
 				dateList.add(calendarData);
 			}
 		}
-		System.out.println(dateList);
 
 		// 배열에 담음
-		model.addAttribute("dateList", dateList);
+		model.addAttribute("dateList", dateList); //날짜 데이터 배열
 		model.addAttribute("today_info", today_info);
 		return "notification";
 	}
