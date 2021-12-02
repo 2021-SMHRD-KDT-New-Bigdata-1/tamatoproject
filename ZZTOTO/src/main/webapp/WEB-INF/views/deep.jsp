@@ -68,16 +68,16 @@
         $('#anal_btn').on('click', function () {
 
             $.ajax({
-                url: 'http://127.0.0.1:8000/api/pest_analysis',
+                url: 'http://222.102.43.169:8000/api/pest_analysis',
                 type: 'get',
-                datatype: 'jason',
+                datatype: 'json',
                 success: function (data) {
                     //alert("성공!")
                     //alert(data)
                     console.log(data.text)
                     $.each(data, function (index, item) { // 데이터 =item
                        // index가 끝날때까지 
-                        $("#symtoms").html(item.pest_symptom + "<br>");
+                        $("#symtoms").html(item.pest_reason + "<br>");
                         $("#solution").html(item.pest_solution + "<br>");
                       
                     });
