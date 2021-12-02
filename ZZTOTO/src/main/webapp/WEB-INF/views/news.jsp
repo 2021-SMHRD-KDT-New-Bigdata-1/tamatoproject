@@ -14,6 +14,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link
+   href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+   rel="stylesheet">
+   <link rel="stylesheet"
+   href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
+   <link rel="stylesheet"
+   href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
+   <link rel="stylesheet"
+   href="${pageContext.request.contextPath}/resources/css/owl.css">
+<link rel="stylesheet"
+   href="${pageContext.request.contextPath}/resources/css/lightbox.css">
 <script
     src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -70,14 +81,18 @@
             
             view += "</tr>";
             view += "<tr id ='ct"+index+"' style='display:none'>";
-            view += "<td colspan = '7'>";
+            view += "<td colspan = '5'>";
             view += "<table class='table'>";
             view += "<tr>";
             view += "<td>내용</td>";
-            view += "<td><textarea rows='7' id='diary_content"+index+"' class='form-control'>"+obj.diary_content+"</textarea></td>";
+            view += "<td><textarea rows='5' id='diary_content"+index+"' class='form-control'>"+obj.diary_content+"</textarea></td>";
             view += "</tr>";
             view += "<tr>";
-            view+="<td colspan='7'>";
+            view += "<td>특이사항</td>";
+            view += "<td><textarea rows='1' id='issue"+index+"' class='form-control'>"+obj.issue+"</textarea></td>";
+            view += "</tr>";
+            view += "<tr>";
+            view+="<td colspan='5'>";
             if(${vo!=null}){
                if('${vo.member_id}'==obj.member_id){
                   view+="<button class='btn btn-info btn-sm' onclick = 'updateFn("+index+")'>수정</button>&nbsp;";
@@ -220,6 +235,30 @@
 </script>
 </head>
 <body>
+	<header class="header-area header-sticky">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a href="index.do" class="logo"> 피톤치드 </a>
+						<!-- ***** Logo End ***** -->
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+							<li><a href="deep.do">병충해 진단</a></li>
+							<li class="scroll-to-section"><a href="#apply">알림</a></li>
+							<li class="scroll-to-section"><a href="#apply">방역/방제</a></li>
+							<li class="scroll-to-section"><a href="#courses">검색</a></li>
+						</ul>
+						<a class='menu-trigger'> <span>Menu</span>
+						</a>
+						<!-- ***** Menu End ***** -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
    <div class="container">
       <h2>영농일지</h2>
       <div class="panel panel-default">         
