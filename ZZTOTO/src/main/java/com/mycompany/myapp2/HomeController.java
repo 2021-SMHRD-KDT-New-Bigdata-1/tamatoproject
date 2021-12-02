@@ -29,7 +29,7 @@ public class HomeController {
 
 	@Autowired
 	private PestMapper mapper;
-
+	
 	@RequestMapping("/index.do")
 	public String index() {
 		return "index";
@@ -49,7 +49,6 @@ public class HomeController {
 	public String news() {
 		return "news";
 	}
-	
 
 	@RequestMapping("/droneInsert.do")
    public String droneInsert(Drone_prevention vo) {
