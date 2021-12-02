@@ -31,7 +31,6 @@ font & reset css
 @import
 	url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900")
 	;
-@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap');
 /* 
 ---------------------------------------------
 reset
@@ -89,7 +88,7 @@ header, nav, section, article, aside, footer, hgroup {
 }
 
 html, body {
-	font-family: 'Dongle', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 	background-color: #fff;
 	font-size: 16px;
@@ -139,8 +138,7 @@ global styles
 */
 html, body {
 	background: #fff;
-	font-family: 'Dongle', sans-serif;
-	font-size : 22px;
+	font-family: 'Poppins', sans-serif;
 }
 
 main {
@@ -313,7 +311,7 @@ header
 .header-area .main-nav .logo {
 	line-height: 70px;
 	color: black;
-	font-size: 60px;
+	font-size: 28px;
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -357,7 +355,7 @@ header
 .header-area .main-nav .nav li a {
 	display: block;
 	font-weight: 500;
-	font-size: 30px;
+	font-size: 14px;
 	text-transform: uppercase;
 	color: black;
 	-webkit-transition: all 0.3s ease 0s;
@@ -710,7 +708,7 @@ footer
 
 .footer p {
 	text-transform: uppercase;
-	font-size: 20px;
+	font-size: 14px;
 	color: white;
 }
 

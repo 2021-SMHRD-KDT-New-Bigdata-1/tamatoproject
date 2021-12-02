@@ -1,282 +1,204 @@
-<%@page import="com.mycompany.domain.Member"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-  <%
-  // íšŒì›ì¸ì¦ì—¬ë¶€ ì²´í¬í•˜ëŠ” ë¶€ë¶„
-     Member vo= (Member)session.getAttribute("vo");
-  %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>ì˜ë†ì¼ì§€</title>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="TemplateMo">
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
+
+<title>KingTomato</title>
+
+<!-- Bootstrap core CSS -->
+<link
+	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+
+
+<!-- Additional CSS Files -->
 <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        loadList();
-    });
-
-    function loadList(){
-        $.ajax({
-       url : "Farm_diaryList.do", // íŒŒì´ì¬ Flask Server : http://127.0.0.1:500
-       type : "get",
-       dataType : "json", // ì„œë²„ë¡œë¶€í„° ë°›ëŠ” ë°ì´í„° íƒ€ì…
-        success : jsonHtml, // callback í•¨ìˆ˜
-        error : function(c,e,a) {alert("error1");console.log(e)}
-        });
-    }                     //                      0      1   2... index
-    function jsonHtml(data) {   // data => object(ê°ì²´) : [{json}, {  }, {  })]]
-        view = "<table class='table table-hover'>";
-        view += "<tr>";
-        view += "<td>ë²ˆí˜¸</td>";
-        view += "<td>ì œëª©</td>";
-        view += "<td>ë‚ ì§œ</td>";
-        if(${vo!=null}){
-           view += "<td>ìˆ˜ì •</td>";
-           view += "<td>ì‚­ì œ</td>";
-        }
-        view += "</tr>";
-        $.each(data, function(index, obj) {   // ëŒë‹¤ì‹(ìµëª…í•¨ìˆ˜) -> Node.js + Android
-            view += "<tr>";
-            view += "<td id='diary_num"+index+"'>" + obj.diary_num; + "</td>";
-            view += "<td id='t"+index+"'><a href = 'javascript:ctFn("+index+")'>"+ obj.diary_subject + "</td>";
-            view += "<td id='w"+index+"'>"+ obj.reg_date + "</td>";
-            
-            if(${vo!=null}){
-               if('${vo.member_id}'==obj.member_id){
-                  view+="<td id='u"+index+"'>";
-                  view+="<button class='btn btn-info btn-sm' onclick='updateTW("+index+")'>ìˆ˜ì •</button>&nbsp;";
-                  view+="</td>";
-                  view+="<td>";
-                  view+="<button class='btn btn-warning btn-sm' onclick ='delGo("+obj.diary_num+")'>ì‚­ì œ</button>";
-                  view+="</td>";
-               }else{
-                  view+="<td id='u"+index+"'>";
-                  view+="<button disabled class='btn btn-info btn-sm' onclick='updateTW("+index+")'>ìˆ˜ì •</button>&nbsp;";
-                  view+="</td>";
-                  view+="<td>";
-                  view+="<button disabled class='btn btn-warning btn-sm' onclick ='delGo("+obj.diary_num+")'>ì‚­ì œ</button>";
-                  view+="</td>";
-               }
-            }
-            
-            view += "</tr>";
-            view += "<tr id ='ct"+index+"' style='display:none'>";
-            view += "<td colspan = '7'>";
-            view += "<table class='table'>";
-            view += "<tr>";
-            view += "<td>ë‚´ìš©</td>";
-            view += "<td><textarea rows='7' id='diary_content"+index+"' class='form-control'>"+obj.diary_content+"</textarea></td>";
-            view += "</tr>";
-            view += "<tr>";
-            view+="<td colspan='7'>";
-            if(${vo!=null}){
-               if('${vo.member_id}'==obj.member_id){
-                  view+="<button class='btn btn-info btn-sm' onclick = 'updateFn("+index+")'>ìˆ˜ì •</button>&nbsp;";
-               }else{
-                  view+="<button disabled class='btn btn-info btn-sm' onclick = 'updateFn("+index+")'>ìˆ˜ì •</button>&nbsp;";
-               }
-            }
-            view+="<button class='btn btn-success btn-sm' onclick = 'closeFn("+index+")'>ë‹«ê¸°</button>";
-            view+="</td>"; 
-            view += "</tr>";
-            view += "</table>";
-            view += "</td>";
-        view += "</tr>";
-        });
-        
-        if(${!empty vo}){
-            view += "<tr>";
-            view += "<td colspan='6'><button class='btn btn-primary btn-sm' onclick='goWrite()' >ê¸€ì“°ê¸°</button></td>";
-            view += "</tr>";
-         }
-        view += "</table>";
-        $(".panel-body").html(view);
-    }
-
-    function updateTW(index){
-        var diary_subject=$("#t"+index).text();
-         var newdiary_subject="<input id='diary_subject"+index+"' type='text' class='form-control' value='"+diary_subject+"'>";
-         $("#t"+index).html(newdiary_subject);  
-         
-         
-         var newButton="<button class='btn btn-primary btn-sm' onclick='updateGo("+index+")'>ìˆ˜ì •í•˜ê¸°</button>"
-         $("#u"+index).html(newButton)
-    }
-    function delGo(diary_num){
-       $.ajax({
-          url : "diaryDeleteAjax.do",
-          type : "get",
-          data : {"diary_num":diary_num},
-          success : loadList,
-          error : function(){alert("error")}
-          
-       })
-    }
-
-    function updateGo(index){
-        // diary_num, title, writer
-        var diary_num=$("#diary_num"+index).text();
-        var diary_subject=$("#diary_subject"+index).val();
-        $.ajax({
-           url : "diaryUpdateAjax.do",
-           type : "post",
-           data : {"diary_num" : diary_num, "diary_subject" : diary_subject},
-           success : loadList,
-           error : function(){ alert("errorupdate0"); }           
-        });
-     }
-    
-    function updateFn(index){
-        var diary_num = $("#diary_num"+index).text();
-        var diary_content=$("#diary_content"+index).val();
-        var issue=$("#issue"+index).val();
-        $.ajax({
-        url : "didaryUpdateAjax1.do",
-        type : "post",
-        data : {"diary_num":diary_num, "diary_content" : diary_content, "issue" : issue },
-        success : loadList,
-        error : function() {alert("errorupdate1");}
-        });
-    }
-    
-    function closeFn(index){
-    $("#ct"+index).css("display","none");
-    }
-    function ctFn(index){
-        if($("#ct"+index).css("display")=="none"){
-            $("#ct"+index).css("display","table-row")  
-        }else{
-        $("#ct"+index).css("display","none")         
-        }
-    }
-    function goWrite(){
-        if($(".writeForm").css("display")=="block"){
-//            $(".writeForm").css("display","none");
-            $(".writeForm").slideUp(800);
-        }else{
-         //   $(".writeForm").css("display","block");
-            $(".writeForm").slideDown(800);
-        }
-    }
-        function insertFn(){
-           
-           var diary_subject=$("#diary_subject").val();
-           if(diary_subject==""){
-            alert("ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”");
-            $("#diary_subject").focus();
-              return false;
-           }
-           
-           var diary_content=$("#diary_content").val();
-           if(diary_content==""){
-            alert("ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”");
-            $("#diary_content").focus();
-              return false;
-           }
-           
-            var frmData = $("#frm").serialize(); // serialize() title = xxx & contetns = xxx & writer = xxx
-            //alert(frmData)
-            $.ajax({
-                url : "diaryInsertAjax.do",
-                type : "post",
-                data : frmData,
-                success : loadList,
-                error : function(c,e,a){ alert("error0"); console.log(c);console.log(a);}           
-                });
-                
-                $("#reset").trigger("click")
-                $(".writeForm").css("display","none");
-            }
-   function logout() {
-      location.href="boardLogout.do"
-   }
-   
-   function formCheck(){
-         var member_id = $("#member_id").val();
-         if(member_id==""){
-            alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
-            $("#member_id").focus();
-            return false;
-         }
-         var userPwd = $("#userPwd").val();
-         if(userPwd==""){
-            alert("íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
-            $("#userPwd").focus();
-            return false;
-         }
-         $("#wform").submit();
-      }
-
-        
-</script>
+	href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/owl.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/lightbox.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/news.css">
 </head>
+
 <body>
-   <div class="container">
-      <h2>ì˜ë†ì¼ì§€</h2>
-      <div class="panel panel-default">         
-         <c:if test="${vo==null}">
-           <div class="panel-heading">
-            <form id="wform" class="form-inline" action="Farmlogin.do" method="post">
-            
-               <div class="form-group">
-                  <label for="member_id">ì•„ì´ë””:</label> 
-                  <input type="text" class="form-control" id="member_id" name="member_id">
-               </div>
-               
-               <div class="form-group">
-                  <label for="userPwd">ë¹„ë°€ë²ˆí˜¸:</label> 
-                  <input type="password" class="form-control"  >
-               </div>
-               
-               <button type="submit" class="btn btn-info btn-sm" onclick="formCheck()">ë¡œê·¸ì¸</button>
-            </form>
-           </div>
-         </c:if>        
-         <div class="panel-body"></div>
-         <div class="writeForm" style="display: none;">
-            <form id="frm" class="form-horizontal" >
-            <input type="hidden" name="member_id" id="member_id" value="${vo.member_id}">
-               <div class="form-group">
-                  <label class="control-label col-sm-2" for="diary_subject">ì œëª©:</label>
-                  <div class="col-sm-10">
-                     <input type="text" class="form-control" id="diary_subject" name="diary_subject"
-                        placeholder="ì œëª©ì„ ì ì–´ì£¼ì„¸ìš”.">
-                  </div>
-               </div>
-               <div class="form-group">
-                  <label class="control-label col-sm-2" for="diary_content">ë‚´ìš©:</label>
-                  <div class="col-sm-10">
-                     <textarea rows="10" class="form-control" id="diary_content"
-                        name="diary_content" placeholder="ì‘ì—… ë‚´ìš©ì„ ì ì–´ì£¼ì„¸ìš”."></textarea>
-                  </div>
-               </div>
-               <div class="form-group">
-                  <label class="control-label col-sm-2" for="writer">íŠ¹ì´ì‚¬í•­:</label>
-                  <div class="col-sm-10">
-                     <input type="text" class="form-control" id="issue" name="issue"
-                        placeholder="ì‘ì—… ì¤‘ ë°œìƒí•œ íŠ¹ì´ì‚¬í•­ì„ ì ì–´ì£¼ì„¸ìš”.">
-                  </div>
-               </div>
-               <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                     <button type="button" class="btn btn-success btn-sm" onclick="insertFn()">ë“±ë¡</button>
-                     <button type="reset" class="btn btn-info btn-sm" id = "reset">ì·¨ì†Œ</button>
-                  </div>
-               </div>
-            </form>
+	<!-- ***** Header Area Start ***** -->
+	<header class="header-area header-sticky">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a href="index.html" class="logo"> ÇÇÅæÄ¡µå </a>
+						<!-- ***** Logo End ***** -->
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+							<li><a href="deep.do">º´ÃæÇØ Áø´Ü</a></li>
+							<li class="scroll-to-section"><a href="notification.do">¾Ë¸²</a></li>
+							<li class="scroll-to-section"><a href="#apply">¹æ¿ª/¹æÁ¦</a></li>
+							<li class="scroll-to-section"><a href="#courses">°Ë»ö</a></li>
+						</ul>
+						<a class='menu-trigger'> <span>Menu</span>
+						</a>
+						<!-- ***** Menu End ***** -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- ***** Header Area End ***** -->
 
-         </div>
+    <!-- Page Content-->
+    <div class="container px-4 px-lg-5">
+        <!-- Content Row-->
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-6 mb-5">
+            <h2>³ó¾÷ Á¤Ã¥</h2>
+                <div class="card h-100">
+                    <div class="card-body">
+                    	<div class="vstack gap-3">
+  							<div class="bg-light border"><p class="card-text"><a href="https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1328&ccfNo=3&cciNo=1&cnpClsNo=1&search_put=">±Í³óÀÎ Á¶¼¼Áö¿ø</a></p></div>
+  							<div class="bg-light border"><p class="card-text"><a href="https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1328&ccfNo=3&cciNo=2&cnpClsNo=1&search_put=">³ó¾÷Ã¢¾÷ÀÚ±İ Áö¿ø</a></p></div>
+  							<div class="bg-light border"><p class="card-text"><a href="https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1328&ccfNo=3&cciNo=2&cnpClsNo=2&search_put=">³ó¾÷±â°è ÀÚ±İÁö¿ø</a></p></div>
+							<div class="bg-light border"><p class="card-text"><a href="https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1328&ccfNo=3&cciNo=3&cnpClsNo=1&search_put=">ÁÖÅÃ±¸ÀÔ Áö¿ø ¹× ÀÓ´ë</a></p></div>
+							<div class="bg-light border"><p class="card-text"><a href="https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1328&ccfNo=3&cciNo=3&cnpClsNo=2&search_put=">ÁÖÅÃ½ÅÃà Áö¿ø</a></p></div>
+						</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-5">
+            <h2>³ó¾÷ ´º½º</h2>
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <a href="https://www.fnnews.com/news/202111291118546612"><img src="resources/img/news1.png" class="d-block w-100" alt="..."></a>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
       </div>
-   </div>
-
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <a href="https://www.fnnews.com/news/202111291118546612"><img src="resources/img/news1.png" class="d-block w-100" alt="..."></a>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <a href="https://www.fnnews.com/news/202111291118546612"><img src="resources/img/news1.png" class="d-block w-100" alt="..."></a>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-5">
+                <h2 class="card-title">³ó¾÷ °ü·Ã µµ¼­</h2>
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&linkClass=261703&barcode=9788975279577#N"><img src="resources/img/1.jpg" class="d-block w-100" alt="..."></a>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <a href="http://book.interpark.com/product/BookDisplay.do?_method=detail&sc.saNo=001&sc.prdNo=314865371&product2020=true"><img src="resources/img/2.jpg" class="d-block w-100" alt="..."></a>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&linkClass=261703&barcode=9788959728107 "><img src="resources/img/3.jpg" class="d-block w-100" alt="..."></a>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791156109419&orderClick=JAj "><img src="resources/img/4.jpg" class="d-block w-100" alt="..."></a>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791187568209&orderClick=JAj "><img src="resources/img/5.jpg" class="d-block w-100" alt="..."></a>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container px-4 px-lg-51">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
 </body>
+
 </html>
