@@ -83,7 +83,7 @@ https://templatemo.com/tm-569-edu-meeting
 
 	<!-- ***** Main Area Start ***** -->
 	<main>
-		<section class="py-5 text-center container">
+		<section class="py-5 text-center container" id="toto">
 			<div class="row py-lg-5">
 				<div class="col-lg-6 col-md-8 mx-auto">
 					<h1 class="fw-light">Album example</h1>
