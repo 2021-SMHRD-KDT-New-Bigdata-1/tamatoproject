@@ -56,12 +56,15 @@
 		}else {
             // 여기안에 병충해 설명과 병충해 해결방안<div>~</div>을 넣어야 하나..
             $('div.row.gx-4.gx-lg-5:not(.my-5)')[0].style.display='flex'
+            
           
             
             
          }
 
 	}
+	
+
 	
 	$(function () {
 
@@ -77,8 +80,9 @@
                     console.log(data.text)
                     $.each(data, function (index, item) { // 데이터 =item
                        // index가 끝날때까지 
-                        $("#symtoms").html(item.pest_reason + "<br>");
-                        $("#solution").html(item.pest_solution + "<br>");
+                        $("#symtoms").html(item.pest_reason);
+                        $("#solution").html(item.pest_solution);
+                        $("#pestItem").html(item.pesticide);
                       
                     });
                 },
@@ -136,8 +140,9 @@
 							
 							
 							<!-- 호출된 카메라로 찍은 사진을 가져오는 input값 by 이길환  -->
-							  <label class="btn btn-primary btn-file">
-						      	사진추가 <input type="file" style="display: none;" id="camera" name="camera" capture="camera" accept="image/*" />
+							  <label id="lb" class="btn btn-primary btn-file">
+						      	사진추가 <input type="file" style="display: none;" id="camera" name="camera" capture="camera" accept="image/*" 
+						      			onclick="ChangeImg()"/>
 						      </label>
 						<br /> <img id="pic" style="width: 256px; height:256px" />
 
@@ -156,9 +161,6 @@
 						<div class="card-body">
 							<p id="symtoms" class="card-text">발생원인</p>
 						</div>
-						<div class="card-footer">
-							<a class="btn btn-primary btn-sm" href="#!">More Info</a>
-						</div>
 					</div>
 				</div>
 				<div class="col-md-6 mb-5">
@@ -167,11 +169,14 @@
 						<div class="card-body">
 							<p id="solution" class="card-text">해결방법</p>
 						</div>
-						<div class="card-footer">
-							<a class="btn btn-primary btn-sm" href="#!">More Info</a>
-						</div>
 					</div>
 				</div>
+					<h2 class="card-title">사용해야할 농약</h2>
+					<div class="card h-100">
+						<div class="card-body">
+							<p id="pestItem" class="card-text">해결방법</p>
+						</div>
+					</div>
 			</div>
 		</div>
 	</main>
