@@ -2,16 +2,17 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="com.mycompany.mapper.PestMapper">
-	<!-- <insert id="saveImage" parameterType="java.util.Map">
-		INSERT INTO img_table VALUES(#{img})
-	</insert> -->
-	<select id="login" parameterType="com.mycompany.domain.Member" resultType="com.mycompany.domain.Member">
+	<!-- <insert id="saveImage" parameterType="java.util.Map"> INSERT INTO img_table 
+		VALUES(#{img}) </insert> -->
+	<select id="login" parameterType="com.mycompany.domain.Member"
+		resultType="com.mycompany.domain.Member">
 		SELECT * FROM members WHERE member_id=#{member_id}
 	</select>
 	<insert id="join" parameterType="com.mycompany.domain.Member">
-		INSERT INTO members(member_id, member_name) 
+		INSERT INTO members(member_id,
+		member_name)
 		values (#{member_id}, #{member_name})
 	</insert>
 	
@@ -24,7 +25,12 @@
   <select id="Farm_diaryList" parameterType="com.mycompany.domain.Farm_diary" resultType="com.mycompany.domain.Farm_diary">
     select * from farm_diaries
   </select>
-  
+  	<insert id="schedule"
+		parameterType="com.mycompany.domain.Schedule">
+		INSERT INTO schedules (schedule_idx, schedule_num,
+		schedule_title, schedule_content, schedule_regdate)
+		VALUES (#{schedule_idx}, #{schedule_num}, #{schedule_title}, #{schedule_content})
+	</insert>
   
 </mapper> 
 

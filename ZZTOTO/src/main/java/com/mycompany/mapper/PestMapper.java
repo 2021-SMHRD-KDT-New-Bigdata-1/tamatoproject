@@ -1,22 +1,26 @@
 package com.mycompany.mapper;
 
+
 import java.util.List;
 
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.mycompany.domain.Drone_prevention;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.mycompany.domain.Drone_prevention;
 import com.mycompany.domain.Farm_diary;
 // DB 연동
 import com.mycompany.domain.Crop_calendar;
+// DB 연동
 import com.mycompany.domain.Member;
+import com.mycompany.domain.Schedule;
 
 @Mapper
 public interface PestMapper {
-
 
 	public void droneInsert(Drone_prevention vo); // insert SQL
 
@@ -38,5 +42,9 @@ public interface PestMapper {
   	
   	@Update("update farm_diaries set diary_subject=#{diary_subject}, where diary_num=#{diary_num}")
 	public void diaryUpdateAjax(Farm_diary vo); // XML(X) -> update SQL~
-
+  	
+	public int schedule_add(Schedule schedule);
+	public int before_schedule_add_search(Schedule schedule);
+	//public ArrayList<Schedule> schedule_list(DateData dateData);
+  	
 }

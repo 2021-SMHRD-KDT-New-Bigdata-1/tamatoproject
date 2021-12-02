@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Crop_calendar {
 	private int calendar_sum;
-	private String crop_name;
 	private int calendar_month;
 	private String crop_guide;
 	private String crop_disaster;

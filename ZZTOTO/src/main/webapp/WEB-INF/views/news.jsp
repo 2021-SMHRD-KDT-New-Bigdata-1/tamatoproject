@@ -220,7 +220,6 @@
 </script>
 </head>
 <body>
-
    <div class="container">
       <h2>영농일지</h2>
       <div class="panel panel-default">         
