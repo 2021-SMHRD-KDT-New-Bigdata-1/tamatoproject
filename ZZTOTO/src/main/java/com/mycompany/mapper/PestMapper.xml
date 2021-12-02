@@ -19,6 +19,13 @@
       INSERT INTO drone_preventions (reservation_date, member_id, proposer_name, proposer_email, proposer_number, proposer_address, land_type, area, pesticide, pest_name, crop_name) 
       VALUES (#{reservation_Date}, 'jyd37855@gmail.com', #{proposer_Name}, #{proposer_Email}, #{proposer_Number}, #{proposer_Address}, #{land_Type}, #{area}, #{pesticide}, #{pest_Name}, #{crop_Name});
   </insert>
+  
+
+  <select id="Farm_diaryList" parameterType="com.mycompany.domain.Farm_diary" resultType="com.mycompany.domain.Farm_diary">
+    select * from farm_diaries
+  </select>
+  
+  
 </mapper> 
 
 

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpSession;
 
@@ -21,9 +22,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.mycompany.domain.Drone_prevention;
 
 import com.mycompany.domain.Member;
-import com.mycompany.domain.Pest_file;
+import com.mycompany.domain.User_pestfile;
 import com.mycompany.mapper.PestMapper;
-
+import com.mycompany.domain.Pest_file;
+import com.mycompany.domain.Farm_diary;
+import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
 
@@ -65,16 +68,35 @@ public class HomeController {
 	@RequestMapping("/login.do")
 	public String login(Member member, HttpSession session) {
 		Member vo = mapper.login(member);
-
+		System.out.println("여기까지는 오나?");
 		if (vo != null) { // 로그인 성공
 			session.setAttribute("vo", vo);
+			System.out.println("이거는?");
 		} else { // 로그인 실패시 회원가입
 			vo = mapper.join(member);
 			session.setAttribute("vo", vo);
+			System.out.println("쳇 실패인가");
 
 			return null;
 		}
 		return "redirect:/index.do";
+	}
+	
+	@RequestMapping("/Farmlogin.do")
+	public String Farmlogin(Member member_Id, HttpSession session) {
+		Member vo = mapper.login(member_Id);
+		System.out.println("여기까지는 오나?");
+		if (vo != null) { // 로그인 성공
+			session.setAttribute("vo", vo);
+			System.out.println("이거는?");
+		} else { // 로그인 실패시 회원가입
+			vo = mapper.join(member_Id);
+			session.setAttribute("vo", vo);
+			System.out.println("쳇 실패인가");
+
+			return null;
+		}
+		return "redirect:/news.do";
 	}
 
 	// Ajax활용 파일 업로드 기능 :
@@ -134,4 +156,32 @@ public class HomeController {
 		ResponseEntity<List<Pest_file>> result = new ResponseEntity<List<Pest_file>>(list, HttpStatus.OK);
 		return result;
 	}
+	
+	   @RequestMapping("/Farm_diaryList.do")
+	   public @ResponseBody List<Farm_diary> Farm_diaryList(Model model) {
+	      List<Farm_diary> list = mapper.Farm_diaryList();
+	      return list;  // json(*)
+	   }
+	   
+	   @RequestMapping("/diaryInsertAjax.do")
+	   public @ResponseBody String diaryInsertAjax(Farm_diary vo) {
+	      mapper.diaryInsertAjax(vo);
+	      return "ok";
+	   }
+	   
+	   @RequestMapping("/diaryDeleteAjax.do")
+	   public @ResponseBody void diaryDeleteAjax(int diary_num) {
+		   mapper.diaryDeleteAjax(diary_num);
+	   }
+	   
+	   @RequestMapping("/diaryUpdateAjax.do")
+	   public void diaryUpdateAjax(Farm_diary vo) {
+	      mapper.diaryUpdateAjax(vo);
+	   }
+	   @RequestMapping("/diaryUpdateAjax1.do")
+	   public void diaryUpdateAjax1(Farm_diary vo) {
+		   System.out.println("업데이트1?");
+	      mapper.diaryUpdateAjax1(vo);
+	   }
+	   
 }
