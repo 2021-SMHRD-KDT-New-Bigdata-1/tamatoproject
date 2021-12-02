@@ -1,0 +1,11 @@
+show tables;
+desc farm_diaries;
+select * from farm_diaries;
+select * from members;
+truncate table farm_diaries;
+TRUNCATE TABLE farm_diaries;
+ALTER TABLE farm_diaries MODIFY land_type varchar(150);
+ALTER TABLE farm_diaries change land_type issue varchar(150);
+DELETE FROM farm_diaries WHERE member_id ='tkarnwl08@naver.com';
+INSERT INTO farm_diaries (diary_subject, diary_content, land_type, reg_date, member_id) VALUES ('diary_subject 1', 'diary_content 1', 'N', NOW(), 'tkarnwl08@naver.com');
+INSERT INTO farm_diaries (diary_subject, diary_content, land_type, reg_date, member_id) VALUES ('diary_subject 2', 'diary_content 2', 'N', NOW(), 'tkarnwl08@naver.com');
