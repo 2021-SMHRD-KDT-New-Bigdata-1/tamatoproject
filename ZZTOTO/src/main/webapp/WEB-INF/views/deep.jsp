@@ -83,6 +83,7 @@
                         $("#symtoms").html(item.pest_reason);
                         $("#solution").html(item.pest_solution);
                         $("#pestItem").html(item.pesticide);
+                        $("#pestName").html(item.pest_name);
                       
                     });
                 },
@@ -155,6 +156,15 @@
 			</div>
 			<!-- Content Row-->
 			<div class="row gx-4 gx-lg-5" style="display:none">
+				<div class="col-md-6 mb-5">
+					<h2 class="card-title">병충해 명</h2>
+					<div class="card h-100" style = "height: 60%!important;">
+						<div class="card-body">
+							<p id="pestName" class="card-text">발생원인</p>
+						</div>
+					</div>
+				</div>
+			
 				<div class="col-md-6 mb-5">
 					<h2 class="card-title">병충해 설명</h2>
 					<div class="card h-100">
