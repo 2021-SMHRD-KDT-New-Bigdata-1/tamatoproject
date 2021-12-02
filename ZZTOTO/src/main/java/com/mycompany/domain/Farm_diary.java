@@ -1,6 +1,6 @@
 package com.mycompany.domain;
 
-import java.util.Date;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

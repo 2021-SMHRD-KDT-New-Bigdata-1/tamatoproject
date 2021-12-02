@@ -150,7 +150,8 @@ public class HomeController {
 		@RequestMapping("/Farmlogin.do")
 		public String Farmlogin(Member member_Id, HttpSession session) {
 			Member vo = mapper.login(member_Id);
-			System.out.println("여기까지는 오나?");
+			System.out.println("여기까지 오냐");
+			System.out.println("member_Id");
 			if (vo != null) { // 로그인 성공
 				session.setAttribute("vo", vo);
 				System.out.println("이거는?");
@@ -176,11 +177,11 @@ public class HomeController {
 	   }
 	   
 	   @RequestMapping("/diaryUpdateAjax.do")
-	   public void diaryUpdateAjax(Farm_diary vo) {
+	   public @ResponseBody void diaryUpdateAjax(Farm_diary vo) {
 	      mapper.diaryUpdateAjax(vo);
 	   }
 	   @RequestMapping("/diaryUpdateAjax1.do")
-	   public void diaryUpdateAjax1(Farm_diary vo) {
+	   public @ResponseBody void diaryUpdateAjax1(Farm_diary vo) {
 		   System.out.println("업데이트1?");
 	      mapper.diaryUpdateAjax1(vo);
 	   }

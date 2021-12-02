@@ -155,7 +155,7 @@
         var diary_content=$("#diary_content"+index).val();
         var issue=$("#issue"+index).val();
         $.ajax({
-        url : "didaryUpdateAjax1.do",
+        url : "diaryUpdateAjax1.do",
         type : "post",
         data : {"diary_num":diary_num, "diary_content" : diary_content, "issue" : issue },
         success : loadList,
@@ -259,7 +259,7 @@
 			</div>
 		</div>
 	</header>
-   <div class="container">
+   <div class="container" id="coco">
       <h2>영농일지</h2>
       <div class="panel panel-default">         
          <c:if test="${vo==null}">
