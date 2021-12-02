@@ -21,6 +21,6 @@ public interface PestMapper {
 	public Member join(Member member);
 	public int schedule_add(Schedule schedule);
 	public int before_schedule_add_search(Schedule schedule);
-	//public ArrayList<Schedule> schedule_list(DateData dateData);
+	public ArrayList<Schedule> schedule_list(DateData dateData);
 
 }
