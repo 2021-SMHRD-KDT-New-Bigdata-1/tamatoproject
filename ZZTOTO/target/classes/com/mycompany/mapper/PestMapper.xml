@@ -28,7 +28,7 @@
 	<insert id="schedule_add"
 		parameterType="com.mycompany.domain.Schedule">
 		INSERT INTO schedules (schedule_title, schedule_content, schedule_date, member_id)
-		VALUES (#{schedule_title}, #{schedule_content}, #{schedule_date}, 'jyd37855@gmail.com')
+		VALUES (#{schedule_title}, #{schedule_content}, #{schedule_date}, #{member_id})
 	</insert>
 	<select id="before_schedule_add_search" resultType="int">
 		select count(*) from schedules where schedule_date = #{schedule_date}
@@ -36,9 +36,9 @@
 	<select id="schedule_list" resultType="com.mycompany.domain.Schedule">
 		select * from schedules where schedule_date &gt;= #{db_startDate} and schedule_date &lt;= #{db_endDate} 
 		order by schedule_date, schedule_idx	</select>
-  <select id="Farm_diaryList" parameterType="com.mycompany.domain.Farm_diary" resultType="com.mycompany.domain.Farm_diary">
-    select * from farm_diaries
-  </select>
+    <select id="Farm_diaryList" parameterType="com.mycompany.domain.Farm_diary" resultType="com.mycompany.domain.Farm_diary">
+            select * from farm_diaries
+    </select>
   
 </mapper> 
 

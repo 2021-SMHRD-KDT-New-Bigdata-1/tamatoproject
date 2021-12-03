@@ -55,9 +55,9 @@ https://templatemo.com/tm-569-edu-meeting
 						<ul class="nav">
 							<li><a href="#top" class="active">Home</a></li>
 							<li><a href="deep.do">병충해 진단</a></li>
-							<li><a href="notification.do">할 일</a></li>
+							<li><a href="notification.do">일정관리</a></li>
 							<li><a href="drone.do">드론 방역/방제</a></li>
-							<li><a href="news.do">농업 정책</a></li>
+							<li><a href="farm_diary.do">영농일지</a></li>
 							<!-- 로그인이 안되어있을때 -->
 							<c:if test="${vo==null}">
 								<li><a href="javascript:kakaoLogin();"><img
@@ -151,7 +151,7 @@ https://templatemo.com/tm-569-edu-meeting
 					</div>
 
 					<div class="col col-6">
-						<a href="news.do">
+						<a href="farm_diary.do">
 							<div class="card shadow-sm">
 								<svg class="bd-placeholder-img card-img-top" width="100%"
 									height="0" xmlns="http://www.w3.org/2000/svg" role="img"

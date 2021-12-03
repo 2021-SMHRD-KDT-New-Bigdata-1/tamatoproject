@@ -47,9 +47,9 @@ public class HomeController {
 		return "drone";
 	}
 
-	@RequestMapping("/news.do")
-	public String news() {
-		return "news";
+	@RequestMapping("/farm_diary.do")
+	public String farm_diary() {
+		return "farm_diary";
 	}
 
 	@RequestMapping("/droneInsert.do")
@@ -63,17 +63,15 @@ public class HomeController {
 
 	// 로그인 처리
 	@RequestMapping("/login.do")
-	public @ResponseBody Member login(Member member, HttpSession session, Model model) {
+	public @ResponseBody Member login(Member member, HttpSession session) {
 		Member vo = mapper.login(member);
 		
 		if (vo != null) { // 로그인 성공
 			session.setAttribute("vo", vo);
-			System.out.println("섹션생성 성공");
 		} else { // 로그인 실패시 회원가입
 			vo = mapper.join(member);
 			vo = mapper.login(member);
 			session.setAttribute("vo", vo);
-
 		}
 		return vo;
 	}
@@ -163,7 +161,7 @@ public class HomeController {
 
 				return null;
 			}
-			return "redirect:/news.do";
+			return "redirect:/farm_diary.do";
 		}
 	   
 	   @RequestMapping("/diaryInsertAjax.do")

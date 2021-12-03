@@ -121,7 +121,8 @@
 						href="./notification.do?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
 						<!-- 다음해 --> &gt;&gt;
 					</a>
-					<button type="button" class="btn btn-primary pull-right board_move openMask_board_move pointer"
+					<button type="button"
+						class="btn btn-primary pull-right board_move openMask_board_move pointer"
 						data-bs-toggle="modal" data-bs-target="#addSchedule">일정
 						추가</button>
 				</div>
@@ -216,29 +217,30 @@
 									<li>
 										<div class="text_subject">날짜 :</div>
 										<div class="text_desc">
-											<input type="text" name="schedule_date" class="text_type1"
-												id="testDatepicker" readonly="readonly" />
+											<input type="text" name="schedule_date" class="text_type1" id="testDatepicker" readonly="readonly" /> 
+											<input type="hidden" name="member_id" value="${vo.member_id}" />
 										</div>
 									</li>
 								</ul>
 							</div>
-						</div>
-	
-						<!-- Modal footer -->
-						<div class="modal-footer">
-							<button type="button"
-								class="btn btn-primary board_move_go pointer"
-								data-bs-dismiss="modal" onclick="scheduleAdd();">일정 등록</button>
-							<button type="button" class="btn btn-danger"
-								data-bs-dismiss="modal">Close</button>
-						</div>
 					</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="button"
+							class="btn btn-primary board_move_go pointer"
+							data-bs-dismiss="modal" onclick="scheduleAdd();">일정 등록</button>
+						<button type="button" class="btn btn-danger"
+							data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
 				</form>
 			</div>
 		</div>
 		<div id="mask_board_move"></div>
 		<div class="normal_move_board_modal">
 			<script>
+			
 			$(function() {
 			    $( "#testDatepicker" ).datepicker({
 			    	
