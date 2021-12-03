@@ -1,9 +1,7 @@
-@import
-	url('https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap')
-	;
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@600&display=swap');
 
 * {
-	font-family: 'Dongle';
+	font-family: 'Hahmlet';
 }
 
 body {
@@ -21,19 +19,19 @@ body {
 }
 
 td {
-	font-family: "µ¸¿ò";
+	font-family: "Hahmlet";
 	font-size: 9pt;
 	color: #595959;
 }
 
 th {
-	font-family: "µ¸¿ò";
+	font-family: "Hahmlet";
 	font-size: 9pt;
 	color: #000000;
 }
 
 select {
-	font-family: "µ¸¿ò";
+	font-family: "Hahmlet";
 	font-size: 9pt;
 	color: #595959;
 }
@@ -60,28 +58,28 @@ select {
 
 a:link {
 	font-size: 9pt;
-	font-family: "µ¸¿ò";
+	font-family: "Hahmlet";
 	color: #000000;
 	text-decoration: none;
 }
 
 a:visited {
 	font-size: 9pt;
-	font-family: "µ¸¿ò";
+	font-family: "Hahmlet";
 	color: #000000;
 	text-decoration: none;
 }
 
 a:active {
 	font-size: 9pt;
-	font-family: "µ¸¿ò";
+	font-family: "Hahmlet";
 	color: red;
 	text-decoration: none;
 }
 
 a:hover {
 	font-size: 9pt;
-	font-family: "µ¸¿ò";
+	font-family: "Hahmlet";
 	color: red;
 	text-decoration: none;
 }
@@ -371,25 +369,25 @@ a:hover {
 }
 
 A:link {
-	font-size: 25pt;
+	font-size: 15pt;
 	color: #000000;
 	text-decoration: none;
 }
 
 A:visited {
-	font-size: 25pt;
+	font-size: 15pt;
 	color: #000000;
 	text-decoration: none;
 }
 
 A:active {
-	font-size: 25pt;
+	font-size: 15pt;
 	color: red;
 	text-decoration: none;
 }
 
 A:hover {
-	font-size: 25pt;
+	font-size: 15pt;
 	color: red;
 	text-decoration: none;
 }
@@ -398,7 +396,7 @@ A:hover {
 	width: 100px;
 	height: 30px;
 	font-weight: bold;
-	font-size: 30px;
+	font-size: 15px;
 	font-weight: bold;
 	text-align: center;
 }
@@ -429,7 +427,7 @@ A:hover {
 	margin-top: 100px;
 	margin-bottom: 30px;
 	text-align: center;
-	font-size: 40px;
+	font-size: 20px;
 	vertical-align: middle;
 }
 
@@ -451,7 +449,7 @@ A:hover {
 
 .calendar_body .date {
 	font-weight: bold;
-	font-size: 25px;
+	font-size: 15px;
 	padding-left: 3px;
 	padding-top: 3px;
 }
@@ -467,7 +465,7 @@ A:hover {
 .calendar_body .sat_day .sat {
 	color: #529dbc;
 	font-weight: bold;
-	font-size: 25px;
+	font-size: 15px;
 	padding-left: 3px;
 	padding-top: 3px;
 }
@@ -483,7 +481,7 @@ A:hover {
 .calendar_body .sun_day .sun {
 	color: red;
 	font-weight: bold;
-	font-size: 25px;
+	font-size: 15px;
 	padding-left: 3px;
 	padding-top: 3px;
 }

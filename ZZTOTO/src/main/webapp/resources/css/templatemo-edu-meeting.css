@@ -31,7 +31,7 @@ font & reset css
 @import
 	url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900")
 	;
-@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@600&display=swap');
 /* 
 ---------------------------------------------
 reset
@@ -89,7 +89,7 @@ header, nav, section, article, aside, footer, hgroup {
 }
 
 html, body {
-	font-family: 'Dongle', sans-serif;
+	font-family: 'Hahmlet', sans-serif;
 	font-weight: 400;
 	background-color: #fff;
 	font-size: 22px;
@@ -151,7 +151,7 @@ global styles
 */
 html, body {
 	background: #fff;
-	font-family: 'Dongle', sans-serif;
+	font-family: 'Hahmlet', sans-serif;
 }
 
 main {
@@ -324,7 +324,7 @@ header
 .header-area .main-nav .logo {
 	line-height: 70px;
 	color: black;
-	font-size: 60px;
+	font-size: 45px; /* 피톤치드 크기 */
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -368,7 +368,7 @@ header
 .header-area .main-nav .nav li a {
 	display: block;
 	font-weight: 500;
-	font-size: 30px; /* 네비 글씨 크기 */
+	font-size: 20px; /* 네비 글씨 크기 */
 	text-transform: uppercase;
 	color: black;
 	-webkit-transition: all 0.3s ease 0s;
@@ -721,7 +721,7 @@ footer
 
 .footer p {
 	text-transform: uppercase;
-	font-size: 30px;
+	font-size: 15px;
 	color: white;
 }
 
