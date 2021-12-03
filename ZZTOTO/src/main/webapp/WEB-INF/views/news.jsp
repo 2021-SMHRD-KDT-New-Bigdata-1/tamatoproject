@@ -215,21 +215,6 @@
       location.href="boardLogout.do"
    }
    
-   function formCheck(){
-         var member_id = $("#member_id").val();
-         if(member_id==""){
-            alert("아이디를 입력하세요.");
-            $("#member_id").focus();
-            return false;
-         }
-         var userPwd = $("#userPwd").val();
-         if(userPwd==""){
-            alert("패스워드를 입력하세요.");
-            $("#userPwd").focus();
-            return false;
-         }
-         $("#wform").submit();
-      }
 
         
 </script>
@@ -259,27 +244,10 @@
 			</div>
 		</div>
 	</header>
-   <div class="container" id="coco">
+   <div class="container" id="coco" style = "margin-top : 22%;">
       <h2>영농일지</h2>
       <div class="panel panel-default">         
-         <c:if test="${vo==null}">
-           <div class="panel-heading">
-            <form id="wform" class="form-inline" action="Farmlogin.do" method="post">
-            
-               <div class="form-group">
-                  <label for="member_id">아이디:</label> 
-                  <input type="text" class="form-control" id="member_id" name="member_id">
-               </div>
-               
-               <div class="form-group">
-                  <label for="userPwd">비밀번호:</label> 
-                  <input type="password" class="form-control"  >
-               </div>
-               
-               <button type="submit" class="btn btn-info btn-sm" onclick="formCheck()">로그인</button>
-            </form>
-           </div>
-         </c:if>        
+  
          <div class="panel-body"></div>
          <div class="writeForm" style="display: none;">
             <form id="frm" class="form-horizontal" >
@@ -316,6 +284,16 @@
          </div>
       </div>
    </div>
+   <!-- Footer-->
+	<!-- 왜 있는지 모를 클래스 푸터 -->
+	<!-- <footer class="py-5 bg-dark">
+		<div class="container px-4 px-lg-5"> -->
+			<div class="footer">
+				<p class="m-0 text-center text-white">Copyright &copy; Your
+					Website 2021</p>
+			</div>		
+		<!-- </div>
+	</footer> -->
 
 </body>
 </html>

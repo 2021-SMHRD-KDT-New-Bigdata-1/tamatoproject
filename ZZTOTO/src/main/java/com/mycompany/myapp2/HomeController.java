@@ -68,6 +68,7 @@ public class HomeController {
 		
 		if (vo != null) { // 로그인 성공
 			session.setAttribute("vo", vo);
+			System.out.println("섹션생성 성공");
 		} else { // 로그인 실패시 회원가입
 			vo = mapper.join(member);
 			vo = mapper.login(member);

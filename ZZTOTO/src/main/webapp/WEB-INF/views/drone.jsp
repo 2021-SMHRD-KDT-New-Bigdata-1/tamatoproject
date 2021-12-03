@@ -8,15 +8,16 @@
 <head>
 <meta charset="EUC-KR">
 <meta name="viewport  initial-scale=0, user-scalable=no" >
-<title>Insert title here</title>
+<title>드론 방제 예약</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/drone.css">
+
 </head>
 
 <body>
 	<h1>방제예약신청</h1>
 	<form action="droneInsert.do" method="post">
-		<fieldset>
+		<fieldset class="field" style =  "width: 100%; margin: 0 auto;">
 			<legend>
 				<strong>개인정보</strong>
 			</legend>
@@ -43,7 +44,7 @@
 				</div>
 			</div>
 		</fieldset>
-		<fieldset>
+		<fieldset class="field" style =  "width: 100%; margin: 0 auto;">
 			<legend>
 				<strong>예약 정보</strong>
 			</legend>
@@ -90,6 +91,7 @@
 		</fieldset>
 		<button type="submit">예약신청하기</button>
 	</form>
+
 </body>
 
 </html>
