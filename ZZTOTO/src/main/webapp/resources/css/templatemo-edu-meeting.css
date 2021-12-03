@@ -1,11 +1,7 @@
 /*
-
 TemplateMo 569 Edu Meeting
-
 https://templatemo.com/tm-569-edu-meeting
-
 */
-
 /* ---------------------------------------------
 Table of contents
 ------------------------------------------------
@@ -21,7 +17,6 @@ Table of contents
 10. preloader
 11. search
 12. portfolio
-
 --------------------------------------------- */
 /* 
 ---------------------------------------------
@@ -29,9 +24,8 @@ font & reset css
 --------------------------------------------- 
 */
 @import
-	url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900")
+	url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap')
 	;
-@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@600&display=swap');
 /* 
 ---------------------------------------------
 reset
@@ -89,10 +83,11 @@ header, nav, section, article, aside, footer, hgroup {
 }
 
 html, body {
-	font-family: 'Hahmlet', sans-serif;
+	font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial,
+		sans-serif;
 	font-weight: 400;
 	background-color: #fff;
-	font-size: 22px;
+	font-size: 16px;
 	-ms-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -105,10 +100,6 @@ a {
 
 a:hover {
 	color: black;
-}
-
-#toto {
-	padding:0px !important; 
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -135,15 +126,6 @@ img {
 	overflow: hidden;
 	align-self: center;
 }
-
-.card-text {
-	font-size : 25px;
-}
-
-#coco {
-	padding : 50px;
-	padding-top : 100px;
-}
 /* 
 ---------------------------------------------
 global styles
@@ -151,7 +133,7 @@ global styles
 */
 html, body {
 	background: #fff;
-	font-family: 'Hahmlet', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
 }
 
 main {
@@ -231,7 +213,6 @@ main {
 .card {
 	text-align: center;
 }
-
 /* 
 ---------------------------------------------
 header
@@ -324,7 +305,7 @@ header
 .header-area .main-nav .logo {
 	line-height: 70px;
 	color: black;
-	font-size: 45px; /* 피톤치드 크기 */
+	font-size: 28px;
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -368,7 +349,7 @@ header
 .header-area .main-nav .nav li a {
 	display: block;
 	font-weight: 500;
-	font-size: 20px; /* 네비 글씨 크기 */
+	font-size: 14px;
 	text-transform: uppercase;
 	color: black;
 	-webkit-transition: all 0.3s ease 0s;
@@ -705,7 +686,6 @@ header
 		display: flex !important;
 	}
 }
-
 /* 
 ---------------------------------------------
 footer
@@ -721,14 +701,14 @@ footer
 
 .footer p {
 	text-transform: uppercase;
-	font-size: 15px;
+	font-size: 14px;
+	color: black;
 	color: white;
 }
 
 .footer p a {
 	color: #f5a425;
 }
-
 /*
 ---------------------------------------------
 heading page
@@ -762,7 +742,6 @@ section.heading-page h2 {
 	color: #fff;
 	letter-spacing: 1px;
 }
-
 /* Meeting item column */
 .templatemo-item-col {
 	width: 31%;
@@ -779,7 +758,6 @@ section.heading-page h2 {
 		width: 100%;
 	}
 }
-
 /* 
 ---------------------------------------------
 responsive

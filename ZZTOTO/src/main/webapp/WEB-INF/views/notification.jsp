@@ -198,17 +198,8 @@
 					<!-- Modal body -->
 					<div class="modal-body">
 						<form name="schedule_add" action="schedule_add.do">
-							<input type="hidden" name="year" value="${today_info.search_year}" /> 
-							<input type="hidden" name="month" value="${today_info.search_month-1}" />
 							<div class="contents">
 								<ul>
-									<li>
-										<div class="text_subject">날짜 :</div>
-										<div class="text_desc">
-											<input type="text" name="schedule_date" class="text_type1"
-												id="testDatepicker" readonly="readonly" />
-										</div>
-									</li>
 									<li>
 										<div class="text_subject">제목 :</div>
 										<div class="text_desc">
@@ -220,6 +211,13 @@
 										<div class="text_area_desc">
 											<textarea name="schedule_content" class="textarea_type1"
 												rows="7"></textarea>
+										</div>
+									</li>
+									<li>
+										<div class="text_subject">날짜 :</div>
+										<div class="text_desc">
+											<input type="text" name="schedule_date" class="text_type1"
+												id="testDatepicker" readonly="readonly" />
 										</div>
 									</li>
 								</ul>
