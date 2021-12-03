@@ -240,7 +240,6 @@
 		<div id="mask_board_move"></div>
 		<div class="normal_move_board_modal">
 			<script>
-			
 			$(function() {
 			    $( "#testDatepicker" ).datepicker({
 			    	
