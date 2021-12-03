@@ -273,7 +273,7 @@ https://templatemo.com/tm-569-edu-meeting
                     			type : "post",
                     			dataType: "json",
                     			data : {"member_id":kakao_account.email, "member_name":kakao_account.profile.nickname},
-                    			success : function(vo){console.log(vo)},
+                    			success : function(){location.reload();},
                     			error : function(){ console.log("error") }
                     		});
                         }
