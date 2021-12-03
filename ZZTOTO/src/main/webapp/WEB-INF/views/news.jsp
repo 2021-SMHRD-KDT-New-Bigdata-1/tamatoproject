@@ -41,7 +41,7 @@
        type : "get",
        dataType : "json", // 서버로부터 받는 데이터 타입
         success : jsonHtml, // callback 함수
-        error : function(c,e,a) {alert("error1");console.log(e)}
+        error : function(c,e,a) {alert("로그인 후 이용해주세요");console.log(e)}
         });
     }                     //                      0      1   2... index
     function jsonHtml(data) {   // data => object(객체) : [{json}, {  }, {  })]]
