@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<meta name="viewport  initial-scale=0, user-scalable=no" >
+<meta name="viewport  initial-scale=0, user-scalable=no">
 <title>드론 방제 예약</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/drone.css">
@@ -17,34 +17,37 @@
 <body>
 	<h1>방제예약신청</h1>
 	<form action="droneInsert.do" method="post">
-		<fieldset class="field" style =  "width: 100%; margin: 0 auto;">
+		<fieldset class="field" style="width: 100%; margin: 0 auto;">
 			<legend>
 				<strong>개인정보</strong>
 			</legend>
 			<div class="double-input">
 				<div class="form-input-container">
-					<label for="proposer_Name">이름</label><br> <input type="text"
-						name="proposer_Name" id="proposer_Name" placeholder="이름을 입력해 주세요" minlength="3"
-						required />
+					<input type="hidden" name="member_id" value="${vo.member_id}" /> 
+					<label for="proposer_Name">이름</label><br> 
+					<input type="text" name="proposer_Name" id="proposer_Name" placeholder="이름을 입력해 주세요"
+						minlength="3" required />
 				</div>
 				<div class="form-input-container">
-					<label for="proposer_Email">이메일</label><br> <input type="email"
-						name="proposer_Email" id="proposer_Email" required placeholder="이메일을 입력해 주세요"
-						required />
+					<label for="proposer_Email">이메일</label><br> 
+					<input type="email" name="proposer_Email" id="proposer_Email" required
+						placeholder="이메일을 입력해 주세요" required />
 				</div>
 			</div>
 			<div class="double-input">
 				<div class="form-input-container">
-					<label for="proposer_Number">연락처</label><br> <input type="tel"
-						name="proposer_Number" id="proposer_Number" placeholder="전화번호를 입력해 주세요" required />
+					<label for="proposer_Number">연락처</label><br> 
+					<input type="tel" name="proposer_Number" id="proposer_Number"
+						placeholder="전화번호를 입력해 주세요" required />
 				</div>
 				<div class="form-input-container">
-					<label for="proposer_Address">주소</label><br> <input type="text"
-						name="proposer_Address" id="proposer_Address" placeholder="주소를 입력해 주세요" required />
+					<label for="proposer_Address">주소</label><br> <input
+						type="text" name="proposer_Address" id="proposer_Address"
+						placeholder="주소를 입력해 주세요" required />
 				</div>
 			</div>
 		</fieldset>
-		<fieldset class="field" style =  "width: 100%; margin: 0 auto;">
+		<fieldset class="field" style="width: 100%; margin: 0 auto;">
 			<legend>
 				<strong>예약 정보</strong>
 			</legend>
@@ -59,8 +62,8 @@
 					</select>
 				</div>
 				<div class="form-input-container">
-					<label for="area">면적<a style = "font-size:30px">(단위 : 평)</a></label><br> 
-						<input type="text" name="area" id="area" placeholder="평수를 입력해주세요"  />
+					<label for="area">면적<a style="font-size: 30px">(단위 : 평)</a></label><br>
+					<input type="text" name="area" id="area" placeholder="평수를 입력해주세요" />
 				</div>
 			</div>
 			<div class="double-input">
@@ -74,18 +77,18 @@
 				</div>
 				<div>
 					<div class="form-input-container">
-						<label for="pest_Name">병명</label><br> 
-						<input type="text" name="pest_Name" id="pest_Name" placeholder="병명을 입력해주세요"  />
+						<label for="pest_Name">병명</label><br> <input type="text"
+							name="pest_Name" id="pest_Name" placeholder="병명을 입력해주세요" />
 					</div>
 
 					<div class="form-input-container">
-						<label for="crop_Name">작물명</label><br> 
-						<input type="text" name="crop_Name" id="crop_Name" placeholder="작물명을 입력해주세요"  />
+						<label for="crop_Name">작물명</label><br> <input type="text"
+							name="crop_Name" id="crop_Name" placeholder="작물명을 입력해주세요" />
 					</div>
 				</div>
 				<div class="form-input-container date-select">
-					<label for="reservation_Date">예약 날짜</label><br> 
-					<input class = "calender" name = "reservation_Date" type="datetime-local">
+					<label for="reservation_Date">예약 날짜</label><br> <input
+						class="calender" name="reservation_Date" type="datetime-local">
 				</div>
 			</div>
 		</fieldset>

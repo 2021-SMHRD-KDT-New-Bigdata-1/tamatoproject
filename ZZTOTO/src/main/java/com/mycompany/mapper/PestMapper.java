@@ -15,12 +15,14 @@ import com.mycompany.domain.Farm_diary;
 // DB ¿¬µ¿
 import com.mycompany.domain.Member;
 import com.mycompany.domain.Schedule;
+import com.mycompany.domain.User_pestfile;
 
 @Mapper
 public interface PestMapper {
 
 	public Member login(Member member);
 	public Member join(Member member);
+	public User_pestfile pestfile_add(User_pestfile pestfile);
 	public int schedule_add(Schedule schedule);
 	public int before_schedule_add_search(Schedule schedule);
 	public ArrayList<Schedule> schedule_list(DateData dateData);
