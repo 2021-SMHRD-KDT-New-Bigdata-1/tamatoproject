@@ -7,7 +7,7 @@
      Member vo= (Member)session.getAttribute("vo");
   %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <title>영농일지</title>
 <meta charset="utf-8">
@@ -55,13 +55,17 @@
            view += "<td>삭제</td>";
         }
         view += "</tr>";
+        
+        var myIndex = 1;
         $.each(data, function(index, obj) {   // 람다식(익명함수) -> Node.js + Android
              if('${vo.member_id}'==obj.member_id){
                view += "<tr>";
-               view += "<td id='diary_num"+index+"'>" + obj.diary_num; + "</td>";
+               view += "<td id='diary_num"+index+"'style='display:none'>" + obj.diary_num; + "</td>";
+               view += "<td>" + myIndex + "</td>"; 
                view += "<td id='t"+index+"'><a href = 'javascript:ctFn("+index+")'>"+ obj.diary_subject + "</td>";
+                myIndex++;
             view += "<td id='w"+index+"'>"+ obj.reg_date + "</td>";}
-            
+
             if(${vo!=null}){
                if('${vo.member_id}'==obj.member_id){
                   view+="<td id='u"+index+"'>";
@@ -247,7 +251,7 @@
          </div>
       </div>
    </header>
-   <div class="container" id="coco">
+   <div class="container" id="coco" style = "margin-top : 25%">
       <h2>영농일지</h2>
       <div class="panel panel-default">         
          <c:if test="${vo==null}">

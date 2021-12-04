@@ -32,7 +32,7 @@ public class CalendarController {
 		DateData calendarData;
 
 		// notification.jsp > input태그에서 사용하기위한 날짜
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
 		String today_date = format.format(cal.getTime());
 

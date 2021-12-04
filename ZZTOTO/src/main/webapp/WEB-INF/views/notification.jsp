@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@page import="com.mycompany.domain.Member"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -53,10 +54,9 @@
 	href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css"
 	type="text/css" />
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-<!-- jquery datepicker ³¡ -->
+<!-- jquery datepicker ë -->
 
 <title>KingTomato</title>
-
 </head>
 <body>
 	<!-- ***** Header Area Start ***** -->
@@ -66,15 +66,15 @@
 				<div class="col-12">
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
-						<a href="index.do" class="logo"> ÇÇÅæÄ¡µå </a>
+						<a href="index.do" class="logo"> í”¼í†¤ì¹˜ë“œ </a>
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
 							<li><a href="#top" class="active">Home</a></li>
-							<li><a href="deep.do">º´ÃæÇØ Áø´Ü</a></li>
-							<li><a href="notification.do">ÇÒ ÀÏ</a></li>
-							<li><a href="drone.do">µå·Ğ ¹æ¿ª/¹æÁ¦</a></li>
-							<li><a href="news.do">³ó¾÷ Á¤Ã¥</a></li>
+							<li><a href="deep.do">ë³‘ì¶©í•´ ì§„ë‹¨</a></li>
+							<li><a href="notification.do">í•  ì¼</a></li>
+							<li><a href="drone.do">ë“œë¡  ë°©ì—­/ë°©ì œ</a></li>
+							<li><a href="news.do">ë†ì—… ì •ì±…</a></li>
 							<c:if test="${vo==null}">
 								<li><a href="javascript:kakaoLogin();"><img
 										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
@@ -104,27 +104,27 @@
 					}
 			</script>
 			<div class="calendar">
-				<!--³¯Â¥ ³×ºñ°ÔÀÌ¼Ç  -->
+				<!--ë‚ ì§œ ë„¤ë¹„ê²Œì´ì…˜  -->
 				<div class="navigation">
 					<a class="before_after_year"
 						href="./notification.do?year=${today_info.search_year-1}&month=${today_info.search_month-1}">
-						&lt;&lt; <!-- ÀÌÀüÇØ -->
+						&lt;&lt; <!-- ì´ì „í•´ -->
 					</a> <a class="before_after_month"
 						href="./notification.do?year=${today_info.before_year}&month=${today_info.before_month}">
-						&lt; <!-- ÀÌÀü´Ş -->
+						&lt; <!-- ì´ì „ë‹¬ -->
 					</a> <span class="this_month"> &nbsp;${today_info.search_year}.
 						<c:if test="${today_info.search_month<10}">0</c:if>${today_info.search_month}
 					</span> <a class="before_after_month"
 						href="./notification.do?year=${today_info.after_year}&month=${today_info.after_month}">
-						<!-- ´ÙÀ½´Ş --> &gt;
+						<!-- ë‹¤ìŒë‹¬ --> &gt;
 					</a> <a class="before_after_year"
 						href="./notification.do?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
-						<!-- ´ÙÀ½ÇØ --> &gt;&gt;
+						<!-- ë‹¤ìŒí•´ --> &gt;&gt;
 					</a>
 					<button type="button"
 						class="btn btn-primary pull-right board_move openMask_board_move pointer"
-						data-bs-toggle="modal" data-bs-target="#addSchedule">ÀÏÁ¤
-						Ãß°¡</button>
+						data-bs-toggle="modal" data-bs-target="#addSchedule">ì¼ì •
+						ì¶”ê°€</button>
 				</div>
 
 				<!-- <div class="today_button_div"> -->
@@ -134,13 +134,13 @@
 
 					<thead>
 						<tr bgcolor="#CECECE">
-							<td class="day sun">ÀÏ</td>
-							<td class="day">¿ù</td>
-							<td class="day">È­</td>
-							<td class="day">¼ö</td>
-							<td class="day">¸ñ</td>
-							<td class="day">±İ</td>
-							<td class="day sat">Åä</td>
+							<td class="day sun">ì¼</td>
+							<td class="day">ì›”</td>
+							<td class="day">í™”</td>
+							<td class="day">ìˆ˜</td>
+							<td class="day">ëª©</td>
+							<td class="day">ê¸ˆ</td>
+							<td class="day sat">í† </td>
 						</tr>
 					</thead>
 					<tbody>
@@ -192,7 +192,7 @@
 
 					<!-- Modal Header -->
 					<div class="modal-header">
-						<h4 class="modal-title">ÀÏÁ¤ °ü¸®</h4>
+						<h4 class="modal-title">ì¼ì • ê´€ë¦¬</h4>
 						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 					</div>
 
@@ -202,23 +202,24 @@
 							<div class="contents">
 								<ul>
 									<li>
-										<div class="text_subject">Á¦¸ñ :</div>
+										<div class="text_subject">ì œëª© :</div>
 										<div class="text_desc">
 											<input type="text" name="schedule_title" class="text_type1" />
 										</div>
 									</li>
 									<li>
-										<div class="text_subject">³»¿ë :</div>
+										<div class="text_subject">ë‚´ìš© :</div>
 										<div class="text_area_desc">
 											<textarea name="schedule_content" class="textarea_type1"
 												rows="7"></textarea>
 										</div>
 									</li>
 									<li>
-										<div class="text_subject">³¯Â¥ :</div>
+										<div class="text_subject">ë‚ ì§œ :</div>
 										<div class="text_desc">
-											<input type="text" name="schedule_date" class="text_type1" id="testDatepicker" readonly="readonly" /> 
-											<input type="hidden" name="member_id" value="${vo.member_id}" />
+											<input type="text" name="schedule_date" class="text_type1"
+												id="testDatepicker" readonly="readonly" /> <input
+												type="hidden" name="member_id" value="${vo.member_id}" />
 										</div>
 									</li>
 								</ul>
@@ -229,7 +230,7 @@
 					<div class="modal-footer">
 						<button type="button"
 							class="btn btn-primary board_move_go pointer"
-							data-bs-dismiss="modal" onclick="scheduleAdd();">ÀÏÁ¤ µî·Ï</button>
+							data-bs-dismiss="modal" onclick="scheduleAdd();">ì¼ì • ë“±ë¡</button>
 						<button type="button" class="btn btn-danger"
 							data-bs-dismiss="modal">Close</button>
 					</div>
@@ -243,22 +244,22 @@
 			$(function() {
 			    $( "#testDatepicker" ).datepicker({
 			    	
-			        dateFormat: "yy-mm-dd",
+			        dateFormat: "yy/mm/dd",
 			    	changeMonth: true, 
 			        changeYear: true,
-			        dayNames: ['¿ù¿äÀÏ', 'È­¿äÀÏ', '¼ö¿äÀÏ', '¸ñ¿äÀÏ', '±İ¿äÀÏ', 'Åä¿äÀÏ', 'ÀÏ¿äÀÏ'],
-			        dayNamesMin: ['¿ù', 'È­', '¼ö', '¸ñ', '±İ', 'Åä', 'ÀÏ'], 
+			        dayNames: ['ì›”ìš”ì¼', 'í™”ìš”ì¼', 'ìˆ˜ìš”ì¼', 'ëª©ìš”ì¼', 'ê¸ˆìš”ì¼', 'í† ìš”ì¼', 'ì¼ìš”ì¼'],
+			        dayNamesMin: ['ì›”', 'í™”', 'ìˆ˜', 'ëª©', 'ê¸ˆ', 'í† ', 'ì¼'], 
 			        monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12']
 			    });
 			});
 			function scheduleAdd(){
 				var schedule_add_form = document.schedule_add;
 				if(schedule_add_form.schedule_date.value==""||schedule_add_form.schedule_date.value==null){
-					alert("³¯Â¥¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					alert("ë‚ ì§œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 					schedule_add_form.schedule_date.focus();
 					return false;
 				}else if(schedule_add_form.schedule_title.value==""||schedule_add_form.schedule_title.value==null){
-					alert("Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					alert("ì œëª©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 					schedule_add_form.schedule_title.focus();
 					return false;
 				}
@@ -269,7 +270,7 @@
 	</main>
 	<!-- Footer Start -->
 	<div class="footer">
-		<!-- <footer class="py-5 bg-dark"> <!--¿Ö ÀÖ´ÂÁö ¸ğ¸¦ class  -->
+		<!-- <footer class="py-5 bg-dark"> <!--ì™œ ìˆëŠ”ì§€ ëª¨ë¥¼ class  -->
 		<!-- <div class="container px-4 px-lg-5"> -->
 		<p class="m-0 text-center text-white">Copyright &copy; Your
 			Website 2021</p>
@@ -352,7 +353,6 @@
         checkSection();
       });
     </script>
-
 </body>
 
 </html>
