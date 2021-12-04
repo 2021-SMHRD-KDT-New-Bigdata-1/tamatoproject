@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 
@@ -86,11 +85,11 @@ https://templatemo.com/tm-569-edu-meeting
 		<section class="py-5 text-center container" id="toto">
 			<div class="row py-lg-5">
 				<div class="col-lg-6 col-md-8 mx-auto">
-					<h1 class="fw-light">Album example</h1>
+					<h1 class="fw-light">딥러닝을 통한 농산물 병충해 진단 및 솔루션 제공 서비스</h1>
 
 					<p>
-						<a href="#" class="btn btn-primary my-2">Main call to action</a> <a
-							href="#" class="btn btn-secondary my-2">Secondary action</a>
+						<a href="#" class="btn btn-primary my-2">Main call to action</a> 
+						<a href="#" class="btn btn-secondary my-2">Secondary action</a>
 					</p>
 				</div>
 			</div>
@@ -109,8 +108,7 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                  
                   <title>Placeholder</title>
-                 	<img id="icon"
-										src="${pageContext.request.contextPath}/resources/images/camera2.png">
+                 	<img id="icon" src="${pageContext.request.contextPath}/resources/images/camera2.png">
                  </svg>
 								<div class="card-body">
 									<h4 class="card-text">병충해 진단</h4>
@@ -126,8 +124,7 @@ https://templatemo.com/tm-569-edu-meeting
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <img id="icon"
-										src="${pageContext.request.contextPath}/resources/images/farming.png">
+                <img id="icon" src="${pageContext.request.contextPath}/resources/images/farming.png">
                 </svg>
 								<div class="card-body">
 									<h4 class="card-text">일정관리</h4>
@@ -143,8 +140,7 @@ https://templatemo.com/tm-569-edu-meeting
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <img id="icon"
-										src="${pageContext.request.contextPath}/resources/images/drone3.png">
+                <img id="icon" src="${pageContext.request.contextPath}/resources/images/drone3.png">
                 </svg>
 
 								<div class="card-body">
@@ -162,8 +158,7 @@ https://templatemo.com/tm-569-edu-meeting
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <img id="icon"
-										src="${pageContext.request.contextPath}/resources/images/diary.png">
+                <img id="icon" src="${pageContext.request.contextPath}/resources/images/diary.png">
                 </svg>
 								<div class="card-body">
 									<h4 class="card-text">영농일지</h4>
@@ -276,8 +271,9 @@ https://templatemo.com/tm-569-edu-meeting
                             $.ajax({
                     			url : "login.do",
                     			type : "post",
+                    			dataType: "json",
                     			data : {"member_id":kakao_account.email, "member_name":kakao_account.profile.nickname},
-                    			success : console.log("success!"),
+                    			success : function(vo){console.log(vo)},
                     			error : function(){ console.log("error") }
                     		});
                         }

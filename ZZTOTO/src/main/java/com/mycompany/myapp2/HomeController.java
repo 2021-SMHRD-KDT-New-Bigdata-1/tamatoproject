@@ -63,18 +63,19 @@ public class HomeController {
 
 	// 로그인 처리
 	@RequestMapping("/login.do")
-	public String login(Member member, HttpSession session) {
+	public @ResponseBody Member login(Member member, HttpSession session, Model model) {
 		Member vo = mapper.login(member);
-
+		
 		if (vo != null) { // 로그인 성공
 			session.setAttribute("vo", vo);
+			System.out.println("섹션생성 성공");
 		} else { // 로그인 실패시 회원가입
 			vo = mapper.join(member);
+			vo = mapper.login(member);
 			session.setAttribute("vo", vo);
 
-			return null;
 		}
-		return "redirect:/index.do";
+		return vo;
 	}
 
 	// 로그아웃 처리

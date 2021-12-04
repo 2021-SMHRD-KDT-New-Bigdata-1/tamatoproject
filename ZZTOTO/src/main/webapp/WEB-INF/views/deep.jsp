@@ -45,6 +45,7 @@
 		}
 		$('#camera').change(function(e) {
 			$('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
+			
 		});
 	});
 	
@@ -54,17 +55,12 @@
 			alert("분석할 사진을 업로드하세요.");
 			
 		}else {
-            // 여기안에 병충해 설명과 병충해 해결방안<div>~</div>을 넣어야 하나..
             $('div.row.gx-4.gx-lg-5:not(.my-5)')[0].style.display='flex'
-            
-          
-            
+           /*  $('#check_btn').attr('style',"display:flex"") */
             
          }
 
 	}
-	
-
 	
 	$(function () {
 
@@ -79,12 +75,12 @@
                     //alert(data)
                     console.log(data.text)
                     $.each(data, function (index, item) { // 데이터 =item
-                       // index가 끝날때까지 
                         $("#symtoms").html(item.pest_reason);
                         $("#solution").html(item.pest_solution);
                         $("#pestItem").html(item.pesticide);
                         $("#pestName").html(item.pest_name);
-                      
+                        $('#pic').attr('src', '/myapp2/resources/images/pre.png');
+                        
                     });
                 },
                 error: function (err) {
@@ -100,6 +96,10 @@
 </head>
 
 <body>
+
+
+
+
 	<!-- ***** Header Area Start ***** -->
 	<header class="header-area header-sticky">
 		<div class="container">
@@ -150,10 +150,17 @@
 							
 							
 					</form>
+						<div sytle="display: flex">
 						<br /> <button id="anal_btn" type="submit" class="btn btn-info btn-sm"
 							onclick="ImgCheck()">분석하기</button>
+							<button id="check_btn" type="submit" class="btn btn-info btn-sm"
+							onclick="ImgCheck()" style="display: none;">결과보기</button>
+						</div>
 				</div>
 			</div>
+			
+			
+			
 			<!-- Content Row-->
 			<div class="row gx-4 gx-lg-5" style="display:none">
 				<div class="col-md-6 mb-5">
@@ -220,12 +227,12 @@
 			formData.append("uploadFile", fileObj);
 
 			$.ajax({
-				url: 'uploadAjaxAction.do',			// 서버로 요청을 보낼 url
-		    	processData : false,				// 서버로 전송할 데이터를 queryString 형태로 변환할지 여부
-		    	contentType : false,				// 서버로 전성되는 데이터의 content-type
-		    	data : formData,					// 서버로 전송할 데이터
-		    	type : 'POST',						// 서버 요청 타입(GET, POST)
-		    	dataType : 'json',					// 서버로부터 반환받을 데이터 타입
+				url: 'http://222.102.43.169:8000/api/pest_analysis',			// 서버로 요청을 보낼 url
+		    	processData : false,											// 서버로 전송할 데이터를 queryString 형태로 변환할지 여부
+		    	contentType : false,											// 서버로 전성되는 데이터의 content-type
+		    	data : formData,												// 서버로 전송할 데이터
+		    	type : 'POST',													// 서버 요청 타입(GET, POST)
+		    	dataType : 'json',												// 서버로부터 반환받을 데이터 타입
 		    	success : function(result) {
 		    			console.log(result);
 		    	},
