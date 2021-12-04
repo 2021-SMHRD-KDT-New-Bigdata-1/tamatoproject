@@ -7,7 +7,7 @@
      Member vo= (Member)session.getAttribute("vo");
   %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <title>영농일지</title>
 <meta charset="utf-8">
@@ -41,7 +41,7 @@
        type : "get",
        dataType : "json", // 서버로부터 받는 데이터 타입
         success : jsonHtml, // callback 함수
-        error : function(c,e,a) {alert("로그인 후 이용해주세요");console.log(e)}
+        error : function(c,e,a) {alert("error1");console.log(e)}
         });
     }                     //                      0      1   2... index
     function jsonHtml(data) {   // data => object(객체) : [{json}, {  }, {  })]]
@@ -55,12 +55,17 @@
            view += "<td>삭제</td>";
         }
         view += "</tr>";
+        
+        var myIndex = 1;
         $.each(data, function(index, obj) {   // 람다식(익명함수) -> Node.js + Android
-            view += "<tr>";
-            view += "<td id='diary_num"+index+"'>" + obj.diary_num; + "</td>";
-            view += "<td id='t"+index+"'><a href = 'javascript:ctFn("+index+")'>"+ obj.diary_subject + "</td>";
-            view += "<td id='w"+index+"'>"+ obj.reg_date + "</td>";
-            
+             if('${vo.member_id}'==obj.member_id){
+               view += "<tr>";
+               view += "<td id='diary_num"+index+"'style='display:none'>" + obj.diary_num; + "</td>";
+               view += "<td>" + myIndex + "</td>"; 
+               view += "<td id='t"+index+"'><a href = 'javascript:ctFn("+index+")'>"+ obj.diary_subject + "</td>";
+                myIndex++;
+            view += "<td id='w"+index+"'>"+ obj.reg_date + "</td>";}
+
             if(${vo!=null}){
                if('${vo.member_id}'==obj.member_id){
                   view+="<td id='u"+index+"'>";
@@ -70,12 +75,14 @@
                   view+="<button class='btn btn-warning btn-sm' onclick ='delGo("+obj.diary_num+")'>삭제</button>";
                   view+="</td>";
                }else{
+                  if('${vo.member_id}'==obj.member_id){
                   view+="<td id='u"+index+"'>";
                   view+="<button disabled class='btn btn-info btn-sm' onclick='updateTW("+index+")'>수정</button>&nbsp;";
                   view+="</td>";
                   view+="<td>";
                   view+="<button disabled class='btn btn-warning btn-sm' onclick ='delGo("+obj.diary_num+")'>삭제</button>";
                   view+="</td>";
+                  }
                }
             }
             
@@ -220,34 +227,51 @@
 </script>
 </head>
 <body>
-	<header class="header-area header-sticky">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<nav class="main-nav">
-						<!-- ***** Logo Start ***** -->
-						<a href="index.do" class="logo"> 피톤치드 </a>
-						<!-- ***** Logo End ***** -->
-						<!-- ***** Menu Start ***** -->
-						<ul class="nav">
-							<li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-							<li><a href="deep.do">병충해 진단</a></li>
-							<li class="scroll-to-section"><a href="#apply">알림</a></li>
-							<li class="scroll-to-section"><a href="#apply">방역/방제</a></li>
-							<li class="scroll-to-section"><a href="#courses">검색</a></li>
-						</ul>
-						<a class='menu-trigger'> <span>Menu</span>
-						</a>
-						<!-- ***** Menu End ***** -->
-					</nav>
-				</div>
-			</div>
-		</div>
-	</header>
-   <div class="container" id="coco" style = "margin-top : 22%;">
+   <header class="header-area header-sticky">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <nav class="main-nav">
+                  <!-- ***** Logo Start ***** -->
+                  <a href="index.do" class="logo"> 피톤치드 </a>
+                  <!-- ***** Logo End ***** -->
+                  <!-- ***** Menu Start ***** -->
+                  <ul class="nav">
+                     <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                     <li><a href="deep.do">병충해 진단</a></li>
+                     <li class="scroll-to-section"><a href="#apply">알림</a></li>
+                     <li class="scroll-to-section"><a href="#apply">방역/방제</a></li>
+                     <li class="scroll-to-section"><a href="#courses">검색</a></li>
+                  </ul>
+                  <a class='menu-trigger'> <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+               </nav>
+            </div>
+         </div>
+      </div>
+   </header>
+   <div class="container" id="coco" style = "margin-top : 25%">
       <h2>영농일지</h2>
       <div class="panel panel-default">         
-  
+         <c:if test="${vo==null}">
+           <div class="panel-heading">
+            <form id="wform" class="form-inline" action="Farmlogin.do" method="post">
+            
+               <div class="form-group">
+                  <label for="member_id">아이디:</label> 
+                  <input type="text" class="form-control" id="member_id" name="member_id">
+               </div>
+               
+               <div class="form-group">
+                  <label for="userPwd">비밀번호:</label> 
+                  <input type="password" class="form-control"  >
+               </div>
+               
+               <button type="submit" class="btn btn-info btn-sm" onclick="formCheck()">로그인</button>
+            </form>
+           </div>
+         </c:if>        
          <div class="panel-body"></div>
          <div class="writeForm" style="display: none;">
             <form id="frm" class="form-horizontal" >
@@ -285,15 +309,15 @@
       </div>
    </div>
    <!-- Footer-->
-	<!-- 왜 있는지 모를 클래스 푸터 -->
-	<!-- <footer class="py-5 bg-dark">
-		<div class="container px-4 px-lg-5"> -->
-			<div class="footer">
-				<p class="m-0 text-center text-white">Copyright &copy; Your
-					Website 2021</p>
-			</div>		
-		<!-- </div>
-	</footer> -->
+   <!-- 왜 있는지 모를 클래스 푸터 -->
+   <!-- <footer class="py-5 bg-dark">
+      <div class="container px-4 px-lg-5"> -->
+         <div class="footer">
+            <p class="m-0 text-center text-white">Copyright &copy; Your
+               Website 2021</p>
+         </div>      
+      <!-- </div>
+   </footer> -->
 
 </body>
 </html>

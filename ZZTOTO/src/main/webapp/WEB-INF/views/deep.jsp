@@ -1,7 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+<<<<<<< HEAD
 	pageEncoding="UTF-8"%>
+=======
+   pageEncoding="UTF-8"%>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
 
 <!DOCTYPE html>
 <html>
@@ -55,6 +59,10 @@
 			alert("분석할 사진을 업로드하세요.");
 			
 		}else {
+<<<<<<< HEAD
+            // 여기안에 병충해 설명과 병충해 해결방안<div>~</div>을 넣어야 하나..
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
             $('div.row.gx-4.gx-lg-5:not(.my-5)')[0].style.display='flex'
            /*  $('#check_btn').attr('style',"display:flex"") */
             
@@ -75,6 +83,10 @@
                     //alert(data)
                     console.log(data.text)
                     $.each(data, function (index, item) { // 데이터 =item
+<<<<<<< HEAD
+=======
+                       // index가 끝날때까지 
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
                         $("#symtoms").html(item.pest_reason);
                         $("#solution").html(item.pest_solution);
                         $("#pestItem").html(item.pesticide);
@@ -135,9 +147,24 @@
 						method="post">
 
 
+<<<<<<< HEAD
 						<!-- 찍은 사진 가져오는 원본 코드 -->
 						<!-- <input type="file" id="camera" name="camera" capture="camera" 
+=======
+					<!-- 찍은 사진 가져오는 원본 코드 -->						
+					<!-- <input type="file" id="camera" name="camera" capture="camera" 
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
 							accept="image/*" />  -->
+<<<<<<< HEAD
+=======
+							
+							
+							<!-- 호출된 카메라로 찍은 사진을 가져오는 input값 by 이길환  -->
+							  <label id="lb" class="btn btn-primary btn-file">
+						      	사진추가 <input type="file" style="display: none;" id="camera" name="camera" capture="camera" accept="image/*" />
+						      </label>
+						<br /> <img id="pic" style="width: 256px; height:256px" />
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
 
 
 						<!-- 호출된 카메라로 찍은 사진을 가져오는 input값 by 이길환  -->
@@ -149,6 +176,7 @@
 
 
 					</form>
+<<<<<<< HEAD
 					<div sytle="display: flex">
 						<br />
 						<button id="anal_btn" type="submit" class="btn btn-info btn-sm"
@@ -156,6 +184,12 @@
 						<button id="check_btn" type="submit" class="btn btn-info btn-sm"
 							onclick="ImgCheck()" style="display: none;">결과보기</button>
 					</div>
+=======
+						<div sytle="display: flex">
+						<br /> <button id="anal_btn" type="submit" class="btn btn-info btn-sm"
+							onclick="ImgCheck()">분석하기</button>
+						</div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
 				</div>
 			</div>
 
@@ -165,7 +199,11 @@
 			<div class="row gx-4 gx-lg-5" style="display: none">
 				<div class="col-md-6 mb-5">
 					<h2 class="card-title">병충해 명</h2>
+<<<<<<< HEAD
 					<div class="card h-100" style="height: 60% !important;">
+=======
+					<div class="card h-100" style = "height: 60%!important;">
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
 						<div class="card-body">
 							<p id="pestName" class="card-text">발생원인</p>
 						</div>
@@ -188,10 +226,18 @@
 						</div>
 					</div>
 				</div>
+<<<<<<< HEAD
 				<h2 class="card-title">사용해야할 농약</h2>
 				<div class="card h-100">
 					<div class="card-body">
 						<p id="pestItem" class="card-text">해결방법</p>
+=======
+					<h2 class="card-title">사용해야할 농약</h2>
+					<div class="card h-100">
+						<div class="card-body">
+							<p id="pestItem" class="card-text">해결방법</p>
+						</div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
 					</div>
 				</div>
 			</div>
@@ -226,6 +272,7 @@
        
        formData.append("uploadFile", fileObj);
 
+<<<<<<< HEAD
        $.ajax({
           url: 'uploadAjaxAction.do',         // 서버로 요청을 보낼 url
            processData : false,            // 서버로 전송할 데이터를 queryString 형태로 변환할지 여부
@@ -241,10 +288,37 @@
            }
        });
     });
+=======
+			$.ajax({
+<<<<<<< HEAD
+				url: 'uploadAjaxAction.do',			// 서버로 요청을 보낼 url
+		    	processData : false,				// 서버로 전송할 데이터를 queryString 형태로 변환할지 여부
+		    	contentType : false,				// 서버로 전성되는 데이터의 content-type
+		    	data : formData,					// 서버로 전송할 데이터
+		    	type : 'POST',						// 서버 요청 타입(GET, POST)
+		    	dataType : 'json',					// 서버로부터 반환받을 데이터 타입
+=======
+				url: 'http://222.102.43.169:8000/api/pest_analysis',			// ������ ��û�� ���� url
+		    	processData : false,											// ������ ������ �����͸� queryString ���·� ��ȯ���� ����
+		    	contentType : false,											// ������ �����Ǵ� �������� content-type
+		    	data : formData,												// ������ ������ ������
+		    	type : 'POST',													// ���� ��û Ÿ��(GET, POST)
+		    	dataType : 'json',												// �����κ��� ��ȯ���� ������ Ÿ��
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
+		    	success : function(result) {
+		    			console.log(result);
+		    	},
+		    	error : fucntion(result) {
+		    			alert("이미지 파일이 아닙니다.");
+		    	}
+			});
+		});
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
 
     /* var, method related with attachFile */
     let regex = new RegExp("(.*?)\.(jpg|png)$");
 
+<<<<<<< HEAD
     function fileCheck(fileName) {
        if (!regex.test(fileName)) {
           alert("해당 종류의 파일은 업로드할 수 없습니다.");
@@ -253,6 +327,16 @@
        return true;
     }
  </script>
+=======
+		function fileCheck(fileName) {
+			if (!regex.test(fileName)) {
+				alert("해당 종류의 파일은 업로드할 수 없습니다.");
+				return false;
+			}
+			return true;
+		}
+	</script>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
 
 </body>
 

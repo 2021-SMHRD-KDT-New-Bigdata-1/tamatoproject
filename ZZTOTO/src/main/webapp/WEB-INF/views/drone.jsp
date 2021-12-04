@@ -1,56 +1,56 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <meta name="viewport  initial-scale=0, user-scalable=no" >
-<title>µå·Ð ¹æÁ¦ ¿¹¾à</title>
+<title>ë“œë¡  ë°©ì œ ì˜ˆì•½</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/drone.css">
 
 </head>
 
 <body>
-	<h1>¹æÁ¦¿¹¾à½ÅÃ»</h1>
+	<h1>ë°©ì œì˜ˆì•½ì‹ ì²­</h1>
 	<form action="droneInsert.do" method="post">
 		<fieldset class="field" style =  "width: 100%; margin: 0 auto;">
 			<legend>
-				<strong>°³ÀÎÁ¤º¸</strong>
+				<strong>ê°œì¸ì •ë³´</strong>
 			</legend>
 			<div class="double-input">
 				<div class="form-input-container">
-					<label for="proposer_Name">ÀÌ¸§</label><br> <input type="text"
-						name="proposer_Name" id="proposer_Name" placeholder="ÀÌ¸§À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä" minlength="3"
+					<label for="proposer_Name">ì´ë¦„</label><br> <input type="text"
+						name="proposer_Name" id="proposer_Name" placeholder="ì´ë¦„ì„ ìž…ë ¥í•´ ì£¼ì„¸ìš”" minlength="3"
 						required />
 				</div>
 				<div class="form-input-container">
-					<label for="proposer_Email">ÀÌ¸ÞÀÏ</label><br> <input type="email"
-						name="proposer_Email" id="proposer_Email" required placeholder="ÀÌ¸ÞÀÏÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä"
+					<label for="proposer_Email">ì´ë©”ì¼</label><br> <input type="email"
+						name="proposer_Email" id="proposer_Email" required placeholder="ì´ë©”ì¼ì„ ìž…ë ¥í•´ ì£¼ì„¸ìš”"
 						required />
 				</div>
 			</div>
 			<div class="double-input">
 				<div class="form-input-container">
-					<label for="proposer_Number">¿¬¶ôÃ³</label><br> <input type="tel"
-						name="proposer_Number" id="proposer_Number" placeholder="ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä" required />
+					<label for="proposer_Number">ì—°ë½ì²˜</label><br> <input type="tel"
+						name="proposer_Number" id="proposer_Number" placeholder="ì „í™”ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ ì£¼ì„¸ìš”" required />
 				</div>
 				<div class="form-input-container">
-					<label for="proposer_Address">ÁÖ¼Ò</label><br> <input type="text"
-						name="proposer_Address" id="proposer_Address" placeholder="ÁÖ¼Ò¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä" required />
+					<label for="proposer_Address">ì£¼ì†Œ</label><br> <input type="text"
+						name="proposer_Address" id="proposer_Address" placeholder="ì£¼ì†Œë¥¼ ìž…ë ¥í•´ ì£¼ì„¸ìš”" required />
 				</div>
 			</div>
 		</fieldset>
 		<fieldset class="field" style =  "width: 100%; margin: 0 auto;">
 			<legend>
-				<strong>¿¹¾à Á¤º¸</strong>
+				<strong>ì˜ˆì•½ ì •ë³´</strong>
 			</legend>
 			<div class="double-input">
 				<div class="form-input-container">
-					<label for="land_Type">³íÁö À¯Çü</label><br> <select
+					<label for="land_Type">ë…¼ì§€ ìœ í˜•</label><br> <select
 						name="land_Type" id="land_Type">
 						<option value="Wroclaw">Wroclaw</option>
 						<option value="Warsaw">Warsaw</option>
@@ -59,37 +59,37 @@
 					</select>
 				</div>
 				<div class="form-input-container">
-					<label for="area">¸éÀû<a style = "font-size:30px">(´ÜÀ§ : Æò)</a></label><br> 
-						<input type="text" name="area" id="area" placeholder="Æò¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä"  />
+					<label for="area">ë©´ì <a style = "font-size:30px">(ë‹¨ìœ„ : í‰)</a></label><br> 
+						<input type="text" name="area" id="area" placeholder="í‰ìˆ˜ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”"  />
 				</div>
 			</div>
 			<div class="double-input">
 				<div class="form-input-container date-select">
-					<label for="pesticide">³ó¾àº¸À¯</label><br> <select
+					<label for="pesticide">ë†ì•½ë³´ìœ </label><br> <select
 						name="pesticide" id="pesticide">
-						<option value="¹Ìº¸À¯" disabled selected>¹Ìº¸À¯</option>
-						<option value="0">¹Ìº¸À¯</option>
-						<option value="1">º¸À¯</option>
+						<option value="ë¯¸ë³´ìœ " disabled selected>ë¯¸ë³´ìœ </option>
+						<option value="0">ë¯¸ë³´ìœ </option>
+						<option value="1">ë³´ìœ </option>
 					</select> </select>
 				</div>
 				<div>
 					<div class="form-input-container">
-						<label for="pest_Name">º´¸í</label><br> 
-						<input type="text" name="pest_Name" id="pest_Name" placeholder="º´¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä"  />
+						<label for="pest_Name">ë³‘ëª…</label><br> 
+						<input type="text" name="pest_Name" id="pest_Name" placeholder="ë³‘ëª…ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”"  />
 					</div>
 
 					<div class="form-input-container">
-						<label for="crop_Name">ÀÛ¹°¸í</label><br> 
-						<input type="text" name="crop_Name" id="crop_Name" placeholder="ÀÛ¹°¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä"  />
+						<label for="crop_Name">ìž‘ë¬¼ëª…</label><br> 
+						<input type="text" name="crop_Name" id="crop_Name" placeholder="ìž‘ë¬¼ëª…ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”"  />
 					</div>
 				</div>
 				<div class="form-input-container date-select">
-					<label for="reservation_Date">¿¹¾à ³¯Â¥</label><br> 
+					<label for="reservation_Date">ì˜ˆì•½ ë‚ ì§œ</label><br> 
 					<input class = "calender" name = "reservation_Date" type="datetime-local">
 				</div>
 			</div>
 		</fieldset>
-		<button type="submit">¿¹¾à½ÅÃ»ÇÏ±â</button>
+		<button type="submit">ì˜ˆì•½ì‹ ì²­í•˜ê¸°</button>
 	</form>
 
 </body>

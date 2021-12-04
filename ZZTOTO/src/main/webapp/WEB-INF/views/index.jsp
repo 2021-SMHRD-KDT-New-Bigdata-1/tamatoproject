@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 
@@ -49,25 +49,25 @@ https://templatemo.com/tm-569-edu-meeting
 				<div class="col-12">
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
-						<a href="index.do" class="logo"> ÇÇÅæÄ¡µå </a>
+						<a href="index.do" class="logo"> í”¼í†¤ì¹˜ë“œ </a>
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
 							<li><a href="#top" class="active">Home</a></li>
-							<li><a href="deep.do">º´ÃæÇØ Áø´Ü</a></li>
-							<li><a href="notification.do">ÇÒ ÀÏ</a></li>
-							<li><a href="drone.do">µå·Ğ ¹æ¿ª/¹æÁ¦</a></li>
-							<li><a href="news.do">³ó¾÷ Á¤Ã¥</a></li>
-							<!-- ·Î±×ÀÎÀÌ ¾ÈµÇ¾îÀÖÀ»¶§ -->
+							<li><a href="deep.do">ë³‘ì¶©í•´ ì§„ë‹¨</a></li>
+							<li><a href="notification.do">ì¼ì •ê´€ë¦¬</a></li>
+							<li><a href="drone.do">ë“œë¡  ë°©ì—­/ë°©ì œ</a></li>
+							<li><a href="farm_diary.do">ì˜ë†ì¼ì§€</a></li>
+							<!-- ë¡œê·¸ì¸ì´ ì•ˆë˜ì–´ìˆì„ë•Œ -->
 							<c:if test="${vo==null}">
 								<li><a href="javascript:kakaoLogin();"><img
 										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
 										style="height: 30px; width: 80px;"></a></li>
 							</c:if>
-							<!-- ·Î±×ÀÎÀÌ µÇ¾îÀÖÀ»¶§ -->
+							<!-- ë¡œê·¸ì¸ì´ ë˜ì–´ìˆì„ë•Œ -->
 							<c:if test="${vo!=null}">
 								<li><button type="button" class="btn btn-info btn-sm"
-										onclick="logout()">·Î±×¾Æ¿ô</button></li>
+										onclick="logout()">ë¡œê·¸ì•„ì›ƒ</button></li>
 							</c:if>
 						</ul>
 						<a class='menu-trigger'> <span>Menu</span>
@@ -85,7 +85,7 @@ https://templatemo.com/tm-569-edu-meeting
 		<section class="py-5 text-center container" id="toto">
 			<div class="row py-lg-5">
 				<div class="col-lg-6 col-md-8 mx-auto">
-					<h1 class="fw-light">µö·¯´×À» ÅëÇÑ ³ó»ê¹° º´ÃæÇØ Áø´Ü ¹× ¼Ö·ç¼Ç Á¦°ø ¼­ºñ½º</h1>
+					<h1 class="fw-light">ë”¥ëŸ¬ë‹ì„ í†µí•œ ë†ì‚°ë¬¼ ë³‘ì¶©í•´ ì§„ë‹¨ ë° ì†”ë£¨ì…˜ ì œê³µ ì„œë¹„ìŠ¤</h1>
 
 					<p>
 						<a href="#" class="btn btn-primary my-2">Main call to action</a> 
@@ -111,7 +111,7 @@ https://templatemo.com/tm-569-edu-meeting
                  	<img id="icon" src="${pageContext.request.contextPath}/resources/images/camera2.png">
                  </svg>
 								<div class="card-body">
-									<h4 class="card-text">º´ÃæÇØ Áø´Ü</h4>
+									<h4 class="card-text">ë³‘ì¶©í•´ ì§„ë‹¨</h4>
 								</div>
 							</div>
 						</a>
@@ -127,7 +127,7 @@ https://templatemo.com/tm-569-edu-meeting
                 <img id="icon" src="${pageContext.request.contextPath}/resources/images/farming.png">
                 </svg>
 								<div class="card-body">
-									<h4 class="card-text">ÀÏÁ¤°ü¸®</h4>
+									<h4 class="card-text">ì¼ì •ê´€ë¦¬</h4>
 								</div>
 							</div>
 						</a>
@@ -144,14 +144,14 @@ https://templatemo.com/tm-569-edu-meeting
                 </svg>
 
 								<div class="card-body">
-									<h4 class="card-text">µå·Ğ ¹æ¿ª/¹æÁ¦</h4>
+									<h4 class="card-text">ë“œë¡  ë°©ì—­/ë°©ì œ</h4>
 								</div>
 							</div>
 						</a>
 					</div>
 
 					<div class="col col-6">
-						<a href="news.do">
+						<a href="farm_diary.do">
 							<div class="card shadow-sm">
 								<svg class="bd-placeholder-img card-img-top" width="100%"
 									height="0" xmlns="http://www.w3.org/2000/svg" role="img"
@@ -161,7 +161,7 @@ https://templatemo.com/tm-569-edu-meeting
                 <img id="icon" src="${pageContext.request.contextPath}/resources/images/diary.png">
                 </svg>
 								<div class="card-body">
-									<h4 class="card-text">¿µ³óÀÏÁö</h4>
+									<h4 class="card-text">ì˜ë†ì¼ì§€</h4>
 								</div>
 							</div>
 						</a>
@@ -252,7 +252,7 @@ https://templatemo.com/tm-569-edu-meeting
 		location.href="logout.do";
 	}
 	</script>
-	<!-- Ä«Ä«¿ÀÅå ·Î±×ÀÎ ±â´É -->
+	<!-- ì¹´ì¹´ì˜¤í†¡ ë¡œê·¸ì¸ ê¸°ëŠ¥ -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script>
         window.Kakao.init("e9d0bcae2dc6950a5ef78930a776afb9");
@@ -261,7 +261,7 @@ https://templatemo.com/tm-569-edu-meeting
             window.Kakao.Auth.login({
                 scope: 'profile_nickname, account_email',
                 success: function(authObj) {
-                	console.log(authObj)	// ·Î±×ÀÎ ¼º°ø½Ã ¹Ş¾Æ¿À´Â µ¥ÀÌÅÍ
+                	console.log(authObj)	// ë¡œê·¸ì¸ ì„±ê³µì‹œ ë°›ì•„ì˜¤ëŠ” ë°ì´í„°
                     window.Kakao.API.request({ 
                         url: '/v2/user/me',
                         success: res => {
@@ -273,7 +273,7 @@ https://templatemo.com/tm-569-edu-meeting
                     			type : "post",
                     			dataType: "json",
                     			data : {"member_id":kakao_account.email, "member_name":kakao_account.profile.nickname},
-                    			success : function(vo){console.log(vo)},
+                    			success : function(){location.reload();},
                     			error : function(){ console.log("error") }
                     		});
                         }
