@@ -189,7 +189,7 @@
 
 
          <!-- Content Row-->
-         <div id=PestBug class="row gx-4 gx-lg-5" style="display: flex">
+         <div id=PestBug class="row gx-4 gx-lg-5" style="display: none">
             <div class="col-md-6 mb-5">
                <h2 class="card-title">병충해 명</h2>
                <div class="card h-100" style = "height: 60%!important;">
