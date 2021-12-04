@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-   pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -10,32 +10,32 @@
 
 <meta charset="utf-8">
 <meta name="viewport"
-   content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="viewport" content="width=320"/>
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=320" />
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <link
-   href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
-   rel="stylesheet">
+	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
 
 <title>KingTomato</title>
 
 <!-- Bootstrap core CSS -->
 <link
-   href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
-   rel="stylesheet">
+	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
 
 
 <!-- Additional CSS Files -->
 <link rel="stylesheet"
-   href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
+	href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
 <link rel="stylesheet"
-   href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
+	href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
 <link rel="stylesheet"
-   href="${pageContext.request.contextPath}/resources/css/owl.css">
+	href="${pageContext.request.contextPath}/resources/css/owl.css">
 <link rel="stylesheet"
-   href="${pageContext.request.contextPath}/resources/css/lightbox.css">
+	href="${pageContext.request.contextPath}/resources/css/lightbox.css">
 
-<!-- Ä«¸Ş¶ó¸¦ È£ÃâÇÏ´Â api ¿¬µ¿ ±â´É by ÀÌ±æÈ¯  -->
+<!-- ì¹´ë©”ë¼ë¥¼ í˜¸ì¶œí•˜ëŠ” api ì—°ë™ ê¸°ëŠ¥ by ì´ê¸¸í™˜  -->
 <script src="resources/vendor/jquery/jquery.min.js"></script>
 <script>
 
@@ -52,7 +52,7 @@
 	function ImgCheck(){
 		var img = $('#pic')[0].src;
 		if (img == ""){
-			alert("ºĞ¼®ÇÒ »çÁøÀ» ¾÷·ÎµåÇÏ¼¼¿ä.");
+			alert("ë¶„ì„í•  ì‚¬ì§„ì„ ì—…ë¡œë“œí•˜ì„¸ìš”.");
 			
 		}else {
             $('div.row.gx-4.gx-lg-5:not(.my-5)')[0].style.display='flex'
@@ -71,10 +71,10 @@
                 type: 'get',
                 datatype: 'json',
                 success: function (data) {
-                    //alert("¼º°ø!")
+                    //alert("ì„±ê³µ!")
                     //alert(data)
                     console.log(data.text)
-                    $.each(data, function (index, item) { // µ¥ÀÌÅÍ =item
+                    $.each(data, function (index, item) { // ë°ì´í„° =item
                         $("#symtoms").html(item.pest_reason);
                         $("#solution").html(item.pest_solution);
                         $("#pestItem").html(item.pesticide);
@@ -107,15 +107,15 @@
 				<div class="col-12">
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
-						<a href="index.do" class="logo"> ÇÇÅæÄ¡µå </a>
+						<a href="index.do" class="logo"> í”¼í†¤ì¹˜ë“œ </a>
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
 							<li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-							<li><a href="deep.do">º´ÃæÇØ Áø´Ü</a></li>
-							<li class="scroll-to-section"><a href="#apply">¾Ë¸²</a></li>
-							<li class="scroll-to-section"><a href="#apply">¹æ¿ª/¹æÁ¦</a></li>
-							<li class="scroll-to-section"><a href="#courses">°Ë»ö</a></li>
+							<li><a href="deep.do">ë³‘ì¶©í•´ ì§„ë‹¨</a></li>
+							<li class="scroll-to-section"><a href="#apply">ì•Œë¦¼</a></li>
+							<li class="scroll-to-section"><a href="#apply">ë°©ì—­/ë°©ì œ</a></li>
+							<li class="scroll-to-section"><a href="#courses">ê²€ìƒ‰</a></li>
 						</ul>
 						<a class='menu-trigger'> <span>Menu</span>
 						</a>
@@ -135,77 +135,77 @@
 						method="post">
 
 
-					<!-- ÂïÀº »çÁø °¡Á®¿À´Â ¿øº» ÄÚµå -->						
-					<!-- <input type="file" id="camera" name="camera" capture="camera" 
+						<!-- ì°ì€ ì‚¬ì§„ ê°€ì ¸ì˜¤ëŠ” ì›ë³¸ ì½”ë“œ -->
+						<!-- <input type="file" id="camera" name="camera" capture="camera" 
 							accept="image/*" />  -->
-							
-							
-							<!-- È£ÃâµÈ Ä«¸Ş¶ó·Î ÂïÀº »çÁøÀ» °¡Á®¿À´Â input°ª by ÀÌ±æÈ¯  -->
-							  <label id="lb" class="btn btn-primary btn-file">
-						      	»çÁøÃß°¡ <input type="file" style="display: none;" id="camera" name="camera" capture="camera" accept="image/*" 
-						      			onclick="ChangeImg()"/>
-						      </label>
-						<br /> <img id="pic" style="width: 256px; height:256px" />
 
-							
-							
+
+						<!-- í˜¸ì¶œëœ ì¹´ë©”ë¼ë¡œ ì°ì€ ì‚¬ì§„ì„ ê°€ì ¸ì˜¤ëŠ” inputê°’ by ì´ê¸¸í™˜  -->
+						<label id="lb" class="btn btn-primary btn-file"> ì‚¬ì§„ì¶”ê°€ <input
+							type="file" style="display: none;" id="camera" name="camera"
+							capture="camera" accept="image/*" onclick="ChangeImg()" />
+						</label> <br /> <img id="pic" style="width: 256px; height: 256px" />
+
+
+
 					</form>
-						<div sytle="display: flex">
-						<br /> <button id="anal_btn" type="submit" class="btn btn-info btn-sm"
-							onclick="ImgCheck()">ºĞ¼®ÇÏ±â</button>
-							<button id="check_btn" type="submit" class="btn btn-info btn-sm"
-							onclick="ImgCheck()" style="display: none;">°á°úº¸±â</button>
-						</div>
+					<div sytle="display: flex">
+						<br />
+						<button id="anal_btn" type="submit" class="btn btn-info btn-sm"
+							onclick="ImgCheck()">ë¶„ì„í•˜ê¸°</button>
+						<button id="check_btn" type="submit" class="btn btn-info btn-sm"
+							onclick="ImgCheck()" style="display: none;">ê²°ê³¼ë³´ê¸°</button>
+					</div>
 				</div>
 			</div>
-			
-			
-			
+
+
+
 			<!-- Content Row-->
-			<div class="row gx-4 gx-lg-5" style="display:none">
+			<div class="row gx-4 gx-lg-5" style="display: none">
 				<div class="col-md-6 mb-5">
-					<h2 class="card-title">º´ÃæÇØ ¸í</h2>
-					<div class="card h-100" style = "height: 60%!important;">
+					<h2 class="card-title">ë³‘ì¶©í•´ ëª…</h2>
+					<div class="card h-100" style="height: 60% !important;">
 						<div class="card-body">
-							<p id="pestName" class="card-text">¹ß»ı¿øÀÎ</p>
+							<p id="pestName" class="card-text">ë°œìƒì›ì¸</p>
 						</div>
 					</div>
 				</div>
-			
+
 				<div class="col-md-6 mb-5">
-					<h2 class="card-title">º´ÃæÇØ ¼³¸í</h2>
+					<h2 class="card-title">ë³‘ì¶©í•´ ì„¤ëª…</h2>
 					<div class="card h-100">
 						<div class="card-body">
-							<p id="symtoms" class="card-text">¹ß»ı¿øÀÎ</p>
+							<p id="symtoms" class="card-text">ë°œìƒì›ì¸</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-6 mb-5">
-					<h2 class="card-title">º´ÃæÇØ ÇØ°á¹æ¾È</h2>
+					<h2 class="card-title">ë³‘ì¶©í•´ í•´ê²°ë°©ì•ˆ</h2>
 					<div class="card h-100">
 						<div class="card-body">
-							<p id="solution" class="card-text">ÇØ°á¹æ¹ı</p>
+							<p id="solution" class="card-text">í•´ê²°ë°©ë²•</p>
 						</div>
 					</div>
 				</div>
-					<h2 class="card-title">»ç¿ëÇØ¾ßÇÒ ³ó¾à</h2>
-					<div class="card h-100">
-						<div class="card-body">
-							<p id="pestItem" class="card-text">ÇØ°á¹æ¹ı</p>
-						</div>
+				<h2 class="card-title">ì‚¬ìš©í•´ì•¼í•  ë†ì•½</h2>
+				<div class="card h-100">
+					<div class="card-body">
+						<p id="pestItem" class="card-text">í•´ê²°ë°©ë²•</p>
 					</div>
+				</div>
 			</div>
 		</div>
 	</main>
 	<!-- Footer-->
-	<!-- ¿Ö ÀÖ´ÂÁö ¸ğ¸¦ Å¬·¡½º ÇªÅÍ -->
+	<!-- ì™œ ìˆëŠ”ì§€ ëª¨ë¥¼ í´ë˜ìŠ¤ í‘¸í„° -->
 	<!-- <footer class="py-5 bg-dark">
 		<div class="container px-4 px-lg-5"> -->
-			<div class="footer">
-				<p class="m-0 text-center text-white">Copyright &copy; Your
-					Website 2021</p>
-			</div>		
-		<!-- </div>
+	<div class="footer">
+		<p class="m-0 text-center text-white">Copyright &copy; Your
+			Website 2021</p>
+	</div>
+	<!-- </div>
 	</footer> -->
 	<!-- Bootstrap core JS-->
 	<script
@@ -213,46 +213,46 @@
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
 	<script>
-		/* Image Upload */
-		$("input[type='file']").on("change", function(e) {
-			let formData = new FormData();
-			let fileInput = $('input[name="camera"]');
-			let fileList = fileInput[0].files;
-			let fileObj = fileList[0];
+	/* Image Upload */
+    $("input[type='file']").on("change", function(e) {
+       let formData = new FormData();
+       let fileInput = $('input[name="camera"]');
+       let fileList = fileInput[0].files;
+       let fileObj = fileList[0];
 
-			if(!fileCheck(fileObj.name)){
-				return false;
-			}
-			
-			formData.append("uploadFile", fileObj);
+       if(!fileCheck(fileObj.name)){
+          return false;
+       }
+       
+       formData.append("uploadFile", fileObj);
 
-			$.ajax({
-				url: 'http://222.102.43.169:8000/api/pest_analysis',			// ¼­¹ö·Î ¿äÃ»À» º¸³¾ url
-		    	processData : false,											// ¼­¹ö·Î Àü¼ÛÇÒ µ¥ÀÌÅÍ¸¦ queryString ÇüÅÂ·Î º¯È¯ÇÒÁö ¿©ºÎ
-		    	contentType : false,											// ¼­¹ö·Î Àü¼ºµÇ´Â µ¥ÀÌÅÍÀÇ content-type
-		    	data : formData,												// ¼­¹ö·Î Àü¼ÛÇÒ µ¥ÀÌÅÍ
-		    	type : 'POST',													// ¼­¹ö ¿äÃ» Å¸ÀÔ(GET, POST)
-		    	dataType : 'json',												// ¼­¹ö·ÎºÎÅÍ ¹İÈ¯¹ŞÀ» µ¥ÀÌÅÍ Å¸ÀÔ
-		    	success : function(result) {
-		    			console.log(result);
-		    	},
-		    	error : fucntion(result) {
-		    			alert("ÀÌ¹ÌÁö ÆÄÀÏÀÌ ¾Æ´Õ´Ï´Ù.");
-		    	}
-			});	
-		});
+       $.ajax({
+          url: 'uploadAjaxAction.do',         // ì„œë²„ë¡œ ìš”ì²­ì„ ë³´ë‚¼ url
+           processData : false,            // ì„œë²„ë¡œ ì „ì†¡í•  ë°ì´í„°ë¥¼ queryString í˜•íƒœë¡œ ë³€í™˜í• ì§€ ì—¬ë¶€
+           contentType : false,            // ì„œë²„ë¡œ ì „ì„±ë˜ëŠ” ë°ì´í„°ì˜ content-type
+           data : formData,               // ì„œë²„ë¡œ ì „ì†¡í•  ë°ì´í„°
+           type : 'POST',                  // ì„œë²„ ìš”ì²­ íƒ€ì…(GET, POST)
+           dataType : 'json',               // ì„œë²„ë¡œë¶€í„° ë°˜í™˜ë°›ì„ ë°ì´í„° íƒ€ì…
+           success : function(result) {
+                 console.log(result);
+           },
+           error : fucntion(result) {
+                 alert("ì´ë¯¸ì§€ íŒŒì¼ì´ ì•„ë‹™ë‹ˆë‹¤.");
+           }
+       });
+    });
 
-		/* var, method related with attachFile */
-		let regex = new RegExp("(.*?)\.(jpg|png)$");
+    /* var, method related with attachFile */
+    let regex = new RegExp("(.*?)\.(jpg|png)$");
 
-		function fileCheck(fileName) {
-			if (!regex.test(fileName)) {
-				alert("ÇØ´ç Á¾·ùÀÇ ÆÄÀÏÀº ¾÷·ÎµåÇÒ ¼ö ¾ø½À´Ï´Ù.");
-				return false;
-			}
-			return true;
-		}
-	</script>
+    function fileCheck(fileName) {
+       if (!regex.test(fileName)) {
+          alert("í•´ë‹¹ ì¢…ë¥˜ì˜ íŒŒì¼ì€ ì—…ë¡œë“œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+          return false;
+       }
+       return true;
+    }
+ </script>
 
 </body>
 
