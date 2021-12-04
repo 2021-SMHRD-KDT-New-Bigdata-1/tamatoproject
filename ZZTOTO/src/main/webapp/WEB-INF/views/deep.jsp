@@ -45,6 +45,7 @@
 		}
 		$('#camera').change(function(e) {
 			$('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
+			
 		});
 	});
 	
@@ -55,6 +56,7 @@
 			
 		}else {
             $('div.row.gx-4.gx-lg-5:not(.my-5)')[0].style.display='flex'
+           /*  $('#check_btn').attr('style',"display:flex"") */
             
          }
 
@@ -148,8 +150,12 @@
 							
 							
 					</form>
+						<div sytle="display: flex">
 						<br /> <button id="anal_btn" type="submit" class="btn btn-info btn-sm"
 							onclick="ImgCheck()">분석하기</button>
+							<button id="check_btn" type="submit" class="btn btn-info btn-sm"
+							onclick="ImgCheck()" style="display: none;">결과보기</button>
+						</div>
 				</div>
 			</div>
 			
