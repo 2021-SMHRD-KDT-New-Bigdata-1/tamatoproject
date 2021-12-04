@@ -43,5 +43,6 @@ public interface PestMapper {
   	
   	@Update("update farm_diaries set diary_content=#{diary_content}, issue=#{issue} where diary_num=#{diary_num}")
 	public void diaryUpdateAjax1(Farm_diary vo); // XML(X) -> update SQL~
+  	
 
 }

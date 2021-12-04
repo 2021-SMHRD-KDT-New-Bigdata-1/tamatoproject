@@ -1,7 +1,5 @@
 package com.mycompany.domain;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User_pestfile {
 	private int m_pest_num;
-	private Date regdate;
-	private int member_id;
+	private String reg_date;
+	private String member_id;
 	private String uploadPath;
 	private String uuid;
 	private String fileName;

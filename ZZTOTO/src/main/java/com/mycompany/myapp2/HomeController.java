@@ -4,7 +4,9 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -85,7 +87,8 @@ public class HomeController {
 
 	// Ajax활용 파일 업로드 기능 : 딥러닝용, DB용 2가지
 	@PostMapping(value = "/uploadAjaxAction.do", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<List<User_pestfile>> uploadAjaxAction(MultipartFile[] uploadFile) {
+	public ResponseEntity<List<User_pestfile>> uploadAjaxAction(MultipartFile[] uploadFile, HttpSession session) {
+		Member vo = (Member) session.getAttribute("vo");
 
 		// 딥러닝용 폴더, DB저장용 날짜별 폴더 생성
 		String uploadFolder_Django = "C:/Users/smhrd/Desktop/imimim/";
@@ -99,6 +102,7 @@ public class HomeController {
 		// 폴더 생성
 		File uploadPath_Django = new File(uploadFolder_Django);
 		File uploadPath_DB = new File(uploadFolder_DB, datePath);
+		String uploadPath = uploadFolder_DB + datePath;
 
 		if (uploadPath_DB.exists() == false) {
 			uploadPath_DB.mkdirs();
@@ -142,6 +146,17 @@ public class HomeController {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+			// DB에 저장
+			User_pestfile pestfile = new User_pestfile();
+			pestfile.setM_pest_num(2);
+			pestfile.setReg_date(str);
+			pestfile.setMember_id(vo.getMember_id());
+			pestfile.setUploadPath(uploadPath);
+			pestfile.setUuid(uuid);
+			pestfile.setFileName(multipartFile.getOriginalFilename());
+
+			mapper.pestfile_add(pestfile);
 			list.add(pf);
 		} // for
 

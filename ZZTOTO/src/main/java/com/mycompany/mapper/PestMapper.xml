@@ -15,18 +15,14 @@
 		values (#{member_id}, #{member_name})
 	</insert>
 	<insert id="pestfile_add" parameterType="com.mycompany.domain.User_pestfile">
-		INSERT INTO User_pestfile(m_pest_num, reg_date, member_id, uploadPath, uuid, fileName)
-		values (NOW(), #{member_id}, #{uploadPath}, #{uuid}, #{fileName})
+		INSERT INTO user_pestfiles(reg_date, member_id, uploadPath, uuid, fileName)
+		values (#{reg_date}, #{member_id}, #{uploadPath}, #{uuid}, #{fileName})
 	</insert>
 	<insert id="droneInsert"
 		parameterType="com.mycompany.domain.Drone_prevention">
-		INSERT INTO drone_preventions (reservation_date,
-		member_id, proposer_name,
-		proposer_email, proposer_number,
-		proposer_address, land_type, area,
-		pesticide, pest_name, crop_name)
-		VALUES (#{reservation_Date}, #{member_id}, #{proposer_Name},
-		#{proposer_Email}, #{proposer_Number}, #{proposer_Address},
+		INSERT INTO drone_preventions (reservation_date, member_id, proposer_name,
+		proposer_email, proposer_number, proposer_address, land_type, area, pesticide, pest_name, crop_name)
+		VALUES (#{reservation_Date}, #{member_id}, #{proposer_Name}, #{proposer_Email}, #{proposer_Number}, #{proposer_Address},
 		#{land_Type}, #{area}, #{pesticide}, #{pest_Name}, #{crop_Name});
 	</insert>
 	<insert id="schedule_add"

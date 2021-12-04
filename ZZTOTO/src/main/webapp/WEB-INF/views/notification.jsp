@@ -176,7 +176,7 @@
 									<c:forEach var="scheduleList"
 										items="${dateList.schedule_data_arr}"
 										varStatus="schedule_data_arr_status">
-										<p class="date_subject">${scheduleList.schedule_title}</p>
+										<p class="date_subject">${scheduleList.schedule_subject}</p>
 									</c:forEach>
 								</div>
 							</td>
