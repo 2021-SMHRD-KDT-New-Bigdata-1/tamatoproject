@@ -19,14 +19,13 @@ import com.mycompany.domain.Schedule;
 @Mapper
 public interface PestMapper {
 
-	public void droneInsert(Drone_prevention vo); // insert SQL
-
 	public Member login(Member member);
 	public Member join(Member member);
 	public int schedule_add(Schedule schedule);
 	public int before_schedule_add_search(Schedule schedule);
 	public ArrayList<Schedule> schedule_list(DateData dateData);
 
+	public void droneInsert(Drone_prevention vo); // insert SQL
 	public List<Farm_diary> Farm_diaryList();
 	@Select("select * from members where member_id=#{member_id}")
 	   public Member FarmLogin(Member member);
