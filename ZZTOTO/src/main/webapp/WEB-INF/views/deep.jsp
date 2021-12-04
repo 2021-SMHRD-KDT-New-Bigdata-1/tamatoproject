@@ -10,30 +10,30 @@
 
 <meta charset="utf-8">
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="viewport" content="width=320" />
+   content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=320"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <link
-	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
-	rel="stylesheet">
+   href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+   rel="stylesheet">
 
 <title>KingTomato</title>
 
 <!-- Bootstrap core CSS -->
 <link
-	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
+   href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
+   rel="stylesheet">
 
 
 <!-- Additional CSS Files -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
+   href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
+   href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/owl.css">
+   href="${pageContext.request.contextPath}/resources/css/owl.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/lightbox.css">
+   href="${pageContext.request.contextPath}/resources/css/lightbox.css">
 
 <!-- 카메라를 호출하는 api 연동 기능 by 이길환  -->
 <script src="resources/vendor/jquery/jquery.min.js"></script>
@@ -45,7 +45,6 @@
 		}
 		$('#camera').change(function(e) {
 			$('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
-			
 		});
 	});
 	
@@ -56,11 +55,15 @@
 			
 		}else {
             $('div.row.gx-4.gx-lg-5:not(.my-5)')[0].style.display='flex'
-           /*  $('#check_btn').attr('style',"display:flex"") */
+            
+          
+            
             
          }
 
 	}
+	
+
 	
 	$(function () {
 
@@ -79,8 +82,7 @@
                         $("#solution").html(item.pest_solution);
                         $("#pestItem").html(item.pesticide);
                         $("#pestName").html(item.pest_name);
-                        $('#pic').attr('src', '/myapp2/resources/images/pre.png');
-                        
+                      
                     });
                 },
                 error: function (err) {
@@ -96,10 +98,6 @@
 </head>
 
 <body>
-
-
-
-
 	<!-- ***** Header Area Start ***** -->
 	<header class="header-area header-sticky">
 		<div class="container">
@@ -187,13 +185,12 @@
 						</div>
 					</div>
 				</div>
-				<h2 class="card-title">사용해야할 농약</h2>
-				<div class="card h-100">
-					<div class="card-body">
-						<p id="pestItem" class="card-text">해결방법</p>
-
+					<h2 class="card-title">사용해야할 농약</h2>
+					<div class="card h-100">
+						<div class="card-body">
+							<p id="pestItem" class="card-text">해결방법</p>
+						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 	</main>
@@ -231,12 +228,12 @@
 		    	data : formData,					// 서버로 전송할 데이터
 		    	type : 'POST',						// 서버 요청 타입(GET, POST)
 		    	dataType : 'json',					// 서버로부터 반환받을 데이터 타입
-		    	success : function(result) {
+		    	/*success : function(result) {
 		    			console.log(result);
 		    	},
 		    	error : fucntion(result) {
 		    			alert("이미지 파일이 아닙니다.");
-		    	}
+		    	}  */
 			});
 		});
 		/* var, method related with attachFile */
