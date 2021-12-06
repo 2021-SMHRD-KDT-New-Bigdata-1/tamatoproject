@@ -123,7 +123,8 @@
 					</a>
 					<button type="button"
 						class="btn btn-primary pull-right board_move openMask_board_move pointer"
-						data-bs-toggle="modal" data-bs-target="#addSchedule">일정 추가</button>
+						data-bs-toggle="modal" data-bs-target="#addSchedule">일정
+						추가</button>
 				</div>
 
 				<table class="calendar_body">
@@ -168,12 +169,14 @@
 									${dateList.date}
 								</div>
 								<div>
-									<c:forEach var="scheduleList"
-										items="${dateList.schedule_data_arr}"
-										varStatus="schedule_data_arr_status">
-										<p class="date_title" style="font-size:15px; font-weight:bold; margin-bottom:0rem;">${scheduleList.schedule_title}</p>
-										<p class="date_content" style="font-size:12px; margin-bottom:0rem;" >${scheduleList.schedule_content}</p>
-									</c:forEach>
+										<c:forEach var="scheduleList"
+											items="${dateList.schedule_data_arr}"
+											varStatus="schedule_data_arr_status">
+									<c:if test="${vo.member_id == scheduleList.member_id}">
+											<p class="date_title">${scheduleList.schedule_title}</p>
+											<p class="date_content">${scheduleList.schedule_content}</p>
+									</c:if>
+										</c:forEach>
 								</div>
 							</td>
 							</c:forEach>
