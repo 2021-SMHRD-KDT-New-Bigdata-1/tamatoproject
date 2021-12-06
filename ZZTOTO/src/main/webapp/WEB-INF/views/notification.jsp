@@ -123,8 +123,7 @@
 					</a>
 					<button type="button"
 						class="btn btn-primary pull-right board_move openMask_board_move pointer"
-						data-bs-toggle="modal" data-bs-target="#addSchedule">일정
-						추가</button>
+						data-bs-toggle="modal" data-bs-target="#addSchedule">일정 추가</button>
 				</div>
 
 				<table class="calendar_body">
@@ -172,7 +171,8 @@
 									<c:forEach var="scheduleList"
 										items="${dateList.schedule_data_arr}"
 										varStatus="schedule_data_arr_status">
-										<p class="date_subject">${scheduleList.schedule_title}</p>
+										<p class="date_title" style="font-size:15px; font-weight:bold; margin-bottom:0rem;">${scheduleList.schedule_title}</p>
+										<p class="date_content" style="font-size:12px; margin-bottom:0rem;" >${scheduleList.schedule_content}</p>
 									</c:forEach>
 								</div>
 							</td>
@@ -181,7 +181,8 @@
 
 				</table>
 		</form>
-		<!-- The Modal -->
+
+		<!-- Modal for addSchedule -->
 		<div class="modal" id="addSchedule">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -234,13 +235,14 @@
 				</form>
 			</div>
 		</div>
+
 		<div id="mask_board_move"></div>
 		<div class="normal_move_board_modal">
 			<script>
 			$(function() {
 			    $( "#testDatepicker" ).datepicker({
 			    	
-			        dateFormat: "yy/mm/dd",
+			        dateFormat: "yy-mm-dd",
 			    	changeMonth: true, 
 			        changeYear: true,
 			        dayNames: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'],

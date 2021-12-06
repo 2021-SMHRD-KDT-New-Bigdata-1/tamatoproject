@@ -124,7 +124,7 @@ https://templatemo.com/tm-569-edu-meeting
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <img id="icon" src="${pageContext.\request.contextPath}/resources/images/farming.png">
+                <img id="icon" src="${pageContext.request.contextPath}/resources/images/farming.png">
                 </svg>
 								<div class="card-body">
 									<h4 class="card-text" style="font-size:125%">일정관리</h4>

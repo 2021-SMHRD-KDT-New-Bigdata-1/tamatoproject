@@ -11,7 +11,7 @@ public class Schedule {
 	private int schedule_idx;
 	private String schedule_title;
 	private String schedule_content;
-	private Date schedule_date;
+	private String schedule_date;
 	private String member_id;
 
 	public int getSchedule_idx() {
@@ -38,11 +38,11 @@ public class Schedule {
 		this.schedule_content = schedule_content;
 	}
 
-	public Date getSchedule_date() {
+	public String getSchedule_date() {
 		return schedule_date;
 	}
 
-	public void setSchedule_date(Date schedule_date) {
+	public void setSchedule_date(String schedule_date) {
 		this.schedule_date = schedule_date;
 	}
 

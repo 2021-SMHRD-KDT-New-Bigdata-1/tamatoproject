@@ -117,8 +117,10 @@ public class DateData {
 		today_Data.put("after_year", before_after_calendar.get("after_year"));
 		today_Data.put("after_month", before_after_calendar.get("after_month"));
 		
-		this.db_startDate = String.valueOf(search_year)+"-"+String.valueOf(search_month+1)+"-"+String.valueOf(startDay);
-		this.db_endDate = String.valueOf(search_year)+"-"+String.valueOf(search_month+1)+"-"+String.valueOf(endDay);
+		//this.db_startDate = String.valueOf(search_year)+"-"+String.valueOf(search_month+1)+"-"+String.valueOf(startDay);
+		this.db_startDate = String.valueOf(search_year)+"-"+String.valueOf(search_month+1)+"-"+String.format("%02d",startDay);
+		//this.db_endDate = String.valueOf(search_year)+"-"+String.valueOf(search_month+1)+"-"+String.valueOf(endDay);
+		this.db_endDate = String.valueOf(search_year)+"-"+String.valueOf(search_month+1)+"-"+String.format("%02d",endDay);
 		
 		return today_Data;
 	}

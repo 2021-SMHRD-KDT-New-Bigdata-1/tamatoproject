@@ -30,7 +30,7 @@ public class CalendarController {
 
 		Calendar cal = Calendar.getInstance();
 		DateData calendarData;
-
+		System.out.println(dateData);
 		// notification.jsp > input태그에서 사용하기위한 날짜
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
@@ -41,24 +41,36 @@ public class CalendarController {
 			dateData = new DateData(String.valueOf(cal.get(Calendar.YEAR)), String.valueOf(cal.get(Calendar.MONTH)),
 					String.valueOf(cal.get(Calendar.DATE)), null, null);
 		}
+
 		Map<String, Integer> today_info = dateData.today_info(dateData);
 		List<DateData> dateList = new ArrayList<DateData>();
 		// 날짜 검색 끝
 
 		// 달력데이터에 넣기 위한 배열 추가
 		ArrayList<Schedule> Schedule_list = mapper.schedule_list(dateData);
+		System.out.println(Schedule_list.size());
 		Schedule[][] schedule_data_arr = new Schedule[32][4];
 
 		if (Schedule_list.isEmpty() != true) {
 			int j = 0;
 			for (int i = 0; i < Schedule_list.size(); i++) {
-				int date = Integer.parseInt(String.valueOf(Schedule_list.get(i).getSchedule_date()).substring(
-						String.valueOf(Schedule_list.get(i).getSchedule_date()).length() - 2,
-						String.valueOf(Schedule_list.get(i).getSchedule_date()).length()));
+				/*
+				 * int date =
+				 * Integer.parseInt(String.valueOf(Schedule_list.get(i).getSchedule_date()).
+				 * substring( String.valueOf(Schedule_list.get(i).getSchedule_date()).length() -
+				 * 2, String.valueOf(Schedule_list.get(i).getSchedule_date()).length()));
+				 */
+				int date = Integer.parseInt(String.valueOf(Schedule_list.get(i).getSchedule_date()).substring(8, 10));
+				System.out.println(Schedule_list.get(i).getSchedule_date());
+				System.out.println(date);
 				if (i > 0) {
-					int date_before = Integer.parseInt(String.valueOf(Schedule_list.get(i - 1).getSchedule_date())
-							.substring(String.valueOf(Schedule_list.get(i - 1).getSchedule_date()).length() - 2,
-									String.valueOf(Schedule_list.get(i - 1).getSchedule_date()).length()));
+					/*
+					 * int date_before = Integer.parseInt(String.valueOf(Schedule_list.get(i -
+					 * 1).getSchedule_date()) .substring(String.valueOf(Schedule_list.get(i -
+					 * 1).getSchedule_date()).length() - 2, String.valueOf(Schedule_list.get(i -
+					 * 1).getSchedule_date()).length()));
+					 */
+					int date_before = Integer.parseInt(String.valueOf(Schedule_list.get(i - 1).getSchedule_date()).substring(8, 10));
 					if (date_before == date) {
 						j = j + 1;
 						schedule_data_arr[date][j] = Schedule_list.get(i);
@@ -103,9 +115,13 @@ public class CalendarController {
 				dateList.add(calendarData);
 			}
 		}
+		for(int i=0;i<dateList.size();i++) {
+			System.out.println(dateList.get(i));
+			System.out.println(dateList.get(i).getSchedule_data_arr()[0]);
+		}
 
 		// 배열에 담음
-		model.addAttribute("dateList", dateList); //날짜 데이터 배열(객체 바인딩)
+		model.addAttribute("dateList", dateList); // 날짜 데이터 배열(객체 바인딩)
 		model.addAttribute("today_info", today_info);
 
 		return "notification";
@@ -114,10 +130,16 @@ public class CalendarController {
 	// 스케줄 추가 기능
 	@RequestMapping(value = "schedule_add.do", method = RequestMethod.GET)
 	public String schedule_add(Schedule schedule, RedirectAttributes rttr) {
+		int count = mapper.before_schedule_add_search(schedule);
+		String message = "";
 		String url = "redirect:notification.do";
 
-		mapper.schedule_add(schedule);
-		String message = "스케줄이 등록되었습니다";
+		if (count >= 4) {
+			message = "스케줄은 최대 4개만 등록 가능합니다.";
+		} else {
+			mapper.schedule_add(schedule);
+			message = "스케줄이 등록되었습니다";
+		}
 
 		rttr.addFlashAttribute("message", message);
 		return url;
