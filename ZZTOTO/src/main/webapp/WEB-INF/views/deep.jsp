@@ -3,6 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 
+<!-- 분석할 사진을 업로드하여 분석 API를 활용하여 분석 결과를 출력하는 페이지 by 이길환 -->
+
 <!DOCTYPE html>
 <html>
 
@@ -65,6 +67,7 @@
        $('div.row.gx-4.gx-lg-5:not(.my-5)')[0].style.display='flex'
    }
    
+   /* 업로드한 사진을 분석하여 분석한 병충해명을 받아오는 함수 by이길환 */
    $(function () {
 
         $('#anal_btn').on('click', function () {
@@ -72,21 +75,15 @@
             $.ajax({
                 url: 'http://222.102.43.169:8000/api/pest_analysis',
                 type: 'get',
-                datatype: 'jason',
-                async: false,
+                datatype: 'json',
+                async: true,
+                timeout: 20000,
                 success: function (data) {
                     //alert("성공!")
                     alert(data) // 장고에서 받아온 데이터가 들어갔는지 확인
                     
                      p_name = data;
-                    
-                    /* $.each(data, function (index, item) { // 데어터=item
-                        $("#symtoms").html(item.pest_reason);
-                        $("#solution").html(item.pest_solution);
-                        $("#pestItem").html(item.pesticide);
-                        $("#pestName").html(item.pest_name);
-                        $('#pic').attr('src', '/myapp2/resources/images/pre.png');
-                    });  */
+                
                 },
                 error: function (request, status, error) {
                 	alert("error code:" + request.status+ "\n" + "message:" + request.responseText+"\n"+"error:"+error)
@@ -100,7 +97,8 @@
 
 
 
-    	
+    	/* 분석한 병충해 명을 p_name변수에 담아 병충해 명이 바뀔때 마다 병충해에 맞는 정보를 
+    	   response받아주는 함수 by 이길환*/
         $('#check_btn').on('click', function () { // '분석한 사진 보기'버튼에 대한 제이쿼리함수 
             $.ajax({
                 url: 'http://222.102.43.169:8000/api/pest_analysis/'+p_name,
@@ -110,7 +108,7 @@
                 success: function (data) {
                     //alert("성공!")
                     
-                    alert(data)
+                   /*  alert(data) */
                     console.log(data[0])
                    /*  $.each(data, function (index, obj) { // 데어터=item */
                         $("#symtoms").html(data.pest_reason);
@@ -121,7 +119,7 @@
                     /* }); */
                 },
                 error: function (err) {
-
+					alert(err)
                 }
             })
         })
@@ -181,9 +179,9 @@
 
 
                </form>
-               <div sytle="display: flex">
+               <div style="display: flex;">
                   <br />
-                  <button id="anal_btn" type="submit" class="btn btn-info btn-sm"
+                  <button id="anal_btn" type="submit" class="btn btn-info btn-sm" 
                      onclick="ImgCheck()">분석하기</button>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button id="check_btn" type="submit" class="btn btn-info btn-sm"
@@ -231,7 +229,7 @@
       </div>
    </main>
    <!-- Footer-->
-   <!-- 왜 있는지 모를 클래스 푸터 -->
+
    <!-- <footer class="py-5 bg-dark">
       <div class="container px-4 px-lg-5"> -->
    <div class="footer">
