@@ -22,7 +22,7 @@
 <div style="height:80%; align:center;" >
 	<h3 style="text-align:center">방제예약신청</h3>
 	<form action="droneInsert.do" method="post">
-		<fieldset class="field" style="width: 100%; margin:2; box-shadow:5px 5px 8px gray;">
+		<fieldset class="field" style="width: 100%; margin:2;">
 			<legend style="text-align:center">
 				<strong class="m_box" style="font-size:75%">개인정보</strong>
 			</legend>
@@ -52,7 +52,7 @@
 				</div>
 			</div>
 		</fieldset>
-		<fieldset class="field" style="margin:2; width:100%; box-shadow:5px 5px 8px gray;">
+		<fieldset class="field" style="margin:2; width:100%;">
 			<legend class="m_box" style="text-align:center">
 				<strong style="font-size:75%;" >예약 정보</strong>
 			</legend>
@@ -96,7 +96,7 @@
 				</div>
 			</div>
 		</fieldset>
-		<button type="submit" style="font-size:30px">예약신청하기</button>
+		<button type="submit" style="font-size:30px">예약신청</button>
 	</form>
 </div>
 
