@@ -32,12 +32,12 @@
 	href="${pageContext.request.contextPath}/resources/css/owl.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/lightbox.css">
-<!--
 
+	
+<!--
 TemplateMo 569 Edu Meeting
 
 https://templatemo.com/tm-569-edu-meeting
-
 -->
 </head>
 
@@ -49,14 +49,14 @@ https://templatemo.com/tm-569-edu-meeting
 				<div class="col-12">
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
-						<a href="index.do" class="logo"> 피톤치드 </a>
+						<a href="index.do" class="logo" style="font-family:locus_sangsang;"> 피톤치드 </a>
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
 							<li><a href="#top" class="active">Home</a></li>
 							<li><a href="deep.do">병충해 진단</a></li>
 							<li><a href="notification.do">일정관리</a></li>
-							<li><a href="drone.do">드론 방역/방제</a></li>
+							<li><a href="drone.do">드론방역</a></li>
 							<li><a href="farm_diary.do">영농일지</a></li>
 							<!-- 로그인이 안되어있을때 -->
 							<c:if test="${vo==null}">
@@ -82,17 +82,19 @@ https://templatemo.com/tm-569-edu-meeting
 
 	<!-- ***** Main Area Start ***** -->
 	<main>
-		<section class="py-5 text-center container" id="toto">
+		<section class="py-7 text-center container" id="toto">
 			<div class="row py-lg-5">
 				<div class="col-lg-6 col-md-8 mx-auto">
-					<h1 class="fw-light">딥러닝을 통한 농산물 병충해 진단 및 솔루션 제공 서비스</h1>
-						<img src="${pageContext.request.contextPath}/resources/img/tree.png">
+
+					<img style="width: 100%"
+						src="${pageContext.request.contextPath}/resources/img/main_img.jpg">
 				</div>
 			</div>
 		</section>
 
 		<!-- Main Grid -->
-		<div class="album py-5 bg-light" style="background-color: white !important;">
+		<div class="album py-7 bg-light"
+			style="background-color: white !important;">
 			<div class="container">
 				<div class="row row-cols-1 row-cols-sm-4 g-3">
 					<div class="col col-6">
@@ -104,10 +106,11 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                  
                   <title>Placeholder</title>
-                 	<img id="icon" src="${pageContext.request.contextPath}/resources/images/camera2.png">
+                 	<img id="icon"
+										src="${pageContext.request.contextPath}/resources/images/camera2.png">
                  </svg>
 								<div class="card-body">
-									<h4 class="card-text" style="font-size:125%">병충해 진단</h4>
+									<h4 class="card-text" style="font-size: 125%">병충해 진단</h4>
 								</div>
 							</div>
 						</a>
@@ -120,10 +123,11 @@ https://templatemo.com/tm-569-edu-meeting
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <img id="icon" src="${pageContext.request.contextPath}/resources/images/farming.png">
+                <img id="icon"
+										src="${pageContext.request.contextPath}/resources/images/farming.png">
                 </svg>
 								<div class="card-body">
-									<h4 class="card-text" style="font-size:125%">일정관리</h4>
+									<h4 class="card-text" style="font-size: 125%">일정관리</h4>
 								</div>
 							</div>
 						</a>
@@ -136,11 +140,12 @@ https://templatemo.com/tm-569-edu-meeting
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <img id="icon" src="${pageContext.request.contextPath}/resources/images/drone3.png">
+                <img id="icon"
+										src="${pageContext.request.contextPath}/resources/images/drone3.png">
                 </svg>
 
 								<div class="card-body">
-									<h4 class="card-text" style="font-size:125%">드론 방역</h4>
+									<h4 class="card-text" style="font-size: 125%">드론 방역</h4>
 								</div>
 							</div>
 						</a>
@@ -154,10 +159,11 @@ https://templatemo.com/tm-569-edu-meeting
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <img id="icon" src="${pageContext.request.contextPath}/resources/images/diary.png">
+                <img id="icon"
+										src="${pageContext.request.contextPath}/resources/images/diary.png">
                 </svg>
 								<div class="card-body">
-									<h4 class="card-text" style="font-size:125%">영농일지</h4>
+									<h4 class="card-text" style="font-size: 125%">영농일지</h4>
 								</div>
 							</div>
 						</a>

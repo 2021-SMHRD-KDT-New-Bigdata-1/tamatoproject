@@ -26,6 +26,14 @@ font & reset css
 @import
 	url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap')
 	;
+
+@font-face {
+	font-family: 'locus_sangsang';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/locus_sangsang.woff')
+		format('woff');
+}
+
 /* 
 ---------------------------------------------
 reset
@@ -83,8 +91,8 @@ header, nav, section, article, aside, footer, hgroup {
 }
 
 html, body {
-	font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial,
-		sans-serif;
+	font-family: "locus_sangsang", "Segoe UI", "Helvetica Neue",
+		Helvetica, Arial, sans-serif;
 	font-weight: 400;
 	background-color: #fff;
 	font-size: 16px;
@@ -133,7 +141,7 @@ global styles
 */
 html, body {
 	background: #fff;
-	font-family: 'Gothic A1', sans-serif;
+	font-family: "locus_sangsang", 'Gothic A1', sans-serif;
 }
 
 main {

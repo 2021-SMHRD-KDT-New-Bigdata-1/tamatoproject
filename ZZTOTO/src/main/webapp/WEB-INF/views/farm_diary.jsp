@@ -1,11 +1,11 @@
 <%@page import="com.mycompany.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-  <%
-  // 회원인증여부 체크하는 부분
-     Member vo= (Member)session.getAttribute("vo");
-  %>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+// 회원인증여부 체크하는 부분
+Member vo = (Member) session.getAttribute("vo");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,22 +13,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link
-   href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
-   rel="stylesheet">
-   <link rel="stylesheet"
-   href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
-   <link rel="stylesheet"
-   href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
-   <link rel="stylesheet"
-   href="${pageContext.request.contextPath}/resources/css/owl.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
 <link rel="stylesheet"
-   href="${pageContext.request.contextPath}/resources/css/lightbox.css">
+	href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/owl.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/lightbox.css">
 <script
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
-    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -227,96 +227,102 @@
 </script>
 </head>
 <body>
-   <header class="header-area header-sticky">
-      <div class="container">
-         <div class="row">
-            <div class="col-12">
-               <nav class="main-nav">
-                  <!-- ***** Logo Start ***** -->
-                  <a href="index.do" class="logo"> 피톤치드 </a>
-                  <!-- ***** Logo End ***** -->
-                  <!-- ***** Menu Start ***** -->
-                  <ul class="nav">
-                     <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                     <li><a href="deep.do">병충해 진단</a></li>
-                     <li class="scroll-to-section"><a href="#apply">알림</a></li>
-                     <li class="scroll-to-section"><a href="#apply">방역/방제</a></li>
-                     <li class="scroll-to-section"><a href="#courses">검색</a></li>
-                  </ul>
-                  <a class='menu-trigger'> <span>Menu</span>
-                  </a>
-                  <!-- ***** Menu End ***** -->
-               </nav>
-            </div>
-         </div>
-      </div>
-   </header>
-   <div class="container" id="coco" style = "margin-top : 25%">
-      <h2>영농일지</h2>
-      <div class="panel panel-default">         
-         <c:if test="${vo==null}">
-           <div class="panel-heading">
-            <form id="wform" class="form-inline" action="Farmlogin.do" method="post">
-            
-               <div class="form-group">
-                  <label for="member_id">아이디:</label> 
-                  <input type="text" class="form-control" id="member_id" name="member_id">
-               </div>
-               
-               <div class="form-group">
-                  <label for="userPwd">비밀번호:</label> 
-                  <input type="password" class="form-control"  >
-               </div>
-               
-               <button type="submit" class="btn btn-info btn-sm" onclick="formCheck()">로그인</button>
-            </form>
-           </div>
-         </c:if>        
-         <div class="panel-body"></div>
-         <div class="writeForm" style="display: none;">
-            <form id="frm" class="form-horizontal" >
-            <input type="hidden" name="member_id" id="member_id" value="${vo.member_id}">
-               <div class="form-group">
-                  <label class="control-label col-sm-2" for="diary_subject">제목:</label>
-                  <div class="col-sm-10">
-                     <input type="text" class="form-control" id="diary_subject" name="diary_subject"
-                        placeholder="제목을 적어주세요.">
-                  </div>
-               </div>
-               <div class="form-group">
-                  <label class="control-label col-sm-2" for="diary_content">내용:</label>
-                  <div class="col-sm-10">
-                     <textarea rows="10" class="form-control" id="diary_content"
-                        name="diary_content" placeholder="작업 내용을 적어주세요."></textarea>
-                  </div>
-               </div>
-               <div class="form-group">
-                  <label class="control-label col-sm-2" for="writer">특이사항:</label>
-                  <div class="col-sm-10">
-                     <input type="text" class="form-control" id="issue" name="issue"
-                        placeholder="작업 중 발생한 특이사항을 적어주세요.">
-                  </div>
-               </div>
-               <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                     <button type="button" class="btn btn-success btn-sm" onclick="insertFn()">등록</button>
-                     <button type="reset" class="btn btn-info btn-sm" id = "reset">취소</button>
-                  </div>
-               </div>
-            </form>
+	<header class="header-area header-sticky">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a href="index.do" class="logo"> 피톤치드 </a>
+						<!-- ***** Logo End ***** -->
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li><a href="#top" class="active">Home</a></li>
+							<li><a href="deep.do">병충해 진단</a></li>
+							<li><a href="notification.do">일정관리</a></li>
+							<li><a href="drone.do">드론방역</a></li>
+							<li><a href="farm_diary.do">영농일지</a></li>
+						</ul>
+						<a class='menu-trigger'> <span>Menu</span>
+						</a>
+						<!-- ***** Menu End ***** -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main style="margin-top:5%">
+		<div class="container" id="coco">
+			<h2>영농일지</h2>
+			<div class="panel panel-default">
+				<c:if test="${vo==null}">
+					<div class="panel-heading">
+						<form id="wform" class="form-inline" action="Farmlogin.do"
+							method="post">
 
-         </div>
-      </div>
-   </div>
-   <!-- Footer-->
-   <!-- 왜 있는지 모를 클래스 푸터 -->
-   <!-- <footer class="py-5 bg-dark">
+							<div class="form-group">
+								<label for="member_id">아이디:</label> <input type="text"
+									class="form-control" id="member_id" name="member_id">
+							</div>
+
+							<div class="form-group">
+								<label for="userPwd">비밀번호:</label> <input type="password"
+									class="form-control">
+							</div>
+
+							<button type="submit" class="btn btn-info btn-sm"
+								onclick="formCheck()">로그인</button>
+						</form>
+					</div>
+				</c:if>
+				<div class="panel-body"></div>
+				<div class="writeForm" style="display: none;">
+					<form id="frm" class="form-horizontal">
+						<input type="hidden" name="member_id" id="member_id"
+							value="${vo.member_id}">
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="diary_subject">제목:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="diary_subject"
+									name="diary_subject" placeholder="제목을 적어주세요.">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="diary_content">내용:</label>
+							<div class="col-sm-10">
+								<textarea rows="10" class="form-control" id="diary_content"
+									name="diary_content" placeholder="작업 내용을 적어주세요."></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="writer">특이사항:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="issue" name="issue"
+									placeholder="작업 중 발생한 특이사항을 적어주세요.">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="button" class="btn btn-success btn-sm"
+									onclick="insertFn()">등록</button>
+								<button type="reset" class="btn btn-info btn-sm" id="reset">취소</button>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</main>
+	<!-- Footer-->
+	<!-- 왜 있는지 모를 클래스 푸터 -->
+	<!-- <footer class="py-5 bg-dark">
       <div class="container px-4 px-lg-5"> -->
-         <div class="footer">
-            <p class="m-0 text-center text-white">Copyright &copy; Your
-               Website 2021</p>
-         </div>      
-      <!-- </div>
+	<div class="footer">
+		<p class="m-0 text-center text-white">Copyright &copy; Your
+			Website 2021</p>
+	</div>
+	<!-- </div>
    </footer> -->
 
 </body>
