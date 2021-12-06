@@ -92,9 +92,7 @@ https://templatemo.com/tm-569-edu-meeting
 		</section>
 
 		<!-- Main Grid -->
-		<div class="album py-5 bg-light" style="background-color: white !important;
-    margin-top: -15%;
-    margin-bottom: -25%;">
+		<div class="album py-5 bg-light" style="background-color: white !important;">
 			<div class="container">
 				<div class="row row-cols-1 row-cols-sm-4 g-3">
 					<div class="col col-6">
