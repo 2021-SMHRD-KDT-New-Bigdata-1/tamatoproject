@@ -57,7 +57,7 @@
          alert("분석할 사진을 업로드하세요.");
          
       }else{
-         $('div.row.gx-4.gx-lg-5:not(.my-5)')[0].style.display='flex'
+         $('div.row.gx-4.gx-lg-5:not(.my-5)')[0].style.display='none'
              $('#check_btn').attr('style',"display:flex")  
          }
    }
@@ -80,7 +80,7 @@
                 timeout: 20000,
                 success: function (data) {
                     //alert("성공!")
-                    alert(data) // 장고에서 받아온 데이터가 들어갔는지 확인
+                    alert("분석이 완료되었습니다.") // 장고에서 받아온 데이터가 들어갔는지 확인
                     
                      p_name = data;
                 
@@ -190,12 +190,12 @@
 
 
                </form>
-               <div style="display: flex;">
+               <div style="display: flex; margin-top:8px">
                   <br />
-                  <button id="anal_btn" type="submit" class="btn btn-info btn-sm" 
+                  <button id="anal_btn" type="submit" class="btn btn-success" 
                      onclick="ImgCheck()">분석하기</button>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button id="check_btn" type="submit" class="btn btn-info btn-sm"
+            <button id="check_btn" type="submit" class="btn btn-danger"
             onclick="SeeImg()" style="display: none;">결과보기</button>
                </div>
             </div>
