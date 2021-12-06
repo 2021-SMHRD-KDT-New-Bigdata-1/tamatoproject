@@ -55,10 +55,9 @@
 				<div class="form-input-container">
 					<label for="land_Type">논지 유형</label><br> <select
 						name="land_Type" id="land_Type">
-						<option value="Wroclaw">Wroclaw</option>
-						<option value="Warsaw">Warsaw</option>
-						<option value="Plock">Plock</option>
-						<option value="Krakow">Krakow</option>
+						<option value="논">논</option>
+						<option value="밭">밭</option>
+						<option value="과수원">과수원</option>
 					</select>
 				</div>
 				<div class="form-input-container">
