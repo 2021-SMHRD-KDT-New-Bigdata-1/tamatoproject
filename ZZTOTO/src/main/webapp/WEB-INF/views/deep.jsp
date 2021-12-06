@@ -44,7 +44,7 @@
       if (!('url' in window) && ('webkitURL' in window)) {
          window.URL = window.webkitURL;
       }
-      $('#camera').change(function(e) {
+      $('#camera').change(function(e) { 
          $('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
       });
    });
@@ -73,19 +73,20 @@
                 url: 'http://222.102.43.169:8000/api/pest_analysis',
                 type: 'get',
                 datatype: 'jason',
-                async: 'False',
+                async: false,
                 success: function (data) {
                     //alert("성공!")
                     alert(data) // 장고에서 받아온 데이터가 들어갔는지 확인
-                    p_name = data;
                     
-                     $.each(data, function (index, item) { // 데어터=item
+                     p_name = data;
+                    
+                    /* $.each(data, function (index, item) { // 데어터=item
                         $("#symtoms").html(item.pest_reason);
                         $("#solution").html(item.pest_solution);
                         $("#pestItem").html(item.pesticide);
                         $("#pestName").html(item.pest_name);
                         $('#pic').attr('src', '/myapp2/resources/images/pre.png');
-                    }); 
+                    });  */
                 },
                 error: function (err) {
                 }
@@ -96,23 +97,27 @@
     
     $(function () {
 
+
+
+    	
         $('#check_btn').on('click', function () { // '분석한 사진 보기'버튼에 대한 제이쿼리함수 
             $.ajax({
-                url: 'http://222.102.43.169:8000/api/pest_analysis/Septoria_leaf_spot',
+                url: 'http://222.102.43.169:8000/api/pest_analysis/'+p_name,
                 type: 'get',
                 datatype: 'json',
                 async: 'False',
                 success: function (data) {
                     //alert("성공!")
+                    
                     alert(data)
                     console.log(data[0])
-                    $.each(data, function (index, obj) { // 데어터=item
-                        $("#symtoms").html(obj.pest_reason);
-                        $("#solution").html(obj.pest_solution);
-                        $("#pestItem").html(obj.pesticide);
-                        $("#pestName").html(obj.pest_name);
+                   /*  $.each(data, function (index, obj) { // 데어터=item */
+                        $("#symtoms").html(data.pest_reason);
+                        $("#solution").html(data.pest_solution);
+                        $("#pestItem").html(data.pesticide);
+                        $("#pestName").html(data.pest_name);
                         $('#pic').attr('src', '/myapp2/resources/images/pre.png');
-                    });
+                    /* }); */
                 },
                 error: function (err) {
 
