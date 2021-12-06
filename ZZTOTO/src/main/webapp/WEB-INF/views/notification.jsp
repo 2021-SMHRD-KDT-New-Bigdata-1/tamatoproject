@@ -72,9 +72,9 @@
 						<ul class="nav">
 							<li><a href="#top" class="active">Home</a></li>
 							<li><a href="deep.do">병충해 진단</a></li>
-							<li><a href="notification.do">할 일</a></li>
-							<li><a href="drone.do">드론 방역/방제</a></li>
-							<li><a href="news.do">농업 정책</a></li>
+							<li><a href="notification.do">일정관리</a></li>
+							<li><a href="drone.do">드론방역</a></li>
+							<li><a href="farm_diary.do">영농일지</a></li>
 							<c:if test="${vo==null}">
 								<li><a href="javascript:kakaoLogin();"><img
 										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"

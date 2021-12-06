@@ -66,12 +66,9 @@
       // var img = $('#pic')[0].src;
        $('div.row.gx-4.gx-lg-5:not(.my-5)')[0].style.display='flex'
    }
-   
    /* 업로드한 사진을 분석하여 분석한 병충해명을 받아오는 함수 by이길환 */
    $(function () {
-
         $('#anal_btn').on('click', function () {
-
             $.ajax({
                 url: 'http://222.102.43.169:8000/api/pest_analysis',
                 type: 'get',
@@ -80,10 +77,13 @@
                 timeout: 20000,
                 success: function (data) {
                     //alert("성공!")
+<<<<<<< HEAD
                     alert("분석이 완료되었습니다.") // 장고에서 받아온 데이터가 들어갔는지 확인
                     
+=======
+                    alert(data) // 장고에서 받아온 데이터가 들어갔는지 확인
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
                      p_name = data;
-                
                 },
                 error: function (request, status, error) {
                 	alert("error code:" + request.status+ "\n" + "message:" + request.responseText+"\n"+"error:"+error)
@@ -94,9 +94,6 @@
     })
     
     $(function () {
-
-
-
     	/* 분석한 병충해 명을 p_name변수에 담아 병충해 명이 바뀔때 마다 병충해에 맞는 정보를 
     	   response받아주는 함수 by 이길환*/
         $('#check_btn').on('click', function () { // '분석한 사진 보기'버튼에 대한 제이쿼리함수 
@@ -106,17 +103,12 @@
                 datatype: 'json',
                 async: 'False',
                 success: function (data) {
-                    //alert("성공!")
-                    
-                   /*  alert(data) */
                     console.log(data[0])
-                   /*  $.each(data, function (index, obj) { // 데어터=item */
                         $("#symtoms").html(data.pest_reason);
                         $("#solution").html(data.pest_solution);
                         $("#pestItem").html(data.pesticide);
                         $("#pestName").html(data.pest_name);
                         $('#pic').attr('src', '/myapp2/resources/images/pre.png');
-                    /* }); */
                 },
                 error: function (err) {
 					alert(err)
@@ -124,9 +116,6 @@
             })
         })
     })
-   
-
-
 </script>
 </head>
 
@@ -145,7 +134,7 @@
 							<li><a href="#top" class="active">Home</a></li>
 							<li><a href="deep.do">병충해 진단</a></li>
 							<li><a href="notification.do">일정관리</a></li>
-							<li><a href="drone.do">드론 방역/방제</a></li>
+							<li><a href="drone.do">드론방역</a></li>
 							<li><a href="farm_diary.do">영농일지</a></li>
 							<!-- 로그인이 안되어있을때 -->
 							<c:if test="${vo==null}">
@@ -187,8 +176,6 @@
                         </label>
                   <br /> <img id="pic" style="width: 256px; height:256px" />
 
-
-
                </form>
                <div style="display: flex; margin-top:8px">
                   <br />
@@ -200,8 +187,6 @@
                </div>
             </div>
          </div>
-
-
 
          <!-- Content Row-->
          <div id=PestBug class="row gx-4 gx-lg-5" style="display: none">
@@ -273,12 +258,6 @@
              data : formData,               // 서버로 전송할 데이터
              type : 'POST',                  // 서버 요청 타입(GET, POST)
              dataType : 'json',               // 서버로부터 반환받을 데이터 타입
-             /*success : function(result) {
-                   console.log(result);
-             },
-             error : fucntion(result) {
-                   alert("이미지 파일이 아닙니다.");
-             }  */
          });
       });
       /* var, method related with attachFile */
