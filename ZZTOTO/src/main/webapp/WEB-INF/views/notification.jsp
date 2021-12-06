@@ -127,11 +127,7 @@
 						추가</button>
 				</div>
 
-				<!-- <div class="today_button_div"> -->
-				<!-- <input type="button" class="today_button" onclick="javascript:location.href='/calendar.do'" value="go today"/> -->
-				<!-- </div> -->
 				<table class="calendar_body">
-
 					<thead>
 						<tr bgcolor="#CECECE">
 							<td class="day sun">일</td>
@@ -173,11 +169,14 @@
 									${dateList.date}
 								</div>
 								<div>
-									<c:forEach var="scheduleList"
-										items="${dateList.schedule_data_arr}"
-										varStatus="schedule_data_arr_status">
-										<p class="date_subject">${scheduleList.schedule_subject}</p>
-									</c:forEach>
+										<c:forEach var="scheduleList"
+											items="${dateList.schedule_data_arr}"
+											varStatus="schedule_data_arr_status">
+									<c:if test="${vo.member_id == scheduleList.member_id}">
+											<p class="date_title">${scheduleList.schedule_title}</p>
+											<p class="date_content">${scheduleList.schedule_content}</p>
+									</c:if>
+										</c:forEach>
 								</div>
 							</td>
 							</c:forEach>
@@ -185,7 +184,8 @@
 
 				</table>
 		</form>
-		<!-- The Modal -->
+
+		<!-- Modal for addSchedule -->
 		<div class="modal" id="addSchedule">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -238,13 +238,14 @@
 				</form>
 			</div>
 		</div>
+
 		<div id="mask_board_move"></div>
 		<div class="normal_move_board_modal">
 			<script>
 			$(function() {
 			    $( "#testDatepicker" ).datepicker({
 			    	
-			        dateFormat: "yy/mm/dd",
+			        dateFormat: "yy-mm-dd",
 			    	changeMonth: true, 
 			        changeYear: true,
 			        dayNames: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'],

@@ -3,6 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 
+<!-- 분석할 사진을 업로드하여 분석 API를 활용하여 분석 결과를 출력하는 페이지 by 이길환 -->
+
 <!DOCTYPE html>
 <html>
 
@@ -65,6 +67,7 @@
        $('div.row.gx-4.gx-lg-5:not(.my-5)')[0].style.display='flex'
    }
    
+   /* 업로드한 사진을 분석하여 분석한 병충해명을 받아오는 함수 by이길환 */
    $(function () {
 
         $('#anal_btn').on('click', function () {
@@ -72,21 +75,15 @@
             $.ajax({
                 url: 'http://222.102.43.169:8000/api/pest_analysis',
                 type: 'get',
-                datatype: 'jason',
-                async: false,
+                datatype: 'json',
+                async: true,
+                timeout: 20000,
                 success: function (data) {
                     //alert("성공!")
                     alert(data) // 장고에서 받아온 데이터가 들어갔는지 확인
                     
                      p_name = data;
-                    
-                    /* $.each(data, function (index, item) { // 데어터=item
-                        $("#symtoms").html(item.pest_reason);
-                        $("#solution").html(item.pest_solution);
-                        $("#pestItem").html(item.pesticide);
-                        $("#pestName").html(item.pest_name);
-                        $('#pic').attr('src', '/myapp2/resources/images/pre.png');
-                    });  */
+                
                 },
                 error: function (request, status, error) {
                 	alert("error code:" + request.status+ "\n" + "message:" + request.responseText+"\n"+"error:"+error)
@@ -100,7 +97,8 @@
 
 
 
-    	
+    	/* 분석한 병충해 명을 p_name변수에 담아 병충해 명이 바뀔때 마다 병충해에 맞는 정보를 
+    	   response받아주는 함수 by 이길환*/
         $('#check_btn').on('click', function () { // '분석한 사진 보기'버튼에 대한 제이쿼리함수 
             $.ajax({
                 url: 'http://222.102.43.169:8000/api/pest_analysis/'+p_name,
@@ -110,7 +108,7 @@
                 success: function (data) {
                     //alert("성공!")
                     
-                    alert(data)
+                   /*  alert(data) */
                     console.log(data[0])
                    /*  $.each(data, function (index, obj) { // 데어터=item */
                         $("#symtoms").html(data.pest_reason);
@@ -121,7 +119,7 @@
                     /* }); */
                 },
                 error: function (err) {
-
+					alert(err)
                 }
             })
         })
@@ -133,32 +131,43 @@
 </head>
 
 <body>
-   <!-- ***** Header Area Start ***** -->
-   <header class="header-area header-sticky">
-      <div class="container">
-         <div class="row">
-            <div class="col-12">
-               <nav class="main-nav">
-                  <!-- ***** Logo Start ***** -->
-                  <a href="index.do" class="logo"> 피톤치드 </a>
-                  <!-- ***** Logo End ***** -->
-                  <!-- ***** Menu Start ***** -->
-                  <ul class="nav">
-                     <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                     <li><a href="deep.do">병충해 진단</a></li>
-                     <li class="scroll-to-section"><a href="#apply">알림</a></li>
-                     <li class="scroll-to-section"><a href="#apply">방역/방제</a></li>
-                     <li class="scroll-to-section"><a href="#courses">검색</a></li>
-                  </ul>
-                  <a class='menu-trigger'> <span>Menu</span>
-                  </a>
-                  <!-- ***** Menu End ***** -->
-               </nav>
-            </div>
-         </div>
-      </div>
-   </header>
-   <!-- ***** Header Area End ***** -->
+  <!-- ***** Header Area Start ***** -->
+	<header class="header-area header-sticky">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a href="index.do" class="logo"> 피톤치드 </a>
+						<!-- ***** Logo End ***** -->
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li><a href="#top" class="active">Home</a></li>
+							<li><a href="deep.do">병충해 진단</a></li>
+							<li><a href="notification.do">일정관리</a></li>
+							<li><a href="drone.do">드론 방역/방제</a></li>
+							<li><a href="farm_diary.do">영농일지</a></li>
+							<!-- 로그인이 안되어있을때 -->
+							<c:if test="${vo==null}">
+								<li><a href="javascript:kakaoLogin();"><img
+										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
+										style="height: 30px; width: 80px;"></a></li>
+							</c:if>
+							<!-- 로그인이 되어있을때 -->
+							<c:if test="${vo!=null}">
+								<li><button type="button" class="btn btn-info btn-sm"
+										onclick="logout()">로그아웃</button></li>
+							</c:if>
+						</ul>
+						<a class='menu-trigger'> <span>Menu</span>
+						</a>
+						<!-- ***** Menu End ***** -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- ***** Header Area End ***** -->
    <!-- Page Content-->
    <main>
       <div class="container px-4 px-lg-5">
@@ -181,9 +190,9 @@
 
 
                </form>
-               <div sytle="display: flex">
+               <div style="display: flex;">
                   <br />
-                  <button id="anal_btn" type="submit" class="btn btn-info btn-sm"
+                  <button id="anal_btn" type="submit" class="btn btn-info btn-sm" 
                      onclick="ImgCheck()">분석하기</button>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button id="check_btn" type="submit" class="btn btn-info btn-sm"
@@ -231,7 +240,7 @@
       </div>
    </main>
    <!-- Footer-->
-   <!-- 왜 있는지 모를 클래스 푸터 -->
+
    <!-- <footer class="py-5 bg-dark">
       <div class="container px-4 px-lg-5"> -->
    <div class="footer">
@@ -282,6 +291,117 @@
          return true;
       }
    </script>
+   	<!-- Scripts -->
+	<!-- CDN for Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+		crossorigin="anonymous"></script>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="resources/vendor/jquery/jquery.min.js"></script>
+	<script src="resources/js/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="resources/js/isotope.min.js"></script>
+	<script src="resources/js/owl-carousel.js"></script>
+	<script src="resources/js/lightbox.js"></script>
+	<script src="resources/js/tabs.js"></script>
+	<script src="resources/js/video.js"></script>
+	<script src="resources/js/slick-slider.js"></script>
+	<script src="resources/js/custom.js"></script>
+	
+   
+   	<script>
+      //according to loftblog tut
+      $('.nav li:first').addClass('active');
+
+      var showSection = function showSection(section, isAnimate) {
+        var
+          direction = section.replace(/#/, ''),
+          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+          reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $('body, html').animate({
+            scrollTop: reqSectionPos
+          },
+            800);
+        } else {
+          $('body, html').scrollTop(reqSectionPos);
+        }
+      };
+
+      var checkSection = function checkSection() {
+        $('.section').each(function () {
+          var
+            $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var
+              currentId = $this.data('section'),
+              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+            reqLink.closest('li').addClass('active').
+              siblings().removeClass('active');
+          }
+        });
+      };
+
+      $('.main-menu, .responsive-menu').on('click', 'a', function (e) {
+        e.preventDefault();
+        showSection($(this).attr('href'), true);
+      });
+
+      $(window).scroll(function () {
+        checkSection();
+      });
+    </script>
+	<script>
+	function logout() {
+		location.href="logout.do";
+	}
+	</script>
+	<!-- 카카오톡 로그인 기능 -->
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script>
+        window.Kakao.init("e9d0bcae2dc6950a5ef78930a776afb9");
+
+        function kakaoLogin() {
+            window.Kakao.Auth.login({
+                scope: 'profile_nickname, account_email',
+                success: function(authObj) {
+                	console.log(authObj)	// 로그인 성공시 받아오는 데이터
+                    window.Kakao.API.request({ 
+                        url: '/v2/user/me',
+                        success: res => {
+                            const kakao_account = res.kakao_account;
+                            /* console.log(kakao_account);
+                            console.log(kakao_account.email) */
+                            $.ajax({
+                    			url : "login.do",
+                    			type : "post",
+                    			dataType: "json",
+                    			data : {"member_id":kakao_account.email, "member_name":kakao_account.profile.nickname},
+                    			success : function(){location.reload();},
+                    			error : function(){ console.log("error") }
+                    		});
+                        }
+                    });
+                },
+                fail: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+</script>
+   
 </body>
 
 </html>
