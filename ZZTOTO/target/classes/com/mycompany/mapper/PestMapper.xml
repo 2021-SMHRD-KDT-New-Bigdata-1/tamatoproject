@@ -4,8 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.mycompany.mapper.PestMapper">
-	<!-- <insert id="saveImage" parameterType="java.util.Map"> INSERT INTO img_table 
-		VALUES(#{img}) </insert> -->
 	<select id="login" parameterType="com.mycompany.domain.Member"
 		resultType="com.mycompany.domain.Member">
 		SELECT * FROM members WHERE member_id=#{member_id}
@@ -25,17 +23,17 @@
 		VALUES (#{reservation_Date}, #{member_id}, #{proposer_Name}, #{proposer_Email}, #{proposer_Number}, #{proposer_Address},
 		#{land_Type}, #{area}, #{pesticide}, #{pest_Name}, #{crop_Name});
 	</insert>
-	<insert id="schedule_add"
-		parameterType="com.mycompany.domain.Schedule">
+	<insert id="schedule_add" parameterType="com.mycompany.domain.Schedule">
 		INSERT INTO schedules (schedule_title, schedule_content, schedule_date, member_id)
 		VALUES (#{schedule_title}, #{schedule_content}, #{schedule_date}, #{member_id})
 	</insert>
+	<select id="schedule_list" parameterType="com.mycompany.domain.Schedule" resultType="com.mycompany.domain.Schedule">
+		select * from schedules where schedule_date &gt;= #{db_startDate} and schedule_date &lt;= #{db_endDate} 
+		order by schedule_date, schedule_idx	
+	</select>
 	<select id="before_schedule_add_search" resultType="int">
 		select count(*) from schedules where schedule_date = #{schedule_date}
 	</select>
-	<select id="schedule_list" resultType="com.mycompany.domain.Schedule">
-		select * from schedules where schedule_date &gt;= #{db_startDate} and schedule_date &lt;= #{db_endDate} 
-		order by schedule_date, schedule_idx	</select>
     <select id="Farm_diaryList" parameterType="com.mycompany.domain.Farm_diary" resultType="com.mycompany.domain.Farm_diary">
             select * from farm_diaries
     </select>

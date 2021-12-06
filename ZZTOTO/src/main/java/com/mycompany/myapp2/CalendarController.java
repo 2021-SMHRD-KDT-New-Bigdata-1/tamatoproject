@@ -105,8 +105,9 @@ public class CalendarController {
 		}
 
 		// 배열에 담음
-		model.addAttribute("dateList", dateList); //날짜 데이터 배열
+		model.addAttribute("dateList", dateList); //날짜 데이터 배열(객체 바인딩)
 		model.addAttribute("today_info", today_info);
+
 		return "notification";
 	}
 
