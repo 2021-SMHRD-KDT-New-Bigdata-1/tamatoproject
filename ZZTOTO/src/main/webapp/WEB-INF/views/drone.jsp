@@ -53,7 +53,7 @@
 			</legend>
 			<div class="double-input">
 				<div class="form-input-container">
-					<label for="land_Type">논지 유형</label><br> <select
+					<label for="land_Type">농지 유형</label><br> <select
 						name="land_Type" id="land_Type">
 						<option value="논">논</option>
 						<option value="밭">밭</option>
