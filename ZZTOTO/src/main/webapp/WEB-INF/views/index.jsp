@@ -86,17 +86,15 @@ https://templatemo.com/tm-569-edu-meeting
 			<div class="row py-lg-5">
 				<div class="col-lg-6 col-md-8 mx-auto">
 					<h1 class="fw-light">딥러닝을 통한 농산물 병충해 진단 및 솔루션 제공 서비스</h1>
-
-					<p>
-						<a href="#" class="btn btn-primary my-2">Main call to action</a> 
-						<a href="#" class="btn btn-secondary my-2">Secondary action</a>
-					</p>
+						<img src="${pageContext.request.contextPath}/resources/img/tree.png">
 				</div>
 			</div>
 		</section>
 
 		<!-- Main Grid -->
-		<div class="album py-5 bg-light">
+		<div class="album py-5 bg-light" style="background-color: white !important;
+    margin-top: -15%;
+    margin-bottom: -25%;">
 			<div class="container">
 				<div class="row row-cols-1 row-cols-sm-4 g-3">
 					<div class="col col-6">
