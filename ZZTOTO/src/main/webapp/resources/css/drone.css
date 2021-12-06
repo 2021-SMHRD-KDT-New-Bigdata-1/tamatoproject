@@ -14,8 +14,9 @@ body {
       sans-serif !important;
    font-size: 350% !important;
    line-height: 1.4 !important;
-   margin: 0 !important;
-   padding: 2em !important;
+   margin: 3 !important;
+   padding: 2.5em !important;
+   /* user-scalable:yes; */
 }
 
 legend {
@@ -48,6 +49,9 @@ button {
    font-size: 45px
 }
 
+.proposer{
+	font-size:50px;
+}
 
 .calender{
    width: 100%;
@@ -68,7 +72,7 @@ button {
    display: block;
    height: 12px;
    pointer-events: none;
-   position: absolute;
+   /* position: absolute;*/
    right: 16px;
    top: 50%;
    transform: translate(0, -65%) rotate(45deg);
