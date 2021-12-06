@@ -1,3 +1,3 @@
 show tables
 desc farm_diaries
-select * from members
+select * from drone_preventions
