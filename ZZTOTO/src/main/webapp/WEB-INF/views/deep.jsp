@@ -56,7 +56,7 @@
          
       }else{
          $('div.row.gx-4.gx-lg-5:not(.my-5)')[0].style.display='flex'
-           /*  $('#check_btn').attr('style',"display:flex"") */    
+             $('#check_btn').attr('style',"display:flex")  
          }
    }
    
@@ -88,7 +88,8 @@
                         $('#pic').attr('src', '/myapp2/resources/images/pre.png');
                     });  */
                 },
-                error: function (err) {
+                error: function (request, status, error) {
+                	alert("error code:" + request.status+ "\n" + "message:" + request.responseText+"\n"+"error:"+error)
                 }
             })
         })
@@ -183,10 +184,10 @@
                <div sytle="display: flex">
                   <br />
                   <button id="anal_btn" type="submit" class="btn btn-info btn-sm"
-                     onclick="ImgCheck()">사진 저장하기</button>
+                     onclick="ImgCheck()">분석하기</button>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button id="check_btn" type="submit" class="btn btn-info btn-sm"
-            onclick="SeeImg()" style="display: flex;">분석한 사진 보기</button>
+            onclick="SeeImg()" style="display: none;">결과보기</button>
                </div>
             </div>
          </div>
