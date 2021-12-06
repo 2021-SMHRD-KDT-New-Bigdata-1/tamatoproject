@@ -109,7 +109,7 @@ https://templatemo.com/tm-569-edu-meeting
                  	<img id="icon" src="${pageContext.request.contextPath}/resources/images/camera2.png">
                  </svg>
 								<div class="card-body">
-									<h4 class="card-text">병충해 진단</h4>
+									<h4 class="card-text" style="font-size:125%">병충해 진단</h4>
 								</div>
 							</div>
 						</a>
@@ -125,7 +125,7 @@ https://templatemo.com/tm-569-edu-meeting
                 <img id="icon" src="${pageContext.request.contextPath}/resources/images/farming.png">
                 </svg>
 								<div class="card-body">
-									<h4 class="card-text">일정관리</h4>
+									<h4 class="card-text" style="font-size:125%">일정관리</h4>
 								</div>
 							</div>
 						</a>
@@ -142,7 +142,7 @@ https://templatemo.com/tm-569-edu-meeting
                 </svg>
 
 								<div class="card-body">
-									<h4 class="card-text">드론 방역/방제</h4>
+									<h4 class="card-text" style="font-size:125%">드론 방역</h4>
 								</div>
 							</div>
 						</a>
@@ -159,7 +159,7 @@ https://templatemo.com/tm-569-edu-meeting
                 <img id="icon" src="${pageContext.request.contextPath}/resources/images/diary.png">
                 </svg>
 								<div class="card-body">
-									<h4 class="card-text">영농일지</h4>
+									<h4 class="card-text" style="font-size:125%">영농일지</h4>
 								</div>
 							</div>
 						</a>
