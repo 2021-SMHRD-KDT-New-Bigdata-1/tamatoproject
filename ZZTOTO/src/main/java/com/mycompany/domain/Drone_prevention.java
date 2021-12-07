@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class Drone_prevention {
 	  	private int reservation_Num;
 	    private String reservation_Date;
-	    private int member_Id;
+	    private String member_id;
 	    private String proposer_Name;
 	    private String proposer_Email;
 	    private String proposer_Number;

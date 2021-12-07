@@ -66,7 +66,8 @@
 				<div class="col-12">
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
-						<a href="index.do" class="logo" style="font-family:locus_sangsang;"> 피톤치드 </a>
+						<a href="index.do" class="logo"
+							style="font-family: locus_sangsang;"> 피톤치드 </a>
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
@@ -74,7 +75,7 @@
 							<li><a href="deep.do">병충해 진단</a></li>
 							<li><a href="notification.do">일정관리</a></li>
 							<li><a href="drone.do">드론방역</a></li>
-					 		<li><a href="farm_diary.do">영농일지</a></li>
+							<li><a href="farm_diary.do">영농일지</a></li>
 							<!-- 로그인이 안되어있을때 -->
 							<c:if test="${vo==null}">
 								<li><a href="javascript:kakaoLogin();"><img
@@ -119,7 +120,8 @@
 						href="./notification.do?year=${today_info.before_year}&month=${today_info.before_month}">
 						&lt; <!-- 이전달 -->
 					</a> <span class="this_month"> &nbsp;${today_info.search_year}.
-						<c:if test="${today_info.search_month<10}">0</c:if>${today_info.search_month}
+						<c:if test="${today_info.search_month<10}">0</c:if><a href="#"
+						data-toggle="tooltip" title="Hooray!">${today_info.search_month}</a>
 					</span> <a class="before_after_month"
 						href="./notification.do?year=${today_info.after_year}&month=${today_info.after_month}">
 						<!-- 다음달 --> &gt;
@@ -175,14 +177,14 @@
 									${dateList.date}
 								</div>
 								<div>
-										<c:forEach var="scheduleList"
-											items="${dateList.schedule_data_arr}"
-											varStatus="schedule_data_arr_status">
-									<c:if test="${vo.member_id == scheduleList.member_id}">
+									<c:forEach var="scheduleList"
+										items="${dateList.schedule_data_arr}"
+										varStatus="schedule_data_arr_status">
+										<c:if test="${vo.member_id == scheduleList.member_id}">
 											<p class="date_title">${scheduleList.schedule_title}</p>
 											<p class="date_content">${scheduleList.schedule_content}</p>
-									</c:if>
-										</c:forEach>
+										</c:if>
+									</c:forEach>
 								</div>
 							</td>
 							</c:forEach>
@@ -279,7 +281,8 @@
 	<div class="footer">
 		<!-- <footer class="py-5 bg-dark"> <!--왜 있는지 모를 class  -->
 		<!-- <div class="container px-4 px-lg-5"> -->
-		<p class="m-0 text-center text-white">Copyright 2022 Kkumchi All Rights Reserved.</p>
+		<p class="m-0 text-center text-white">Copyright 2022 Kkumchi All
+			Rights Reserved.</p>
 		<!-- </div> -->
 		<!-- </footer> -->
 	</div>
@@ -359,6 +362,12 @@
         checkSection();
       });
     </script>
+    <!-- bootstrap for tooltip -->
+	<script>
+	$(document).ready(function(){
+	  $('[data-toggle="tooltip"]').tooltip();
+	});
+	</script>
 </body>
 
 </html>

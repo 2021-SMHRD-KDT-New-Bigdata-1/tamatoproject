@@ -30,7 +30,6 @@ public class CalendarController {
 
 		Calendar cal = Calendar.getInstance();
 		DateData calendarData;
-		System.out.println(dateData);
 		// notification.jsp > input태그에서 사용하기위한 날짜
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
@@ -48,28 +47,13 @@ public class CalendarController {
 
 		// 달력데이터에 넣기 위한 배열 추가
 		ArrayList<Schedule> Schedule_list = mapper.schedule_list(dateData);
-		System.out.println(Schedule_list.size());
 		Schedule[][] schedule_data_arr = new Schedule[32][4];
 
 		if (Schedule_list.isEmpty() != true) {
 			int j = 0;
 			for (int i = 0; i < Schedule_list.size(); i++) {
-				/*
-				 * int date =
-				 * Integer.parseInt(String.valueOf(Schedule_list.get(i).getSchedule_date()).
-				 * substring( String.valueOf(Schedule_list.get(i).getSchedule_date()).length() -
-				 * 2, String.valueOf(Schedule_list.get(i).getSchedule_date()).length()));
-				 */
 				int date = Integer.parseInt(String.valueOf(Schedule_list.get(i).getSchedule_date()).substring(8, 10));
-				System.out.println(Schedule_list.get(i).getSchedule_date());
-				System.out.println(date);
 				if (i > 0) {
-					/*
-					 * int date_before = Integer.parseInt(String.valueOf(Schedule_list.get(i -
-					 * 1).getSchedule_date()) .substring(String.valueOf(Schedule_list.get(i -
-					 * 1).getSchedule_date()).length() - 2, String.valueOf(Schedule_list.get(i -
-					 * 1).getSchedule_date()).length()));
-					 */
 					int date_before = Integer.parseInt(String.valueOf(Schedule_list.get(i - 1).getSchedule_date()).substring(8, 10));
 					if (date_before == date) {
 						j = j + 1;
@@ -114,10 +98,6 @@ public class CalendarController {
 				calendarData = new DateData(null, null, null, null, null);
 				dateList.add(calendarData);
 			}
-		}
-		for(int i=0;i<dateList.size();i++) {
-			System.out.println(dateList.get(i));
-			System.out.println(dateList.get(i).getSchedule_data_arr()[0]);
 		}
 
 		// 배열에 담음
