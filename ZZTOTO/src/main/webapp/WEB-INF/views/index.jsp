@@ -41,15 +41,14 @@ https://templatemo.com/tm-569-edu-meeting
 -->
 </head>
 
-<body>
-	<!-- ***** Header Area Start ***** -->
-	<header class="header-area header-sticky">
+<!-- ***** Header Area Start ***** -->
+	<header class="header-area header-sticky" style="background-color:white">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
-						<a href="index.do" class="logo"> 피톤치드 </a>
+						<a href="index.do" class="logo" style="font-family:locus_sangsang;"> 피톤치드 </a>
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
@@ -80,11 +79,14 @@ https://templatemo.com/tm-569-edu-meeting
 	</header>
 	<!-- ***** Header Area End ***** -->
 
+<body>
 	<!-- ***** Main Area Start ***** -->
+	
 	<main>
 		<section class="py-7 text-center container" id="toto">
 			<div class="row py-lg-5">
 				<div class="col-lg-6 col-md-8 mx-auto">
+
 					<img style="width: 100%"
 						src="${pageContext.request.contextPath}/resources/img/main_img.jpg">
 				</div>
@@ -105,7 +107,8 @@ https://templatemo.com/tm-569-edu-meeting
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                  
                   <title>Placeholder</title>
-                 	<img id="icon" src="${pageContext.request.contextPath}/resources/images/camera2.png">
+                 	<img id="icon"
+										src="${pageContext.request.contextPath}/resources/images/camera2.png">
                  </svg>
 								<div class="card-body">
 									<h4 class="card-text" style="font-size: 125%">병충해 진단</h4>
@@ -121,7 +124,8 @@ https://templatemo.com/tm-569-edu-meeting
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <img id="icon" src="${pageContext.request.contextPath}/resources/images/farming.png">
+                <img id="icon"
+										src="${pageContext.request.contextPath}/resources/images/farming.png">
                 </svg>
 								<div class="card-body">
 									<h4 class="card-text" style="font-size: 125%">일정관리</h4>
@@ -137,7 +141,8 @@ https://templatemo.com/tm-569-edu-meeting
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <img id="icon" src="${pageContext.request.contextPath}/resources/images/drone3.png">
+                <img id="icon"
+										src="${pageContext.request.contextPath}/resources/images/drone3.png">
                 </svg>
 
 								<div class="card-body">
@@ -155,7 +160,8 @@ https://templatemo.com/tm-569-edu-meeting
 									aria-label="Placeholder: Thumbnail"
 									preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                <img id="icon" src="${pageContext.request.contextPath}/resources/images/diary.png">
+                <img id="icon"
+										src="${pageContext.request.contextPath}/resources/images/diary.png">
                 </svg>
 								<div class="card-body">
 									<h4 class="card-text" style="font-size: 125%">영농일지</h4>
@@ -249,7 +255,6 @@ https://templatemo.com/tm-569-edu-meeting
 		location.href="logout.do";
 	}
 	</script>
-	
 	<!-- 카카오톡 로그인 기능 -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script>
@@ -264,6 +269,8 @@ https://templatemo.com/tm-569-edu-meeting
                         url: '/v2/user/me',
                         success: res => {
                             const kakao_account = res.kakao_account;
+                            /* console.log(kakao_account);
+                            console.log(kakao_account.email) */
                             $.ajax({
                     			url : "login.do",
                     			type : "post",

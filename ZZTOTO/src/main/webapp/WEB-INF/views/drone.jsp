@@ -1,10 +1,7 @@
-<%@page import="com.mycompany.domain.Member"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%
-Member vo = (Member) session.getAttribute("vo");
-%>
 
 <!DOCTYPE html>
 <html>
@@ -15,14 +12,6 @@ Member vo = (Member) session.getAttribute("vo");
 <title>드론 방제 예약</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/drone.css">
-	
-<!-- 추가 by 김동휘 -->
-<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
-	rel="stylesheet">
-	
-<link
-	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
 
 <!-- Additional CSS Files -->
 <link rel="stylesheet"
@@ -34,22 +23,21 @@ Member vo = (Member) session.getAttribute("vo");
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/lightbox.css">
 
-<!-- end -->
-
 </head>
 
 <body>
 
-<header class="header-area header-sticky" style="background-color:white">
+<!-- ***** Header Area Start ***** -->
+	<header class="header-area header-sticky" style="background-color:white;">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
-						<a href="index.do" class="logo" style="font-family:locus_sangsang;"> 피톤치드 </a>
+						<a href="index.do" class="logo" style="font-family:locus_sangsang; margin-left:125px; margin-top:10px;"> 피톤치드 </a>
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
-						<ul class="nav">
+						<ul class="nav" style="margin-right:10px;">
 							<li><a href="#top" class="active">Home</a></li>
 							<li><a href="deep.do">병충해 진단</a></li>
 							<li><a href="notification.do">일정관리</a></li>
@@ -57,7 +45,7 @@ Member vo = (Member) session.getAttribute("vo");
 					 		<li><a href="farm_diary.do">영농일지</a></li>
 							<!-- 로그인이 안되어있을때 -->
 							<c:if test="${vo==null}">
-								<li><a href="javascript:kakaoLogin();"><img
+								<li><a href="javascript:kakaoLogin();" style="margin-top:5px;"><img
 										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
 										style="height: 30px; width: 80px;"></a></li>
 							</c:if>
@@ -75,7 +63,7 @@ Member vo = (Member) session.getAttribute("vo");
 			</div>
 		</div>
 	</header>
-
+	<!-- ***** Header Area End ***** -->
 
 <div style="height:80%; align:center;" >
 	<h3 style="text-align:center">방제예약신청</h3>
@@ -86,7 +74,7 @@ Member vo = (Member) session.getAttribute("vo");
 			</legend>
 			<div class="double-input">
 				<div class="form-input-container">
-						<input type="hidden" name="member_id" id="member_id" value="${vo.member_id}">
+					<input type="hidden" name="member_id" value="${vo.member_id}" /> 
 					<label for="proposer_Name" style="font-size:75%;">이름</label><br> 
 					<input type="text" name="proposer_Name" id="proposer_Name" placeholder="이름을 입력해 주세요"
 						minlength="3" required />
