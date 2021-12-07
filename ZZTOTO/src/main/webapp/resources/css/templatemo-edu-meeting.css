@@ -173,6 +173,9 @@ main {
 		margin-bottom: 60px;
 	}
 }
+.btn_form{
+	margin-top:5px;
+}
 
 .main-button-red a {
 	font-size: 13px;

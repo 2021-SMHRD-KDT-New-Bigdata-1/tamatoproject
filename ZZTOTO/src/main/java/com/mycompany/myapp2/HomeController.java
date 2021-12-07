@@ -208,4 +208,8 @@ public class HomeController {
       System.out.println("업데이트1?");
       mapper.diaryUpdateAjax1(vo);
    }
+   @RequestMapping("/Loding.do")
+   public String loding() {
+	   return "Loding";
+   }
 }
