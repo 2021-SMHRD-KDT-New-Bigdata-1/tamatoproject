@@ -12,10 +12,67 @@
 <title>드론 방제 예약</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/drone.css">
+	
+<!-- 추가 by 김동휘 -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
+	
+<link
+	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- Additional CSS Files -->
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/owl.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/lightbox.css">
+
+<!-- end -->
 
 </head>
 
 <body>
+
+<header class="header-area header-sticky" style="background-color:white">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a href="index.do" class="logo" style="font-family:locus_sangsang;"> 피톤치드 </a>
+						<!-- ***** Logo End ***** -->
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li><a href="#top" class="active">Home</a></li>
+							<li><a href="deep.do">병충해 진단</a></li>
+							<li><a href="notification.do">일정관리</a></li>
+							<li><a href="drone.do">드론방역</a></li>
+					 		<li><a href="farm_diary.do">영농일지</a></li>
+							<!-- 로그인이 안되어있을때 -->
+							<c:if test="${vo==null}">
+								<li><a href="javascript:kakaoLogin();"><img
+										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
+										style="height: 30px; width: 80px;"></a></li>
+							</c:if>
+							<!-- 로그인이 되어있을때 -->
+							<c:if test="${vo!=null}">
+								<li><button type="button" class="btn btn-info btn-sm"
+										onclick="logout()">로그아웃</button></li>
+							</c:if>
+						</ul>
+						<a class='menu-trigger'> <span>Menu</span>
+						</a>
+						<!-- ***** Menu End ***** -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+
 
 <div style="height:80%; align:center;" >
 	<h3 style="text-align:center">방제예약신청</h3>
