@@ -57,18 +57,17 @@ public class HomeController {
       System.out.println("test");
       mapper.droneInsert(vo);
 
-      return "redirect:/drone.do"; // redirect: ViewResolver 가 동작하지 않는다
+      return "redirect:/drone.do";
 
    }
 
-   // 로그인 처리
    @RequestMapping("/login.do")
    public @ResponseBody Member login(Member member, HttpSession session) {
       Member vo = mapper.login(member);
 
-      if (vo != null) { // 로그인 성공
+      if (vo != null) {
          session.setAttribute("vo", vo);
-      } else { // 로그인 실패시 회원가입
+      } else {
          vo = mapper.join(member);
          vo = mapper.login(member);
          session.setAttribute("vo", vo);
@@ -174,10 +173,10 @@ public class HomeController {
       Member vo = mapper.login(member_Id);
       System.out.println("여기까지 오냐");
       System.out.println("member_Id");
-      if (vo != null) { // 로그인 성공
+      if (vo != null) {
          session.setAttribute("vo", vo);
          System.out.println("이거는?");
-      } else { // 로그인 실패시 회원가입
+      } else {
          vo = mapper.join(member_Id);
          session.setAttribute("vo", vo);
          System.out.println("쳇 실패인가");

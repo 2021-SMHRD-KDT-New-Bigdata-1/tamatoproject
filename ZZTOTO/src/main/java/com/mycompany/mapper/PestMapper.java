@@ -27,7 +27,7 @@ public interface PestMapper {
 	public int before_schedule_add_search(Schedule schedule);
 	public ArrayList<Schedule> schedule_list(DateData dateData);
 
-	public void droneInsert(Drone_prevention vo); // insert SQL
+	public void droneInsert(Drone_prevention vo);
 	public List<Farm_diary> Farm_diaryList();
 	@Select("select * from members where member_id=#{member_id}")
 	   public Member FarmLogin(Member member);
@@ -39,10 +39,10 @@ public interface PestMapper {
 	public void diaryInsertAjax(Farm_diary vo);
   	
   	@Update("update farm_diaries set diary_subject=#{diary_subject} where diary_num=#{diary_num}")
-	public void diaryUpdateAjax(Farm_diary vo); // XML(X) -> update SQL~
+	public void diaryUpdateAjax(Farm_diary vo);
   	
   	@Update("update farm_diaries set diary_content=#{diary_content}, issue=#{issue} where diary_num=#{diary_num}")
-	public void diaryUpdateAjax1(Farm_diary vo); // XML(X) -> update SQL~
+	public void diaryUpdateAjax1(Farm_diary vo);
   	
 
 }
