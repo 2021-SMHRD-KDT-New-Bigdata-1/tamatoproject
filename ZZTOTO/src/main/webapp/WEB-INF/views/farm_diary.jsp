@@ -19,6 +19,8 @@ Member vo = (Member) session.getAttribute("vo");
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
+	<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/news.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
 <link rel="stylesheet"
@@ -117,7 +119,7 @@ Member vo = (Member) session.getAttribute("vo");
         
         if(${!empty vo}){
             view += "<tr>";
-            view += "<td colspan='6'><button class='btn btn-primary btn-sm' onclick='goWrite()' >글쓰기</button></td>";
+            view += "<td colspan='5'><button class='btn btn-primary btn-sm' onclick='goWrite()' >글쓰기</button></td>";
             view += "</tr>";
          }
         view += "</table>";
