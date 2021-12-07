@@ -13,8 +13,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/drone.css">
 
-
-
 </head>
 
 <body>

@@ -293,11 +293,10 @@
 
 	<!-- <footer class="py-5 bg-dark">
       <div class="container px-4 px-lg-5"> -->
-	<div class="footer">
-		<p class="m-0 text-center text-white">Copyright &copy; Your
-			Website 2021</p>
-	</div>
-	<!-- </div>
+   <div class="footer">
+      <p class="m-0 text-center text-white">Copyright 2022 Kkumchi All Rights Reserved.</p>
+   </div>
+   <!-- </div>
    </footer> -->
 	<!-- Bootstrap core JS-->
 	<script

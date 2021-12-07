@@ -57,7 +57,7 @@ https://templatemo.com/tm-569-edu-meeting
 							<li><a href="deep.do">병충해 진단</a></li>
 							<li><a href="notification.do">일정관리</a></li>
 							<li><a href="drone.do">드론방역</a></li>
-							<li><a href="farm_diary.do">영농일지</a></li>
+					 		<li><a href="farm_diary.do">영농일지</a></li>
 							<!-- 로그인이 안되어있을때 -->
 							<c:if test="${vo==null}">
 								<li><a href="javascript:kakaoLogin();"><img
@@ -175,7 +175,7 @@ https://templatemo.com/tm-569-edu-meeting
 	</main>
 	<!-- Footer start -->
 	<div class="footer">
-		<p>Copyright 2022 Edu Meeting Co., Ltd. All Rights Reserved.</p>
+		<p>Copyright 2022 Kkumchi All Rights Reserved.</p>
 	</div>
 	<!-- Footer End -->
 
