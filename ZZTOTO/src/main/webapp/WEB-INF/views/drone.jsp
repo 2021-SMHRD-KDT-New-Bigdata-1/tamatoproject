@@ -37,7 +37,7 @@
 						<a href="index.do" class="logo" style="font-family:locus_sangsang; margin-left:125px; margin-top:10px;"> 피톤치드 </a>
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
-						<ul class="nav" style="margin-right:10px;">
+						<ul class="nav" style="margin-right:50px;">
 							<li><a href="#top" class="active">Home</a></li>
 							<li><a href="deep.do">병충해 진단</a></li>
 							<li><a href="notification.do">일정관리</a></li>
