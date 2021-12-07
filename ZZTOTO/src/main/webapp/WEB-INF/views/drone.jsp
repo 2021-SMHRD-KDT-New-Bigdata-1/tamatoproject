@@ -40,28 +40,6 @@
 						<!-- ***** Logo Start ***** -->
 						<a href="index.do" class="logo" style="font-family:locus_sangsang; margin-left:125px; margin-top:10px;"> 피톤치드 </a>
 						<!-- ***** Logo End ***** -->
-						<!-- ***** Menu Start ***** -->
-						<ul class="nav" style="margin-right:50px;">
-							<li><a href="#top" class="active">Home</a></li>
-							<li><a href="deep.do">병충해 진단</a></li>
-							<li><a href="notification.do">일정관리</a></li>
-							<li><a href="drone.do">드론방역</a></li>
-					 		<li><a href="farm_diary.do">영농일지</a></li>
-							<!-- 로그인이 안되어있을때 -->
-							<c:if test="${vo==null}">
-								<li><a href="javascript:kakaoLogin();" style="margin-top:5px;"><img
-										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
-										style="height: 30px; width: 80px;"></a></li>
-							</c:if>
-							<!-- 로그인이 되어있을때 -->
-							<c:if test="${vo!=null}">
-								<li><button type="button" class="btn btn-info btn-sm"
-										onclick="logout()">로그아웃</button></li>
-							</c:if>
-						</ul>
-						<a class='menu-trigger'> <span>Menu</span>
-						</a>
-						<!-- ***** Menu End ***** -->
 					</nav>
 				</div>
 			</div>

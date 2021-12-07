@@ -70,7 +70,7 @@
 							style="font-family: locus_sangsang;"> 피톤치드 </a>
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
-						<ul class="nav">
+						<ul class="nav" style="font-family: locus_sangsang;">
 							<li><a href="#top" class="active">Home</a></li>
 							<li><a href="deep.do">병충해 진단</a></li>
 							<li><a href="notification.do">일정관리</a></li>

@@ -11,14 +11,16 @@ Member vo = (Member) session.getAttribute("vo");
 <title>영농일지</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- Bootstrap core CSS -->
+<link
+	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
-	<link rel="stylesheet"
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/news.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
@@ -29,7 +31,9 @@ Member vo = (Member) session.getAttribute("vo");
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+	integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+	crossorigin="anonymous"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -237,7 +241,7 @@ Member vo = (Member) session.getAttribute("vo");
 							<li><a href="deep.do">병충해 진단</a></li>
 							<li><a href="notification.do">일정관리</a></li>
 							<li><a href="drone.do">드론방역</a></li>
-					 		<li><a href="farm_diary.do">영농일지</a></li>
+							<li><a href="farm_diary.do">영농일지</a></li>
 							<!-- 로그인이 안되어있을때 -->
 							<c:if test="${vo==null}">
 								<li><a href="javascript:kakaoLogin();"><img
