@@ -97,7 +97,7 @@
 	</header>
 	<!-- ***** Header Area End ***** -->
 	<!-- Page Content-->
-	<main>
+	<main style="padding-top: 20px">
 		<form name="calendarFrm" id="calendarFrm" action="" method="GET">
 			<input type="hidden" name="year" value="${today_info.search_year}" />
 			<input type="hidden" name="month"
@@ -274,7 +274,7 @@
 			}
 		</script>
 		</div>
-	</main>
+	</main">
 	<!-- Footer Start -->
 	<div class="footer">
 		<!-- <footer class="py-5 bg-dark"> <!--왜 있는지 모를 class  -->
