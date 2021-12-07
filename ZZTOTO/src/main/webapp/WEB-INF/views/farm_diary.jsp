@@ -241,7 +241,7 @@ Member vo = (Member) session.getAttribute("vo");
 							<!-- 로그인이 안되어있을때 -->
 							<c:if test="${vo==null}">
 								<li><a href="javascript:kakaoLogin();"><img
-										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
+										src="${pageContext.request.contextPath}/resources/images/kaka oLogin.png"
 										style="height: 30px; width: 80px;"></a></li>
 							</c:if>
 							<!-- 로그인이 되어있을때 -->
