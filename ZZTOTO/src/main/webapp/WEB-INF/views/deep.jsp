@@ -26,6 +26,7 @@
 	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 
+
 <!-- 로딩 애니메이션 CSS by 이길환    -->
 <style>
 /* Center the loader */
@@ -72,7 +73,6 @@
   from{ bottom:-100px; opacity:0 } 
   to{ bottom:0; opacity:1 }
 }
-
 </style>
 
 
