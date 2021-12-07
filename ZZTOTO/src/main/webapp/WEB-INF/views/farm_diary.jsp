@@ -222,26 +222,43 @@ Member vo = (Member) session.getAttribute("vo");
 </script>
 </head>
 <body>
+	<!-- ***** Header Area Start ***** -->
 	<header class="header-area header-sticky">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
 						<a href="index.do" class="logo"> 피톤치드 </a>
+						<!-- ***** Logo End ***** -->
+						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
 							<li><a href="#top" class="active">Home</a></li>
 							<li><a href="deep.do">병충해 진단</a></li>
 							<li><a href="notification.do">일정관리</a></li>
 							<li><a href="drone.do">드론방역</a></li>
-							<li><a href="farm_diary.do">영농일지</a></li>
+					 		<li><a href="farm_diary.do">영농일지</a></li>
+							<!-- 로그인이 안되어있을때 -->
+							<c:if test="${vo==null}">
+								<li><a href="javascript:kakaoLogin();"><img
+										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
+										style="height: 30px; width: 80px;"></a></li>
+							</c:if>
+							<!-- 로그인이 되어있을때 -->
+							<c:if test="${vo!=null}">
+								<li><button type="button" class="btn btn-info btn-sm"
+										onclick="logout()">로그아웃</button></li>
+							</c:if>
 						</ul>
 						<a class='menu-trigger'> <span>Menu</span>
 						</a>
+						<!-- ***** Menu End ***** -->
 					</nav>
 				</div>
 			</div>
 		</div>
 	</header>
+	<!-- ***** Header Area End ***** -->
 	<main style="margin-top: 5%">
 		<div class="container" id="coco">
 			<h2>영농일지</h2>
