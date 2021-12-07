@@ -79,8 +79,8 @@ public class HomeController {
    // 로그아웃 처리
    @RequestMapping("logout.do")
    public String boardLogout(HttpSession session) {
-      session.invalidate(); // 세션무효화
-      return "redirect:/main.do";
+      session.invalidate();
+      return "redirect:/index.do";
    }
 
 	// Ajax활용 파일 업로드 기능 : 딥러닝용, DB용 2가지
