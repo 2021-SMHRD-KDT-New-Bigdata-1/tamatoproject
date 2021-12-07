@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 <!-- 분석할 사진을 업로드하여 분석 API를 활용하여 분석 결과를 출력하는 페이지 by 이길환 -->
 
@@ -12,36 +12,96 @@
 
 <meta charset="utf-8">
 <meta name="viewport"
-   content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="viewport" content="width=320"/>
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=320" />
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <link
-   href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
-   rel="stylesheet">
+	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
 
 <title>KingTomato</title>
 
 <!-- Bootstrap core CSS -->
 <link
-   href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
-   rel="stylesheet">
+	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<style>
+/* Center the loader */
+#loader {
+  position: fixed;
+  left: 55%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+</style>
 
 
 <!-- Additional CSS Files -->
 <link rel="stylesheet"
-   href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
+	href="${pageContext.request.contextPath}/resources/css/fontawesome.css">
 <link rel="stylesheet"
-   href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
+	href="${pageContext.request.contextPath}/resources/css/templatemo-edu-meeting.css">
 <link rel="stylesheet"
-   href="${pageContext.request.contextPath}/resources/css/owl.css">
+	href="${pageContext.request.contextPath}/resources/css/owl.css">
 <link rel="stylesheet"
-   href="${pageContext.request.contextPath}/resources/css/lightbox.css">
+	href="${pageContext.request.contextPath}/resources/css/lightbox.css">
+	
+	<!-- 로딩창 css -->
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/loding.css">
 
 <!-- 카메라를 호출하는 api 연동 기능 by 이길환  -->
 <script src="resources/vendor/jquery/jquery.min.js"></script>
 <script>
 	var p_name = "";
+	function myFunction() {
+  	  $('#loader').attr('style', "display:fixed")
+  	  //myVar = setTimeout(showPage, 10000);
+  	}
 
+  	function showPage() {
+  	  document.getElementById("loader").style.display = "none";
+  	}
+  	
    $(document).ready(function() {
       if (!('url' in window) && ('webkitURL' in window)) {
          window.URL = window.webkitURL;
@@ -69,6 +129,7 @@
    /* 업로드한 사진을 분석하여 분석한 병충해명을 받아오는 함수 by이길환 */
    $(function () {
         $('#anal_btn').on('click', function () {
+        	myFunction()
             $.ajax({
                 url: 'http://222.102.43.169:8000/api/pest_analysis',
                 type: 'get',
@@ -76,26 +137,29 @@
                 async: true,
                 timeout: 20000,
                 success: function (data) {
+                	showPage()
+                	var myVar;
+
+                	
                     //alert("성공!")
-<<<<<<< HEAD
-                    alert("분석이 완료되었습니다.") // 장고에서 받아온 데이터가 들어갔는지 확인
                     
-=======
-                    alert(data) // 장고에서 받아온 데이터가 들어갔는지 확인
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/tomatoproject.git
-                     p_name = data;
+                    alert("분석이 완료되었습니다.") // 장고에서 받아온 데이터가 들어갔는지 확인
+                    p_name = data;
                 },
                 error: function (request, status, error) {
-                	alert("error code:" + request.status+ "\n" + "message:" + request.responseText+"\n"+"error:"+error)
+                	showPage()
+                	//alert("error code:" + request.status+ "\n" + "message:" + request.responseText+"\n"+"error:"+error)
                 }
             })
         })
         
     })
     
-    $(function () {
+    
     	/* 분석한 병충해 명을 p_name변수에 담아 병충해 명이 바뀔때 마다 병충해에 맞는 정보를 
     	   response받아주는 함수 by 이길환*/
+    $(function () {
+    	
         $('#check_btn').on('click', function () { // '분석한 사진 보기'버튼에 대한 제이쿼리함수 
             $.ajax({
                 url: 'http://222.102.43.169:8000/api/pest_analysis/'+p_name,
@@ -119,9 +183,10 @@
 </script>
 </head>
 
-<body>
-  <!-- ***** Header Area Start ***** -->
+<body  style="margin:0;">
+	<!-- ***** Header Area Start ***** -->
 	<header class="header-area header-sticky">
+	<div id="loader" style="display:none;"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -157,89 +222,89 @@
 		</div>
 	</header>
 	<!-- ***** Header Area End ***** -->
-   <!-- Page Content-->
-   <main>
-      <div class="container px-4 px-lg-5">
-         <div class="row gx-4 gx-lg-5 align-items-center my-5">
-            <div class="col-lg-12">
-               <form action="/saveImage" enctype="multipart/form-data"
-                  method="post">
+	<!-- Page Content-->
+	<main>
+		<div class="container px-4 px-lg-5">
+			<div class="row gx-4 gx-lg-5 align-items-center my-5">
+				<div class="col-lg-12">
+					<form action="/saveImage" enctype="multipart/form-data"
+						method="post">
 
 
-                  <!-- 찍은 사진 가져오는 원본 코드 -->
-                  <!-- <input type="file" id="camera" name="camera" capture="camera" 
+						<!-- 찍은 사진 가져오는 원본 코드 -->
+						<!-- <input type="file" id="camera" name="camera" capture="camera" 
                      
                      
                      <!-- 호출된 카메라로 찍은 사진을 가져오는 input값 by 이길환  -->
-                       <label id="lb" class="btn btn-primary btn-file">
-                           사진추가 <input type="file" style="display: none;" id="camera" name="camera" capture="camera" accept="image/*" />
-                        </label>
-                  <br /> <img id="pic" style="width: 256px; height:256px" />
+						<label id="lb" class="btn btn-primary btn-file"> 사진추가 <input
+							type="file" style="display: none;" id="camera" name="camera"
+							capture="camera" accept="image/*" />
+						</label> <br /> <img id="pic" style="width: 256px; height: 256px" />
 
-               </form>
-               <div style="display: flex; margin-top:8px">
-                  <br />
-                  <button id="anal_btn" type="submit" class="btn btn-success" 
-                     onclick="ImgCheck()">분석하기</button>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button id="check_btn" type="submit" class="btn btn-danger"
-            onclick="SeeImg()" style="display: none;">결과보기</button>
-               </div>
-            </div>
-         </div>
+					</form>
+					<div style="display: flex; margin-top: 8px">
+						<br />
+						<button id="anal_btn" type="submit" class="btn btn-success"
+							onclick="ImgCheck()">분석하기</button>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button id="check_btn" type="submit" class="btn btn-danger"
+							onclick="SeeImg()" style="display: none;">결과보기</button>
+					</div>
+				</div>
+			</div>
 
-         <!-- Content Row-->
-         <div id=PestBug class="row gx-4 gx-lg-5" style="display: none">
-            <div class="col-md-6 mb-5">
-               <h2 class="card-title">병충해 명</h2>
-               <div class="card h-100" style = "height: 60%!important;">
-                  <div class="card-body">
-                     <p id="pestName" class="card-text">발생원인</p>
-                  </div>
-               </div>
-            </div>
+			<!-- Content Row-->
+			<div id=PestBug class="row gx-4 gx-lg-5" style="display: none">
+				<div class="col-md-6 mb-5">
+					<h2 class="card-title">병충해 명</h2>
+					<div class="card h-100" style="height: 60% !important;">
+						<div class="card-body">
+							<p id="pestName" class="card-text">발생원인</p>
+						</div>
+					</div>
+				</div>
 
-            <div class="col-md-6 mb-5">
-               <h2 class="card-title">병충해 설명</h2>
-               <div class="card h-100">
-                  <div class="card-body">
-                     <p id="symtoms" class="card-text">발생원인</p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-6 mb-5">
-               <h2 class="card-title">병충해 해결방안</h2>
-               <div class="card h-100">
-                  <div class="card-body">
-                     <p id="solution" class="card-text">해결방법</p>
-                  </div>
-               </div>
-            </div>
-               <h2 class="card-title">사용해야할 농약</h2>
-               <div class="card h-100">
-                  <div class="card-body">
-                     <p id="pestItem" class="card-text">해결방법</p>
-                  </div>
-               </div>
-         </div>
-      </div>
-   </main>
-   <!-- Footer-->
+				<div class="col-md-6 mb-5">
+					<h2 class="card-title">병충해 설명</h2>
+					<div class="card h-100">
+						<div class="card-body">
+							<p id="symtoms" class="card-text">발생원인</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 mb-5">
+					<h2 class="card-title">병충해 해결방안</h2>
+					<div class="card h-100">
+						<div class="card-body">
+							<p id="solution" class="card-text">해결방법</p>
+						</div>
+					</div>
+				</div>
+				<h2 class="card-title">사용해야할 농약</h2>
+				<div class="card h-100">
+					<div class="card-body">
+						<p id="pestItem" class="card-text">해결방법</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<!-- Footer-->
 
-   <!-- <footer class="py-5 bg-dark">
+	<!-- <footer class="py-5 bg-dark">
       <div class="container px-4 px-lg-5"> -->
-   <div class="footer">
-      <p class="m-0 text-center text-white">Copyright &copy; Your
-         Website 2021</p>
-   </div>
-   <!-- </div>
+	<div class="footer">
+		<p class="m-0 text-center text-white">Copyright &copy; Your
+			Website 2021</p>
+	</div>
+	<!-- </div>
    </footer> -->
-   <!-- Bootstrap core JS-->
-   <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-   <!-- Core theme JS-->
-   <script src="js/scripts.js"></script>
-   <script>
+	<!-- Bootstrap core JS-->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Core theme JS-->
+	<script src="js/scripts.js"></script>
+	<script>
       /* Image Upload */
       $("input[type='file']").on("change", function(e) {
          let formData = new FormData();
@@ -270,7 +335,7 @@
          return true;
       }
    </script>
-   	<!-- Scripts -->
+	<!-- Scripts -->
 	<!-- CDN for Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -294,9 +359,9 @@
 	<script src="resources/js/video.js"></script>
 	<script src="resources/js/slick-slider.js"></script>
 	<script src="resources/js/custom.js"></script>
-	
-   
-   	<script>
+
+
+	<script>
       //according to loftblog tut
       $('.nav li:first').addClass('active');
 
@@ -380,7 +445,12 @@
             });
         }
 </script>
-   
+
+
+<script>
+
+</script>
+
 </body>
 
 </html>
