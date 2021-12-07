@@ -26,11 +26,12 @@
 	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 
+<!-- 로딩 애니메이션 CSS by 이길환    -->
 <style>
 /* Center the loader */
 #loader {
   position: fixed;
-  left: 55%;
+  left: 54%;
   top: 50%;
   z-index: 1;
   width: 120px;
@@ -85,9 +86,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/lightbox.css">
 	
-	<!-- 로딩창 css -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/loding.css">
+
 
 <!-- 카메라를 호출하는 api 연동 기능 by 이길환  -->
 <script src="resources/vendor/jquery/jquery.min.js"></script>

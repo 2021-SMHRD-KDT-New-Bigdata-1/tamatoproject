@@ -2,9 +2,9 @@
 
 /* Center the loader */
 #loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
+  position: fixed;
+  left: 54%;
+  top: 45%;
   z-index: 1;
   width: 120px;
   height: 120px;
