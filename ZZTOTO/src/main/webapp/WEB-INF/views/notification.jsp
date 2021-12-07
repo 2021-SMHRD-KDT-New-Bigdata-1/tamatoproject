@@ -66,7 +66,7 @@
 				<div class="col-12">
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
-						<a href="index.do" class="logo"> 피톤치드 </a>
+						<a href="index.do" class="logo" style="font-family:locus_sangsang;"> 피톤치드 </a>
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
@@ -74,11 +74,17 @@
 							<li><a href="deep.do">병충해 진단</a></li>
 							<li><a href="notification.do">일정관리</a></li>
 							<li><a href="drone.do">드론방역</a></li>
-							<li><a href="farm_diary.do">영농일지</a></li>
+					 		<li><a href="farm_diary.do">영농일지</a></li>
+							<!-- 로그인이 안되어있을때 -->
 							<c:if test="${vo==null}">
 								<li><a href="javascript:kakaoLogin();"><img
 										src="${pageContext.request.contextPath}/resources/images/kakaoLogin.png"
 										style="height: 30px; width: 80px;"></a></li>
+							</c:if>
+							<!-- 로그인이 되어있을때 -->
+							<c:if test="${vo!=null}">
+								<li><button type="button" class="btn btn-info btn-sm"
+										onclick="logout()">로그아웃</button></li>
 							</c:if>
 						</ul>
 						<a class='menu-trigger'> <span>Menu</span>
@@ -273,8 +279,7 @@
 	<div class="footer">
 		<!-- <footer class="py-5 bg-dark"> <!--왜 있는지 모를 class  -->
 		<!-- <div class="container px-4 px-lg-5"> -->
-		<p class="m-0 text-center text-white">Copyright &copy; Your
-			Website 2021</p>
+		<p class="m-0 text-center text-white">Copyright 2022 Kkumchi All Rights Reserved.</p>
 		<!-- </div> -->
 		<!-- </footer> -->
 	</div>
